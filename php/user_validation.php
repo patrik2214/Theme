@@ -1,8 +1,8 @@
 <?php
 require_once("conexion.php");
-$usuario = $_POST['usuario'];
+$usuario = $_POST['user'];
 
-$sql = "SELECT * FROM usuario WHERE usuario='$usuario' ";
+$sql = "SELECT * FROM nombreUsuario WHERE usuario='$usuario' ";
 
 $rs = $cnx->query($sql) or die($sql);
 $cantreg = $rs->rowCount();
@@ -19,5 +19,5 @@ if($cantreg==1) {
         </label>
         <button class='btn btn-theme btn-block' onclick='login()' type='submit'><i class='fa fa-lock'></i> SIGUIENTE</button>
   ");
-
-} else header("location: login.php?mensaje=errorCredenciales");
+};
+// } else header("location: login.php?mensaje=errorCredenciales");

@@ -35,7 +35,7 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" action="../php/user_validation.php">
+		      <form class="form-login" >
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
 					<?php
@@ -102,7 +102,7 @@
 	<!-- js placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
-
+	<script src="../assets/js/user.js"></script>
     <!--BACKSTRETCH-->
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
 	<script type="text/javascript" src="../assets/js/jquery.backstretch.min.js"></script>
