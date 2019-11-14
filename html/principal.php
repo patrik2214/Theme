@@ -42,7 +42,7 @@
             <a class="logo"><b>SHART</b></a>
             <!--logo end-->
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Login</a></li>
+                    <li><a class="logout" href="login.php">Login</a></li>
             	</ul>
             </div>
         </header>

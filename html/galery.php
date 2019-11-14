@@ -42,7 +42,7 @@
             <a class="logo"><b>SHART</b></a>
             <!--logo end-->
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="login.php">Logout</a></li>
             	</ul>
             </div>
         </header>
@@ -220,7 +220,7 @@
 						<!-- Spotify Panel -->
 						<div class="col-lg-4 col-md-4 col-sm-4 mb">
                             <div class="content-panel pn">
-								<div  >
+								<div id="profile-02">
 									<div class="user">
 										<img src="../assets/img/jai.jpg" class="img-circle" width="80">
 										<h4>Jai Chao</h4>
@@ -231,6 +231,7 @@
 									<a href="#"><i class="fa fa-facebook"></i></a>
 									<a href="#"><i class="fa fa-dribbble"></i></a>
 								</div>
+							</div><! --/panel -->
 						</div><!--/col-md-4-->
 					
 						<!-- Blog Panel -->

@@ -60,25 +60,29 @@
               	  <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  
               	  	
-                  <li class="sub-menu">
-                      <a class="active" href="home.php">
+                    <li class="sub-menu">
+                      <a href="home.php">
+                      <i class="fa fa-tasks"></i>
                           <span>Home</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a class="active" href="about.php" >
+                      <a  href="about.php" >
+                      <i class="fa fa-th"></i>
                           <span>About As</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a class="active" href="register.php" >
+                      <a href="register.php" >
+                      <i class="fa fa-cogs"></i>
                           <span>Register</span>
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a class="active" href="galery.php" >
+                      <a href="galery.php" >
+                      <i class="fa fa-book"></i>
                           <span>Galery</span>
                       </a>
                   </li>
