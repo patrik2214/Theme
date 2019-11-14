@@ -3,7 +3,7 @@ require_once("conexion.php");
 session_start();
 
 $usuario = $_SESSION['usuario'];
-$passw 	= md5($_POST['pass']);
+$passw 	= sha1($_POST['pass']);
 
 $sql = "SELECT * FROM usuario WHERE usuario='$usuario' AND password='$passw'";
 $rs = $cnx->query($sql) or die($sql);
