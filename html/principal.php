@@ -42,7 +42,7 @@
             <a class="logo"><b>SHART</b></a>
             <!--logo end-->
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
+                    <li><a class="logout" href="login.html">Login</a></li>
             	</ul>
             </div>
         </header>
@@ -59,30 +59,29 @@
               
               	  <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
               	  
-              	  	
-                  <li class="mt">
-                      <a class="active" href="index.html">
-                          <i class="fa fa-dashboard"></i>
+                  <li class="sub-menu">
+                      <a href="home.php">
+                      <i class="fa fa-tasks"></i>
                           <span>Home</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
+                      <a  href="about.php" >
+                      <i class="fa fa-th"></i>
                           <span>About As</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-cogs"></i>
+                      <a href="register.php" >
+                      <i class="fa fa-cogs"></i>
                           <span>Register</span>
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-th"></i>
+                      <a href="galery.php" >
+                      <i class="fa fa-book"></i>
                           <span>Galery</span>
                       </a>
                   </li>
