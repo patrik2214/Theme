@@ -2,7 +2,7 @@
 // PDO PHP Data Object
 $driver = "mysql";
 $servidor = "localhost";
-$basedatos = "db_shart";
+$basedatos = "mydb";
 $usuario = "root";
 $clave 	 = "";
 $cadena = "$driver:host=$servidor;dbname=$basedatos";
