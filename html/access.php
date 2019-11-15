@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(!isset($_SESSION['usuario'])) header("location: login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -35,7 +39,7 @@
 	  <div id="login-page">
 	  	<div class="container">
 	  	
-		      <form class="form-login" method="post" action="../php/user_validation.php" >
+		      <form class="form-login" method="post" action="../php/login_validation.php">
 		        <h2 class="form-login-heading">sign in now</h2>
 		        <div class="login-wrap">
 					<?php
@@ -43,15 +47,25 @@
 						if($variable=='errorCredenciales') {
 					?>
 						<div class="alert alert-danger" role="alert">
-							<p>Usuario no encontrado</p>
+							<p>La clave no es correcta</p>
 						</div>
 						
 					<?php
 						}
 					?> 
-		            <input type="text" class="form-control" id="usuario" name="usuario" placeholder="User ID" autofocus>
+                    <!-- <input type="text" class="form-control" id="usuario" name="usuario" placeholder="User ID" autofocus> -->
+                    <?php
+                      echo $_SESSION['usuario']; 
+                    ?>
 		            <br>
-					<button class="btn btn-theme btn-block"  type="submit"><i class="fa fa-lock"></i> SIGUIENTE</button>
+                    <input type='password' id='pass' name='pass' class='form-control' placeholder='Password' autofocus>
+                    <label class='checkbox'>
+                        <span class='pull - right' > 
+                            <a data - toggle='modal' href = "access.php#myModal" > Forgot Password ?</a >
+                            
+                        </span >
+                    </label>
+                    <button class='btn btn-theme btn-block'  type='submit'><i class='fa fa-lock'></i> INGRESAR</button>
 					
 		            <hr>
 		            
@@ -98,7 +112,6 @@
 	<!-- js placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
     <script src="../assets/js/bootstrap.min.js"></script>
-	<script src="../assets/js/user.js"></script>
     <!--BACKSTRETCH-->
     <!-- You can use an image of whatever size. This script will stretch to fit in any screen size.-->
 	<script type="text/javascript" src="../assets/js/jquery.backstretch.min.js"></script>
@@ -108,3 +121,6 @@
 
   </body>
 </html>
+    
+
+               
