@@ -54,9 +54,11 @@ if(!isset($_SESSION['usuario'])) header("location: login.php");
 						}
 					?> 
                     <!-- <input type="text" class="form-control" id="usuario" name="usuario" placeholder="User ID" autofocus> -->
-                    <?php
-                      echo $_SESSION['usuario']; 
-                    ?>
+					<p class="h3 text-center">
+						<?php
+                      		echo $_SESSION['usuario']; 
+					  	?>
+					</p>
 		            <br>
                     <input type='password' id='pass' name='pass' class='form-control' placeholder='Password' autofocus>
                     <label class='checkbox'>

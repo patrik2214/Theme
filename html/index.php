@@ -7,10 +7,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
     <title>SHART</title>
 
     <!-- Bootstrap core CSS -->
@@ -189,9 +185,11 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 <!--  notification end -->
             </div>
             <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Logout</a></li>
-            	</ul>
+                <form action="../php/close_session.php" method="post">
+            	    <ul class="nav pull-right top-menu">
+                        <li> <button type="submit" class="logout" >Logout</button> </li>
+            	    </ul>
+                </form>
             </div>
         </header>
       <!--header end-->
@@ -290,38 +288,68 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">
-            <div class="row mt">
-                
+          <section class="wrapper">   
+              <div class="row mt ">
+                <!-- Button trigger modal -->
+                <div class="col-lg-12">
+                    <button class="btn btn-success " data-toggle="modal" data-target="#myModal">
+                        Agregar nuevo repositorio
+                    </button>        
+                </div>
+                <br>
+                <br>
                 <! -- MODALS -->
-      				<div class="showback">
-						<!-- Button trigger modal -->
-						<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
-						  Agregar nuevo repositorio
-						</button>
-						<!-- Modal -->
-						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-						  <div class="modal-dialog">
-						    <div class="modal-content">
-						      <div class="modal-header">
-						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="showback">
+                            <!-- Barra de busqueda -->
+                            <form >
+                                <input type="search" name="busqueda" class="form-control" id="busqueda" placeholder="Ingrese repositorio a buscar" />
+                            </form>
+                        </div><!-- /showback -->
+                    </div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <label for="nombre_repo">Nombre del repositorio:</label>
+                                <input type="text" class="form-control" id="nombre_repo"  placeholder="Ingresa el nombre de tu proyecto musical" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlTextarea1">Describe tu nuevo proyecto</label>
+                                <textarea class="form-control" id="about_repo" name="about_repo"  placeholder="Help people interested in this repository understand your project" rows="3"></textarea>
+                            </div>
+                          
+                            <div class="col-sm-6 text-center">
+                                  <div class="switch switch-square"
+                                       data-on-label="<i class=' fa fa-check'></i>"
+                                       data-off-label="<i class='fa fa-times'></i>">
+                                      <input type="checkbox" />
+                                  </div>
                               </div>
-                              <div class="modal-body">
-
-                                  <div class="form-group">
-                                      <label for="exampleFormControlTextarea1">Describe tu nuevo proyecto</label>
-                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-                                    </div>
-                                </div>
-						      <div class="modal-footer">
-						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-						        <button type="button" class="btn btn-primary">Save changes</button>
-						      </div>
-						    </div>
-						  </div>
-						</div>      				
-      				</div><!-- /showback -->
+                            <h4>Agregar colaboradores</h4>
+                            <div class="input-group">
+                                <!-- <div class="input-group-prepend">
+                                    <div class="input-group-text" id="btnGroupAddon">@</div>
+                                </div> -->
+                                <input type="text" class="form-control" placeholder="Agrega colaboradores" aria-label="Agrega colaboradores" >
+                            </div>
+                            <button type="button" class="btn btn-info btn-sm">Agregar colaboradores</button>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    </div>
+                </div> 
+                <!-- modal-end -->
       			<div class="col-lg-6 col-md-6 col-sm-12">
       				<! -- BASIC PROGRESS BARS -->
       				<div class="showback">
@@ -355,7 +383,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2014 - Alvarez.is
+              2019 - Shart.com
               <a href="index.php#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
