@@ -8,10 +8,14 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SHART</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
+    <script
+      src="https://kit.fontawesome.com/fa723842a6.js"
+      crossorigin="anonymous"
+    ></script>
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
@@ -314,33 +318,28 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     <div class="modal-content">
                         <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                        <h4 class="modal-title" id="myModalLabel">Nuevo repositorio de musica</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
-                                <label for="nombre_repo">Nombre del repositorio:</label>
+                                <h4 for="nombre_repo">Nombre del repositorio:</h4>
                                 <input type="text" class="form-control" id="nombre_repo"  placeholder="Ingresa el nombre de tu proyecto musical" autofocus>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlTextarea1">Describe tu nuevo proyecto</label>
+                                <h4 >Describe tu nuevo proyecto</h4>
                                 <textarea class="form-control" id="about_repo" name="about_repo"  placeholder="Help people interested in this repository understand your project" rows="3"></textarea>
                             </div>
-                          
-                            <div class="col-sm-6 text-center">
-                                  <div class="switch switch-square"
-                                       data-on-label="<i class=' fa fa-check'></i>"
-                                       data-off-label="<i class='fa fa-times'></i>">
-                                      <input type="checkbox" />
-                                  </div>
-                              </div>
-                            <h4>Agregar colaboradores</h4>
-                            <div class="input-group">
-                                <!-- <div class="input-group-prepend">
-                                    <div class="input-group-text" id="btnGroupAddon">@</div>
-                                </div> -->
-                                <input type="text" class="form-control" placeholder="Agrega colaboradores" aria-label="Agrega colaboradores" >
+                            
+                            <div class="form-group">
+                                <h4>Genero musical</h4>
+                                <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> </select>
                             </div>
-                            <button type="button" class="btn btn-info btn-sm">Agregar colaboradores</button>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="0" id="privado">
+                                <label class="form-check-label" >
+                                    Hacer privado
+                                </label>
+                            </div>
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
