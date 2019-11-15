@@ -211,7 +211,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                   <li class="mt">
                       <a class="active" href="index.php">
                           <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
+                          <span>Repositorios</span>
                       </a>
                   </li>
 
@@ -291,7 +291,58 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-            
+            <div class="row mt">
+                
+                <! -- MODALS -->
+      				<div class="showback">
+						<!-- Button trigger modal -->
+						<button class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">
+						  Agregar nuevo repositorio
+						</button>
+						<!-- Modal -->
+						<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+						  <div class="modal-dialog">
+						    <div class="modal-content">
+						      <div class="modal-header">
+						        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						        <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+                              </div>
+                              <div class="modal-body">
+
+                                  <div class="form-group">
+                                      <label for="exampleFormControlTextarea1">Describe tu nuevo proyecto</label>
+                                      <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                                    </div>
+                                </div>
+						      <div class="modal-footer">
+						        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+						        <button type="button" class="btn btn-primary">Save changes</button>
+						      </div>
+						    </div>
+						  </div>
+						</div>      				
+      				</div><!-- /showback -->
+      			<div class="col-lg-6 col-md-6 col-sm-12">
+      				<! -- BASIC PROGRESS BARS -->
+      				<div class="showback">
+                          <h4><i class="fa fa-angle-right"></i>Get Lucky</h4>
+                          <p>Actualizado ultima vez hace 5 dias</p>
+	      				<button type="button" class="btn btn-primary">Configuracion</button>
+                        <button type="button" class="btn btn-primary">Entrar</button>
+      				</div><!--/showback -->
+      			
+      				
+      			</div><! --/col-lg-6 -->
+      			
+      			
+      			<div class="col-lg-6 col-md-6 col-sm-12">
+      				
+                      
+      				
+      			
+      			</div><!-- /col-lg-6 -->
+      			
+      		</div><!--/ row -->
                   
                   
       <!-- **********************************************************************************************************************************************************
