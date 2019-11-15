@@ -42,7 +42,7 @@
             <a class="logo"><b>SHART</b></a>
             <!--logo end-->
             	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Logout</a></li>
+                    <li><a class="logout" href="login.php">Login</a></li>
             	</ul>
             </div>
         </header>
@@ -57,7 +57,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+              	  <p class="centered"><a href="profile.html"><img src="../assets/img/logo.png" class="img-circle" width="60"></a></p>
               	  
               	  	
                     <li class="sub-menu">
@@ -98,10 +98,44 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              <div class="">
+            <h3><i class="fa fa-angle-right"></i>Sing In Here !</h3>
 
-              </div>
-            
+            <div class="col-lg-8 col-md-8 col-sm-8 mb">
+		    <form  action="registro.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="txtname" id="txtname" placeholder="Enter here">
+                </div>
+				<div class="form-group">
+					<label>Last Name</label>
+					<input type="text" class="form-control" name="txtlastname" id="txtlastname" placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label>Username</label>
+					<input type="text" class="form-control" name="txtusername" id="txtusername" placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label>Email</label>
+					<input type="text" class="form-control" name="txtemail" id="txtemail" placeholder="Enter here">
+                </div>
+				<div class="form-group">
+					<label>Contraseña</label>
+					<input type="text" class="form-control" name="txtpass" id="txtpass" placeholder="Enter here">
+				</div>
+                <div class="form-group">
+					<label>Confirmar Contraseña</label>
+					<input type="text" class="form-control" name="txtcpass" id="txtcpass" placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label for="uploadedfile">Sube tu foto</label>
+					<input type="file" class="form-control-file" name="img" id="img" >
+				</div>
+                <div class="form-group">
+                   <button  class="btn btn-success" type="submit">Guardar</button><br>
+                </div>
+			</form>
+		</div>
+
 
                   
                   
@@ -144,27 +178,6 @@
     <script src="../assets/js/sparkline-chart.js"></script>    
 	<script src="../assets/js/zabuto_calendar.js"></script>	
 	
-	<script type="text/javascript">
-        $(document).ready(function () {
-        var unique_id = $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Welcome to SHART!',
-            // (string | mandatory) the text inside the notification
-            text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo. Free version for <a href="http..//blacktie.co" target="_blank" style="color:#ffd777">BlackTie.co</a>.',
-            // (string | optional) the image to display on the left
-            image: '../assets/img/ui-sam.jpg',
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: true,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: '',
-            // (string | optional) the class name you want to apply to that specific message
-            class_name: 'my-sticky-class'
-        });
-
-        return false;
-        });
-	</script>
-	
 	<script type="application/javascript">
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
@@ -199,7 +212,59 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+    <?php
+
+    require_once("conexion.php");
+    $name = $_POST['txtname'];
+    $lastname = $_POST['txtlastname'];
+    $username = $_POST['txtusername'];
+    $email = $_POST['txtemail'];
+    $password = $_POST['txtpass'];
+    $cpassword = $_POST['txtcpass'];
+    
+
+    //Subir la Imagen
+    //Creamos una variable para ver si se sube o no el archivo
+    $imgload="true";
+
+    //Seteamos nombre, tipo y tamaño del archivo
+    $file_name=$_FILES['img']['name'];
+    $img_size=$_FILES['img']['size'];
+    $file_type=$_FILES['img']['type'];
+
+    //verificamos tamaño
+    if ($img_size>200000){
+    $imgload="false";
+    }
+    //verificamos que solo sea imagen
+    if (!($file_type =="image/jpeg" OR $file_type=="image/gif")){
+    // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
+    $imgload="false";
+    }
+    //seteamos la ruta de la carpeta
+    $add="uploads/$file_name";
+    //lo movemos del temporal a la carpeta
+    if($imgload=="true"){
+        if($password==$cpassword){
+            move_uploaded_file ($_FILES['img']['tmp_name'], $add);
+
+            $sql="INSERT INTO USUARIO (idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,contraseña,tipousuario_idtipousuario,foto)
+            VALUES ((SELECT COALESCE(max(idusuario),0)+1 FROM usuario),'$name','$lastname','$username','$email',CURRENT_DATE,$password,1,'$add')";
+            $resp=1;
+            $cnx->query($sql) or $resp=0;
+            echo $resp; 
+        }
+        if ($resp =1 ){
+            session_start();
+            $_SESSION['idusuario']= $idusuario;
+            $_SESSION['nombreusuario']= $nombreusuario;
+            header("location: index.php");
+        }else{
+            header("location: home.php");
+    }
+}
+
+    ?>
 
   </body>
 </html>
