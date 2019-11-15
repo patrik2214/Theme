@@ -46,14 +46,14 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>SHART</b></a>
+            <a href="index.php" class="logo"><b>SHART</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                     <!-- settings start -->
                     <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.php#">
                             <i class="fa fa-tasks"></i>
                             <span class="badge bg-theme">4</span>
                         </a>
@@ -63,7 +63,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 <p class="green">You have 4 pending tasks</p>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">SHART Admin Panel</div>
                                         <div class="percent">40%</div>
@@ -76,7 +76,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">Database Update</div>
                                         <div class="percent">60%</div>
@@ -89,7 +89,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">Product Development</div>
                                         <div class="percent">80%</div>
@@ -102,7 +102,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">Payments Sent</div>
                                         <div class="percent">70%</div>
@@ -122,7 +122,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
                     <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.php#">
                             <i class="fa fa-envelope-o"></i>
                             <span class="badge bg-theme">5</span>
                         </a>
@@ -132,7 +132,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 <p class="green">You have 5 new messages</p>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
@@ -144,7 +144,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
@@ -156,7 +156,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
@@ -168,7 +168,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
@@ -180,7 +180,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">See all messages</a>
+                                <a href="index.php#">See all messages</a>
                             </li>
                         </ul>
                     </li>
@@ -209,7 +209,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
               	  
               	  	
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a class="active" href="index.php">
                           <i class="fa fa-dashboard"></i>
                           <span>Dashboard</span>
                       </a>
@@ -305,7 +305,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <footer class="site-footer">
           <div class="text-center">
               2014 - Alvarez.is
-              <a href="index.html#" class="go-top">
+              <a href="index.php#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>
