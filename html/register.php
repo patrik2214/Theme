@@ -98,10 +98,44 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              <div class="">
+            <h3><i class="fa fa-angle-right"></i>Sing In Here !</h3>
 
-              </div>
-            
+            <div class="col-lg-8 col-md-8 col-sm-8 mb">
+		    <form  action="registro.php" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="txtname" id="txtname" placeholder="Enter here">
+                </div>
+				<div class="form-group">
+					<label>Last Name</label>
+					<input type="text" class="form-control" name="txtlastname" id="txtlastname" placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label>Username</label>
+					<input type="text" class="form-control" name="txtusername" id="txtusername" placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label>Email</label>
+					<input type="text" class="form-control" name="txtemail" id="txtemail" placeholder="Enter here">
+                </div>
+				<div class="form-group">
+					<label>Contraseña</label>
+					<input type="text" class="form-control" name="txtpass" id="txtpass" placeholder="Enter here">
+				</div>
+                <div class="form-group">
+					<label>Confirmar Contraseña</label>
+					<input type="text" class="form-control" name="txtcpass" id="txtcpass" placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label for="uploadedfile">Sube tu foto</label>
+					<input type="file" class="form-control-file" name="img" id="img" >
+				</div>
+                <div class="form-group">
+                   <button  class="btn btn-success" type="submit">Guardar</button><br>
+                </div>
+			</form>
+		</div>
+
 
                   
                   
@@ -199,7 +233,59 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+    <?php
+
+    require_once("conexion.php");
+    $name = $_POST['txtname'];
+    $lastname = $_POST['txtlastname'];
+    $username = $_POST['txtusername'];
+    $email = $_POST['txtemail'];
+    $password = $_POST['txtpass'];
+    $cpassword = $_POST['txtcpass'];
+    
+
+    //Subir la Imagen
+    //Creamos una variable para ver si se sube o no el archivo
+    $imgload="true";
+
+    //Seteamos nombre, tipo y tamaño del archivo
+    $file_name=$_FILES['img']['name'];
+    $img_size=$_FILES['img']['size'];
+    $file_type=$_FILES['img']['type'];
+
+    //verificamos tamaño
+    if ($img_size>200000){
+    $imgload="false";
+    }
+    //verificamos que solo sea imagen
+    if (!($file_type =="image/jpeg" OR $file_type=="image/gif")){
+    // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
+    $imgload="false";
+    }
+    //seteamos la ruta de la carpeta
+    $add="uploads/$file_name";
+    //lo movemos del temporal a la carpeta
+    if($imgload=="true"){
+        if($password==$cpassword){
+            move_uploaded_file ($_FILES['img']['tmp_name'], $add);
+
+            $sql="INSERT INTO USUARIO (idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,contraseña,tipousuario_idtipousuario,foto)
+            VALUES ((SELECT COALESCE(max(idusuario),0)+1 FROM usuario),'$name','$lastname','$username','$email',CURRENT_DATE,$password,1,'$add')";
+            $resp=1;
+            $cnx->query($sql) or $resp=0;
+            echo $resp; 
+        }
+        if ($resp =1 ){
+            session_start();
+            $_SESSION['idusuario']= $idusuario;
+            $_SESSION['nombreusuario']= $nombreusuario;
+            header("location: index.php");
+        }else{
+            header("location: home.php");
+    }
+}
+
+    ?>
 
   </body>
 </html>
