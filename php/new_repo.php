@@ -3,6 +3,7 @@ $priv = $_POST['priv'];
 $nomb = $_POST['nom'];
 $desc = $_POST['des'];
 $genero = $_POST['gnr'];
+$user =  $_SESSION['idusuario'];
 $col = 0;
 try
 {
@@ -24,18 +25,24 @@ try
     $idpry = $re->ultimo;
     // insert inside proyecto
     $b=$cnx->prepare("INSERT INTO proyecto (idPROYECTO, nombre, REPOSITORIO_idREPOSITORIO, GENERO_idGENERO) 
-    VALUES(:idproy,:nombre,:repo,:gen)");
+        VALUES(:idproy,:nombre,:repo,:gen)");
     $b->bindParam(":idproy",$idpry);
     $b->bindParam(":nombre",$nomb);
     $b->bindParam(":repo",$idrepo);
     $b->bindParam(":gen",$genero);
     $b->execute();
 
-	//Actualizar el total
-	$c=$cnx->prepare("UPDATE pedido SET total=:total WHERE idpedido=:idpedido");
-	$c->bindParam(":total",$total);
-	$c->bindParam(":idpedido",$idpedido);
-	$c->execute();
+    $r = $cnx->query("SELECT COALESCE(max(idCOLABORADOR),0)+1 as ultimo FROM desarrollador")  or $resp=0;
+	$re = $r->fetchObject();
+    $idcol = $re->ultimo;
+
+	$c=$cnx->prepare("INSERT INTO desarrollador (idCOLABORADOR, USUARIO_idUSUARIO, REPOSITORIO_idREPOSITORIO, TIPODESARROLLADOR_idTIPODESARROLLADOR) 
+       VALUES(:idcol,:user,:repo,:tipo)");
+    $c->bindParam(":idcol",$idcol);
+    $c->bindParam(":user",$user);
+    $c->bindParam(":repo",$idrepo);
+    $c->bindParam(":tipo",1);
+    $c->execute();
 
 	$cnx->commit();
 } catch(PDOException $x) { 

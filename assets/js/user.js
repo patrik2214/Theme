@@ -37,10 +37,23 @@ function new_repositorio() {
 			url: "../php/new_repo.php",
 			type: "post",
 			data: { gnr: gnr, des: des, nom: nom, priv: priv },
-			success: function(data) {},
+			success: function(data) {
+				if (data == 1) {
+					Swal.fire("Good job!", "Repositorio listo para usar!", "success");
+					// listar_repos();
+				} else {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Ocurrio un problema!"
+					});
+				}
+			},
 			error: function(jqXhr, textStatus, error) {
 				console.log(error);
 			}
 		});
 	}
 }
+
+function listar_repos() {}
