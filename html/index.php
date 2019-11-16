@@ -359,14 +359,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       				</div><!--/showback -->
       			
       				
-      			</div><! --/col-lg-6 -->
+      			</div><! --/col-lg-6 -->      			
       			
-      			
-      			<div class="col-lg-6 col-md-6 col-sm-12">
+      			<div class="col-lg-6 col-md-6 col-sm-12">                 
       				
-                      
-      				
-      			
       			</div><!-- /col-lg-6 -->
       			
       		</div><!--/ row -->
@@ -391,7 +387,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--footer end-->
   </section>
     <!-- script de la casa -->
-    <script src="../assets/user.js"></script>
+    <!-- <script src="../assets/user.js"></script> -->
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>

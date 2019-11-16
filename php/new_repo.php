@@ -1,4 +1,9 @@
 <?php
+require_once("conexion.php");
+session_start();
+
+$resp=1;
+
 $priv = $_POST['priv'];
 $nomb = $_POST['nom'];
 $desc = $_POST['des'];
@@ -14,7 +19,7 @@ try
     $idrepo = $reg->ultimo;
     // INSERT INSIDE REPOSITORIO
 	$a=$cnx->prepare("INSERT INTO repositorio (idREPOSITORIO,fecha_creacion, nombre,publico,colaborativo) VALUES (:idrepo,now(),:nombre,:publico,:colab)");
-	$a->bindParam(":idusuario",$idrepo);
+	$a->bindParam(":idrepo",$idrepo);
 	$a->bindParam(":nombre",$nomb);
 	$a->bindParam(":publico",$priv);
 	$a->bindParam(":colab",$col);
@@ -36,12 +41,13 @@ try
 	$re = $r->fetchObject();
     $idcol = $re->ultimo;
 
+    $uno = 1 ;
 	$c=$cnx->prepare("INSERT INTO desarrollador (idCOLABORADOR, USUARIO_idUSUARIO, REPOSITORIO_idREPOSITORIO, TIPODESARROLLADOR_idTIPODESARROLLADOR) 
        VALUES(:idcol,:user,:repo,:tipo)");
     $c->bindParam(":idcol",$idcol);
     $c->bindParam(":user",$user);
     $c->bindParam(":repo",$idrepo);
-    $c->bindParam(":tipo",1);
+    $c->bindParam(":tipo", $uno);
     $c->execute();
 
 	$cnx->commit();
