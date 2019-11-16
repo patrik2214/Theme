@@ -1,17 +1,21 @@
+<?php
+session_start();
+if(!isset($_SESSION['idusuario'])) header("location: login.php");
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Dashboard">
-    <meta name="keyword" content="Dashboard, Bootstrap, Admin, Template, Theme, Responsive, Fluid, Retina">
-
     <title>SHART</title>
-
+    
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
+    <script
+      src="https://kit.fontawesome.com/fa723842a6.js"
+      crossorigin="anonymous"
+    ></script>
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
@@ -42,14 +46,14 @@
                   <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
               </div>
             <!--logo start-->
-            <a href="index.html" class="logo"><b>SHART</b></a>
+            <a href="index.php" class="logo"><b>SHART</b></a>
             <!--logo end-->
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
                     <!-- settings start -->
                     <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.php#">
                             <i class="fa fa-tasks"></i>
                             <span class="badge bg-theme">4</span>
                         </a>
@@ -59,7 +63,7 @@
                                 <p class="green">You have 4 pending tasks</p>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">SHART Admin Panel</div>
                                         <div class="percent">40%</div>
@@ -72,7 +76,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">Database Update</div>
                                         <div class="percent">60%</div>
@@ -85,7 +89,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">Product Development</div>
                                         <div class="percent">80%</div>
@@ -98,7 +102,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <div class="task-info">
                                         <div class="desc">Payments Sent</div>
                                         <div class="percent">70%</div>
@@ -118,7 +122,7 @@
                     <!-- settings end -->
                     <!-- inbox dropdown start-->
                     <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.html#">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.php#">
                             <i class="fa fa-envelope-o"></i>
                             <span class="badge bg-theme">5</span>
                         </a>
@@ -128,7 +132,7 @@
                                 <p class="green">You have 5 new messages</p>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
@@ -140,7 +144,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
@@ -152,7 +156,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
@@ -164,7 +168,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">
+                                <a href="index.php#">
                                     <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
@@ -176,7 +180,7 @@
                                 </a>
                             </li>
                             <li>
-                                <a href="index.html#">See all messages</a>
+                                <a href="index.php#">See all messages</a>
                             </li>
                         </ul>
                     </li>
@@ -185,9 +189,11 @@
                 <!--  notification end -->
             </div>
             <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Logout</a></li>
-            	</ul>
+                <form action="../php/close_session.php" method="post">
+            	    <ul class="nav pull-right top-menu">
+                        <li> <button type="submit" class="logout" >Logout</button> </li>
+            	    </ul>
+                </form>
             </div>
         </header>
       <!--header end-->
@@ -205,9 +211,9 @@
               	  
               	  	
                   <li class="mt">
-                      <a class="active" href="index.html">
+                      <a class="active" href="index.php">
                           <i class="fa fa-dashboard"></i>
-                          <span>Dashboard</span>
+                          <span>Repositorios</span>
                       </a>
                   </li>
 
@@ -286,8 +292,84 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">
-            
+          <section class="wrapper">   
+              <div class="row mt ">
+                <!-- Button trigger modal -->
+                <div class="col-lg-12">
+                    <button class="btn btn-success " data-toggle="modal" data-target="#myModal">
+                        Agregar nuevo repositorio
+                    </button>        
+                </div>
+                <br>
+                <br>
+                <! -- MODALS -->
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="showback">
+                            <!-- Barra de busqueda -->
+                            <form >
+                                <input type="search" name="busqueda" class="form-control" id="busqueda" placeholder="Ingrese repositorio a buscar" />
+                            </form>
+                        </div><!-- /showback -->
+                    </div>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel">Nuevo repositorio de musica</h4>
+                        </div>
+                        <div class="modal-body">
+                            <div class="form-group">
+                                <h4 for="nombre_repo">Nombre del repositorio:</h4>
+                                <input type="text" class="form-control" id="nombre_repo"  placeholder="Ingresa el nombre de tu proyecto musical" autofocus>
+                            </div>
+                            <div class="form-group">
+                                <h4 >Describe tu nuevo proyecto</h4>
+                                <textarea class="form-control" id="about_repo" name="about_repo"  placeholder="Help people interested in this repository understand your project" rows="3"></textarea>
+                            </div>
+                            
+                            <div class="form-group">
+                                <h4>Genero musical</h4>
+                                <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> </select>
+                            </div>
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" value="0" id="privado">
+                                <label class="form-check-label" >
+                                    Hacer privado
+                                </label>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-primary">Save changes</button>
+                        </div>
+                    </div>
+                    </div>
+                </div> 
+                <!-- modal-end -->
+      			<div class="col-lg-6 col-md-6 col-sm-12">
+      				<! -- BASIC PROGRESS BARS -->
+      				<div class="showback">
+                          <h4><i class="fa fa-angle-right"></i>Get Lucky</h4>
+                          <p>Actualizado ultima vez hace 5 dias</p>
+	      				<button type="button" class="btn btn-primary">Configuracion</button>
+                        <button type="button" class="btn btn-primary">Entrar</button>
+      				</div><!--/showback -->
+      			
+      				
+      			</div><! --/col-lg-6 -->
+      			
+      			
+      			<div class="col-lg-6 col-md-6 col-sm-12">
+      				
+                      
+      				
+      			
+      			</div><!-- /col-lg-6 -->
+      			
+      		</div><!--/ row -->
                   
                   
       <!-- **********************************************************************************************************************************************************
@@ -300,8 +382,8 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2014 - Alvarez.is
-              <a href="index.html#" class="go-top">
+              2019 - Shart.com
+              <a href="index.php#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
           </div>
