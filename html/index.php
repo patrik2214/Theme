@@ -31,11 +31,9 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!--[if lt IE 9]>
       <script src="https..//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
       <script src="https..//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <![endif]-->    
   </head>
-
   <body>
-
   <section id="container" >
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
@@ -133,7 +131,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                             </li>
                             <li>
                                 <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-zac.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Zac Snider</span>
                                     <span class="time">Just now</span>
@@ -145,7 +143,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                             </li>
                             <li>
                                 <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-divya.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Divya Manian</span>
                                     <span class="time">40 mins.</span>
@@ -157,7 +155,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                             </li>
                             <li>
                                 <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-danro.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dan Rogers</span>
                                     <span class="time">2 hrs.</span>
@@ -169,7 +167,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                             </li>
                             <li>
                                 <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sherman.jpg"></span>
+                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
                                     <span class="subject">
                                     <span class="from">Dj Sherman</span>
                                     <span class="time">4 hrs.</span>
@@ -318,7 +316,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     <div class="modal-content">
                         <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Nuevo repositorio de musica</h4>
+                        <h4 class="modal-title" id="myModalLabel">Nuevo repositorio de musica3</h4>
                         </div>
                         <div class="modal-body">
                             <div class="form-group">
@@ -332,7 +330,9 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                             
                             <div class="form-group">
                                 <h4>Genero musical</h4>
-                                <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> </select>
+                                <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
+                                    
+                                </select>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="checkbox" value="0" id="privado">
@@ -410,7 +410,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!--script for this page-->
     <script src="../assets/js/sparkline-chart.js"></script>    
 	<script src="../assets/js/zabuto_calendar.js"></script>	
-	
+    
 	<script type="text/javascript">
         $(document).ready(function () {
         var unique_id = $.gritter.add({
@@ -466,7 +466,24 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+    
+    <script type="text/javascript">
+    	 $(document).ready(function (){
+            $.ajax({
+                url: "../php/listar_generos.php",
+                type: "post",
+                data: {},
+                success: function(data) {
+                    console.log(data);
+                    $("#gnrmusical").html(data);
+                },
+                error: function(jqXhr, textStatus, error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
+    
 
   </body>
 </html>
