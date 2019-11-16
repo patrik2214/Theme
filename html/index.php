@@ -321,7 +321,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                         <div class="modal-body">
                             <div class="form-group">
                                 <h4 for="nombre_repo">Nombre del repositorio:</h4>
-                                <input type="text" class="form-control" id="nombre_repo"  placeholder="Ingresa el nombre de tu proyecto musical" autofocus>
+                                <input type="text" class="form-control" id="nombre_repo" name="nombre_repo" placeholder="Ingresa el nombre de tu proyecto musical" autofocus>
                             </div>
                             <div class="form-group">
                                 <h4 >Describe tu nuevo proyecto</h4>
@@ -343,7 +343,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                         </div>
                         <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" onclick="new_repositorio()" class="btn btn-primary">Save changes</button>
                         </div>
                     </div>
                     </div>
@@ -390,6 +390,8 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       </footer>
       <!--footer end-->
   </section>
+    <!-- script de la casa -->
+    <script src="../assets/user.js"></script>
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
@@ -411,6 +413,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <script src="../assets/js/sparkline-chart.js"></script>    
 	<script src="../assets/js/zabuto_calendar.js"></script>	
     
+    <!-- sweet alert for alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+
 	<script type="text/javascript">
         $(document).ready(function () {
         var unique_id = $.gritter.add({
