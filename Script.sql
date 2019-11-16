@@ -295,3 +295,6 @@ INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('24', 'Música pragmát
 INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('25', 'Música vocal');
 INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('26', 'Jazz');
 INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('27', 'Música clásica');
+
+--INSERT INTO TIPO DESARROLLADOR
+INSERT INTO `tipodesarrollador` (`idTIPODESARROLLADOR`, `descripcion`) VALUES ('1', 'Owner'), ('2', 'Colaborator');

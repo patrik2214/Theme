@@ -21,18 +21,22 @@ function new_repositorio() {
 	var gnr = $("#gnrmusical").val();
 	let des = $("#about_repo").val();
 	let nom = $("#nombre_repo").val();
+	let priv = 1;
+	if ($("#privado:checked").val() == 0) {
+		priv = 0;
+	}
+	console.log(priv);
 	if (gnr == -1 || length(nom) == 0) {
 		Swal.fire({
 			icon: "error",
 			title: "Oops...",
-			text: "Something went wrong!",
-			footer: "<a href>Why do I have this issue?</a>"
+			text: "Rellene todos los campos!"
 		});
 	} else {
 		$.ajax({
 			url: "../php/new_repo.php",
 			type: "post",
-			data: { gnr: gnr, des: des, nom: nom },
+			data: { gnr: gnr, des: des, nom: nom, priv: priv },
 			success: function(data) {},
 			error: function(jqXhr, textStatus, error) {
 				console.log(error);
