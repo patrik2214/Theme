@@ -18,11 +18,12 @@ try
 	$reg = $rs->fetchObject();
     $idrepo = $reg->ultimo;
     // INSERT INSIDE REPOSITORIO
-	$a=$cnx->prepare("INSERT INTO repositorio (idREPOSITORIO,fecha_creacion, nombre,publico,colaborativo) VALUES (:idrepo,now(),:nombre,:publico,:colab)");
+	$a=$cnx->prepare("INSERT INTO repositorio (idREPOSITORIO,fecha_creacion, nombre,publico,colaborativo,descripcion) VALUES (:idrepo,now(),:nombre,:publico,:colab,:descrip)");
 	$a->bindParam(":idrepo",$idrepo);
 	$a->bindParam(":nombre",$nomb);
 	$a->bindParam(":publico",$priv);
 	$a->bindParam(":colab",$col);
+	$a->bindParam(":descrip",$desc);
 	$a->execute();
     
     $r = $cnx->query("SELECT COALESCE(max(idPROYECTO),0)+1 as ultimo FROM proyecto")  or $resp=0;

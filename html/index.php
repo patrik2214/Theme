@@ -349,8 +349,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                 </div> 
                 <!-- modal-end -->
-      			<div class="col-lg-6 col-md-6 col-sm-12">
-      				<! -- BASIC PROGRESS BARS -->
+      			<div class="col-lg-12 col-md-12 " id="colum1" >
       				<div class="showback">
                           <h4><i class="fa fa-angle-right"></i>Get Lucky</h4>
                           <p>Actualizado ultima vez hace 5 dias</p>
@@ -361,7 +360,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       				
       			</div><! --/col-lg-6 -->      			
       			
-      			<div class="col-lg-6 col-md-6 col-sm-12">                 
+      			<div class="col-lg-6 col-md-6 col-sm-12" id="colum2">                 
       				
       			</div><!-- /col-lg-6 -->
       			
@@ -401,7 +400,9 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
 
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
-    
+    <script type="text/javascript">
+		window.load = inicio();
+	</script>
     <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
 
@@ -476,7 +477,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 type: "post",
                 data: {},
                 success: function(data) {
-                    console.log(data);
                     $("#gnrmusical").html(data);
                 },
                 error: function(jqXhr, textStatus, error) {
@@ -485,6 +485,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             });
         });
     </script>
+    
     
 
   </body>

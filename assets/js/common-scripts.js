@@ -150,7 +150,6 @@ function new_repositorio() {
 	if ($("#privado:checked").val() == 0) {
 		priv = 0;
 	}
-	console.log(priv);
 	if (gnr == -1 || nom.length == 0) {
 		Swal.fire({
 			icon: "error",
@@ -167,7 +166,7 @@ function new_repositorio() {
 				if (data == 1) {
 					$("#myModal").modal("toggle");
 					Swal.fire("Good job!", "Repositorio listo para usar!", "success");
-					// listar_repos();
+					listar_repos();
 					limpiar_campos();
 				} else {
 					Swal.fire({
@@ -184,10 +183,26 @@ function new_repositorio() {
 	}
 }
 
-function listar_repos() {}
+function listar_repos() {
+	$.ajax({
+		url: "../php/list_repo.php",
+		type: "post",
+		data: {},
+		success: function(data) {
+			$("#colum1").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
 
 function limpiar_campos() {
 	$("#gnrmusical").val(-1);
 	$("#about_repo").val("");
 	$("#nombre_repo").val("");
+}
+
+function inicio() {
+	listar_repos();
 }
