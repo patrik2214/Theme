@@ -9,6 +9,8 @@ $email = false;
 $password = false;
 $cpassword = false;
 
+$resp=1;
+
 if(isset($_POST['submit'])){
 
     try{
@@ -88,7 +90,9 @@ if(isset($_POST['submit'])){
     } catch(PDOException $x) { 
 	$cnx->rollBack();
 	$resp=0; 
-}
+    }
+
+echo $resp;
 
 }
 ?>
