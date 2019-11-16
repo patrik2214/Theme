@@ -52,7 +52,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`USUARIO` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-ALTER TABLE usuario add foto VARCHAR(45) NOT NULL;
+ALTER TABLE usuario add foto VARCHAR(45) NULL;
 -- -----------------------------------------------------
 -- Table `mydb`.`TIPOREPOSITORIO`
 -- -----------------------------------------------------
