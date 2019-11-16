@@ -9,10 +9,18 @@ $email = $_POST['txtemail'];
 $password = $_POST['txtpass'];
 $cpassword = $_POST['txtcpass'];
 
-
+echo var_dump($_POST);
+//echo var_dump($_FILES);
 //Subir la Imagen
 //Creamos una variable para ver si se sube o no el archivo
-$imgload="true";
+$imgload=true;
+$name1= false;
+$lastname1= false;
+$username1 = false;
+$email1 = false;
+$password1 = false;
+$cpassword1 = false;
+$resp=1;
 
 //Seteamos nombre, tipo y tamaño del archivo
 $file_name=$_FILES['img']['name'];
@@ -21,27 +29,16 @@ $file_type=$_FILES['img']['type'];
 
 //verificamos tamaño
 if ($img_size>200000){
-    $imgload="false";
+    $imgload=false;
 }
 //verificamos que solo sea imagen
-if (!($file_type =="image/jpeg" OR $file_type=="image/gif")){
+if (!($file_type =="image/jpeg" or $file_type=="image/gif")){
     // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
-    $imgload="false";
+    $imgload=false;
 }
 //seteamos la ruta de la carpeta
 $add="uploads/$file_name";
 //lo movemos del temporal a la carpeta
-
-
-
-$name1= false;
-$lastname1= false;
-$username1 = false;
-$email1 = false;
-$password1 = false;
-$cpassword1 = false;
-
-$resp=1;
 
 try{
   
@@ -51,9 +48,15 @@ try{
 	$reg = $rs->fetchObject();
 	$email2 = $reg->email;
 
-    $rs = $cnx->query("SELECT COUNT(*) as valor FROM usuario WHERE username='$username'") or $resp=0;
+    $rs = $cnx->query("SELECT COUNT(*) as valor FROM usuario WHERE nombreusuario='$username'") or $resp=0;
 	$reg = $rs->fetchObject();
     $username2 = $reg->valor;
+
+    $rs = $cnx->query("SELECT COALESCE(max(idusuario),0)+1 FROM usuario") or $resp=0;
+	$reg = $rs->fetchObject();
+    $idusuario = $reg->valor;
+    
+
     
     if(empty($name)){
         echo "<p class='error'>* Enter Here Your Name</p>";
@@ -92,25 +95,22 @@ try{
     if(empty($cpassword)){
         echo "<p class='error'>* Enter Here Your Confirme Password</p>";
     }else{
-        $cpassword=true;
+        $cpassword1=true;
     }
 
-
-    if($imgload=="true" and $name1=="true" and  $lastname1=="true" and $username=="true" and  $email=="true" and $password1=="true" and $cpassword=="true"){
+    echo "img = $imgload, name = $name1, lastname = $lastname1, username = $username1, email = $email1, password = $password1, cpassword = $cpassword1";
+    if($imgload==true and $name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
         if($password==$cpassword){
             move_uploaded_file ($_FILES['img']['tmp_name'], $add);
+            
+            $sql="INSERT INTO USUARIO VALUES('$idusuario','$name','$lastname','$username','$email',CURRENT_DATE,'$password',1,'$add')";
+            $resp=1;
+            $cnx->query($sql) or $resp=0;
 
-            $a=$cnx->prepare("INSERT INTO USUARIO (idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,contraseña,tipousuario_idtipousuario,foto)VALUES((SELECT COALESCE(max(idusuario),0)+1 FROM usuario),'$name','$lastname','$username','$email',CURRENT_DATE,$password,1,'$add')");
-	        $a->execute();
-        }
-        if ($resp =1 ){
-            session_start();
-            $_SESSION['idusuario']= $idusuario;
-            $_SESSION['nombreusuario']= $nombreusuario;
-            header("location: index.php");
         }else{
-            header("location: home.php");
+            $resp=0;
         }
+
     }
 
 
@@ -120,6 +120,14 @@ try{
     $resp=0; 
 }
 
-echo $resp;
+ if ($resp==1 ){
+     session_start();
+     $_SESSION['idusuario']= $idusuario;
+     $_SESSION['nombreusuario']= $nombreusuario;
+     header("location: galery.php");
+ }else{
+     header("location: home.php");
+}
+#echo $resp;
 
 ?>

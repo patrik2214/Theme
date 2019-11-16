@@ -83,7 +83,7 @@
                   <li class="sub-menu">
                       <a href="galery.php" >
                       <i class="fa fa-book"></i>
-                          <span>Galery</span>
+                          <span>Gallery</span>
                       </a>
                   </li>
               </ul>
@@ -116,15 +116,15 @@
 				</div>
 				<div class="form-group">
 					<label>Email</label>
-					<input type="text" class="form-control" name="txtemail" id="txtemail" placeholder="Enter here">
+					<input type="email" class="form-control" name="txtemail" id="txtemail" placeholder="Enter here">
                 </div>
 				<div class="form-group">
 					<label>Contraseña</label>
-					<input type="text" class="form-control" name="txtpass" id="txtpass" placeholder="Enter here">
+					<input type="password" class="form-control" name="txtpass" id="txtpass" placeholder="Enter here">
 				</div>
                 <div class="form-group">
 					<label>Confirmar Contraseña</label>
-					<input type="text" class="form-control" name="txtcpass" id="txtcpass" placeholder="Enter here">
+					<input type="password" class="form-control" name="txtcpass" id="txtcpass" placeholder="Enter here">
 				</div>
 				<div class="form-group">
 					<label for="uploadedfile">Upload a Picture</label>
