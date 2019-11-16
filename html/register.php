@@ -1,38 +1,3 @@
-<?php
-
-    if(isset($_POST['submit'])){
-        $name = $_POST['txtname'];
-        $lastname = $_POST['txtlastname'];
-        $username = $_POST['txtusername'];
-        $email = $_POST['txtemail'];
-        $password = $_POST['txtpass'];
-        $cpassword = $_POST['txtcpass'];
-    
-
-        //Subir la Imagen
-        //Creamos una variable para ver si se sube o no el archivo
-        $imgload="true";
-
-        //Seteamos nombre, tipo y tamaño del archivo
-        $file_name=$_FILES['img']['name'];
-        $img_size=$_FILES['img']['size'];
-        $file_type=$_FILES['img']['type'];
-
-        //verificamos tamaño
-        if ($img_size>200000){
-            $imgload="false";
-        }
-        //verificamos que solo sea imagen
-        if (!($file_type =="image/jpeg" OR $file_type=="image/gif")){
-            // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
-            $imgload="false";
-        }
-        //seteamos la ruta de la carpeta
-        $add="uploads/$file_name";
-        //lo movemos del temporal a la carpeta
-        }
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -136,7 +101,7 @@
             <h3><i class="fa fa-angle-right"></i>Sing In Here !</h3>
 
             <div class="col-lg-8 col-md-8 col-sm-8 mb">
-		    <form  action="registro.php" method="POST" enctype="multipart/form-data">
+		    <form  action="validate.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" name="txtname" id="txtname" placeholder="Enter here">
@@ -168,11 +133,6 @@
                 <div class="form-group">
                    <button  class="btn btn-success" type="submit" name="submit">Guardar</button><br>
                 </div>
-
-            <?php 
-                include("validate.php");
-            ?>
-
 			</form>
 		</div>
         
