@@ -206,3 +206,17 @@ function limpiar_campos() {
 function inicio() {
 	listar_repos();
 }
+
+// function view_repo(id) {
+// 	$.ajax({
+// 		url: "../html/myrepo.php",
+// 		type: "get",
+// 		data: { idrepo: id },
+// 		success: function() {
+// 			window.location.replace("http://localhost/theme/html/myrepo.php");
+// 		},
+// 		error: function(jqXhr, textStatus, errorThrown) {
+// 			console.log(errorThrown);
+// 		}
+// 	});
+// }
