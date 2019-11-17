@@ -6,8 +6,10 @@ $user =  $_SESSION['idusuario'];
 
 $repo = $_POST['idrepo'];
 
-$sql="SELECT * FROM repositorio inner join desarrollador on repositorio.idREPOSITORIO = desarrollador.REPOSITORIO_idREPOSITORIO 
-    where desarrollador.USUARIO_idUSUARIO = $user and desarrollador.TIPODESARROLLADOR_idTIPODESARROLLADOR=1 and repositorio.idREPOSITORIO = $repo";
+$sql="SELECT repositorio.* , desarrollador.*, usuario.nombre as usser FROM repositorio 
+    inner join desarrollador on repositorio.idREPOSITORIO = desarrollador.REPOSITORIO_idREPOSITORIO 
+    inner join usuario on desarrollador.USUARIO_idUSUARIO=usuario.idUSUARIO
+    where repositorio.idREPOSITORIO = $repo";
 $result = $cnx->query($sql);
 
 if ($reg = $result->fetchObject()){
@@ -16,115 +18,115 @@ if ($reg = $result->fetchObject()){
         $pub = 'Publico';
     }
     echo utf8_decode("<div class='showback'>
-    <h2>$reg->nombre         
-    <span class='badge bg-warning'> $pub</span> </h2>
-    <h4>Descripcion:</h4>
-    <p>$reg->descripcion</p>
-    <h4>Fecha de creacion:</h4>
-    <p>$reg->fecha_creacion</p>
-    
+        <h2>$reg->nombre         
+        <span class='badge bg-warning'> $pub</span> </h2>
+        <h4>Descripcion:</h4>
+        <p>$reg->descripcion</p>
+        <h4>Fecha de creacion:</h4>
+        <p>$reg->fecha_creacion</p>
     </div>");
-
-    echo utf8_encode("<button type='button' class='btn btn-primary'>Configuracion</button>");
-
-    // intento de tabla de integrantes
-    echo utf8_encode("
-        <div class='row mt'>
-                  <div class='col-md-12'>
-                      <div class='content-panel'>
-                          <table class='table table-striped table-advance table-hover'>
-	                  	  	  <h4><i class='fa fa-angle-right'></i> Advanced Table</h4>
-	                  	  	  <hr>
-                              <thead>
-                              <tr>
-                                  <th><i class='fa fa-bullhorn'></i> Company</th>
-                                  <th class='hidden-phone'><i class='fa fa-question-circle'></i> Descrition</th>
-                                  <th><i class='fa fa-bookmark'></i> Profit</th>
-                                  <th><i class=' fa fa-edit'></i> Status</th>
-                                  <th></th>
-                              </tr>
-                              </thead>
-                              <tbody>
-                              <tr>
-                                  <td><a href='basic_table.html#'>Company Ltd</a></td>
-                                  <td class='hidden-phone'>Lorem Ipsum dolor</td>
-                                  <td>12000.00$ </td>
-                                  <td><span class='label label-info label-mini'>Due</span></td>
-                                  <td>
-                                      <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                      <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-                                      <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href='basic_table.html#'>
-                                          SHART co
-                                      </a>
-                                  </td>
-                                  <td class='hidden-phone'>Lorem Ipsum dolor</td>
-                                  <td>17900.00$ </td>
-                                  <td><span class='label label-warning label-mini'>Due</span></td>
-                                  <td>
-                                      <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                      <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-                                      <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href='basic_table.html#'>
-                                          Another Co
-                                      </a>
-                                  </td>
-                                  <td class='hidden-phone'>Lorem Ipsum dolor</td>
-                                  <td>14400.00$ </td>
-                                  <td><span class='label label-success label-mini'>Paid</span></td>
-                                  <td>
-                                      <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                      <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-                                      <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td>
-                                      <a href='basic_table.html#'>
-                                          SHART ext
-                                      </a>
-                                  </td>
-                                  <td class='hidden-phone'>Lorem Ipsum dolor</td>
-                                  <td>22000.50$ </td>
-                                  <td><span class='label label-success label-mini'>Paid</span></td>
-                                  <td>
-                                      <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                      <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-                                      <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
-                                  </td>
-                              </tr>
-                              <tr>
-                                  <td><a href='basic_table.html#'>Total Ltd</a></td>
-                                  <td class='hidden-phone'>Lorem Ipsum dolor</td>
-                                  <td>12120.00$ </td>
-                                  <td><span class='label label-warning label-mini'>Due</span></td>
-                                  <td>
-                                      <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                      <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-                                      <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
-                                  </td>
-                              </tr>
-                              </tbody>
-                          </table>
-                      </div><!-- /content-panel -->
-                  </div><!-- /col-md-12 -->
-              </div><!-- /row -->
-    
-    
-    "
-
-    );
-
 }else {
     echo 0;
+};
+
+    // echo utf8_encode("<button type='button' class='btn btn-primary'>Configuracion</button>");
+    // echo utf8_encode("");
+
+echo utf8_encode("
+    <ul class='nav nav-tabs' id='myTab' role='tablist'>
+<li class='nav-item'>
+    <a class='nav-link' id='home-tab' data-toggle='tab' href='#generos' role='tab' aria-controls='generos' aria-selected='false'>Ramas</a>
+</li>
+<li class='nav-item'>
+    <a class='nav-link' id='profile-tab' data-toggle='tab' href='#colaboradores' role='tab' aria-controls='colaboradores' aria-selected='false'>Colaboradores</a>
+</li>
+<li class='nav-item'>
+    <a class='nav-link' id='contact-tab' data-toggle='tab' href='#config' role='tab' aria-controls='config' aria-selected='false'>Configuracion</a>
+</li>
+</ul>
+<div class='tab-content' id='myTabContent'>
+    
+");
+echo utf8_encode("
+<div class='row tab-pane fade' id='generos' role='tabpanel' aria-labelledby='home-tab'>
+                <div class='col-md-12'>
+                    <div class='content-panel'>
+                    <table class='table table-striped table-advance table-hover'>
+                        <button type='button' class='btn btn-primary'>Agregar una rama </button> <br>
+                            <hr>
+                        <thead>
+                            <tr>
+                                <th><i class='fa fa-bullhorn'></i> Genero musical</th>
+                                <th>Opciones</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+");
+
+$query="SELECT * FROM proyecto inner join genero on proyecto.GENERO_idGENERO = genero.idGENERO
+where proyecto.REPOSITORIO_idREPOSITORIO = $repo";
+$rs = $cnx->query($query);
+while ($re = $rs->fetchObject()){   
+    // intento de tabla de integrantes
+    echo utf8_encode("    
+                              <tr>
+                                  <td><a href='#'>$re->descripcion</a></td>
+                                  <td>
+                                      <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
+                                      <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
+                                      <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
+                                  </td>
+                              </tr>");
+};
+
+echo utf8_encode("                             
+                            </tbody>
+                        </table>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row --> 
+<div class='row tab-pane fade' id='colaboradores' role='tabpanel' aria-labelledby='profile-tab'>
+                <div class='col-md-12'>
+                    <div class='content-panel'>
+                        <table class='table table-striped table-advance table-hover'>
+                                <button type='button' class='btn btn-primary'>Agregar un colaborador </button> <br>
+                                    <hr>
+                                <thead>
+                                    <tr>
+                                        <th><i class='fa fa-bullhorn'></i> Colaborador</th>
+                                        <th><i class='fa fa-bullhorn'></i> Tipo de colaborador</th>
+                                        <th>Opciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+              ");
+
+while($reg = $result->fetchObject()){
+    $tipodev = 'Invitado';
+    if ($reg->TIPODESARROLLADOR_idTIPODESARROLLADOR==1){
+        $tipodev = 'Propietario';
+    }
+    echo utf8_encode("     
+         <tr>
+            <td><a href='#'>$reg->usser</a></td>
+            <td>$tipodev</td>
+            <td>
+                <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
+                <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
+                <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
+            </td>
+        </tr>
+    ");
 }
+
+echo utf8_encode(" 
+      </tbody>
+                        </table>
+                      </div><!-- /content-panel -->
+                  </div><!-- /col-md-12 -->
+              </div><!-- /row --> 
+    <div class='tab-pane fade' id='config' role='tabpanel' aria-labelledby='contact-tab'>...</div>
+    </div>
+") ;
 
 ?>
