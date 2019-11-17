@@ -1,3 +1,10 @@
+<?php
+require_once(conexion.php)
+
+
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -59,7 +66,8 @@
               
               	  <p class="centered"><a href="profile.html"><img src="../assets/img/logo.png" class="img-circle" width="60"></a></p>
               	  
-                  <li class="sub-menu">
+              	  	
+                    <li class="sub-menu">
                       <a href="home.php">
                       <i class="fa fa-tasks"></i>
                           <span>Home</span>
@@ -82,7 +90,7 @@
                   <li class="sub-menu">
                       <a href="galery.php" >
                       <i class="fa fa-book"></i>
-                          <span>Galery</span>
+                          <span>Gallery</span>
                       </a>
                   </li>
               </ul>
@@ -97,11 +105,22 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          
-            
+            <h3><i class="fa fa-angle-right"></i>Sing In Here !</h3>
 
-                  
-                  
+            <div class="col-lg-8 col-md-8 col-sm-8 mb">
+		    <form  action="list.php" method="POST" enctype="multipart/form-data">
+                
+                <div class="form-group">
+                   <button  class="btn btn-success" type="submit" name="submit">Save All Changes</button><br>
+                </div>
+
+                <?php
+
+                    include("../php/validate.php");
+                ?>
+			</form>
+		</div>
+        
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
@@ -141,27 +160,6 @@
     <script src="../assets/js/sparkline-chart.js"></script>    
 	<script src="../assets/js/zabuto_calendar.js"></script>	
 	
-	<script type="text/javascript">
-        $(document).ready(function () {
-        var unique_id = $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Welcome to SHART!',
-            // (string | mandatory) the text inside the notification
-            text: 'Here You can Create Repositories About Music and Search It With your Friends',
-            // (string | optional) the image to display on the left
-            image: '../assets/img/logo.png',
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: true,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: '',
-            // (string | optional) the class name you want to apply to that specific message
-            class_name: 'my-sticky-class'
-        });
-
-        return false;
-        });
-	</script>
-	
 	<script type="application/javascript">
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
@@ -196,7 +194,9 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+    
 
   </body>
 </html>
+
+
