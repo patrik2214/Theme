@@ -277,15 +277,12 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper site-min-height">
-          	<h3><i class="fa fa-angle-right"></i> Blank Page</h3>
-          	<div class="row mt">
-          		<div class="col-lg-12">
-          		<p>Place your content here.</p>
-          		</div>
-          	</div>
-			
-		</section><!-- /wrapper -->
+          <div class="wrapper" id="myrepository">
+              <?php
+                    echo $_GET['repo'];
+              ?>
+
+          </div>
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
@@ -313,7 +310,11 @@
 
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
-
+    <script type="text/javascript">
+		window.load = view_repo(<?php
+                    echo $_GET['repo'];
+              ?>);
+	</script>
     <!--script for this page-->
     
   <!-- <script>

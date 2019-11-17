@@ -207,16 +207,17 @@ function inicio() {
 	listar_repos();
 }
 
-// function view_repo(id) {
-// 	$.ajax({
-// 		url: "../html/myrepo.php",
-// 		type: "get",
-// 		data: { idrepo: id },
-// 		success: function() {
-// 			window.location.replace("http://localhost/theme/html/myrepo.php");
-// 		},
-// 		error: function(jqXhr, textStatus, errorThrown) {
-// 			console.log(errorThrown);
-// 		}
-// 	});
-// }
+function view_repo(id) {
+	$.ajax({
+		url: "../php/view_repo.php",
+		type: "post",
+		data: { idrepo: id },
+		success: function(data) {
+			console.log(data);
+			$("#myrepository").html(data);
+		},
+		error: function(jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
+}

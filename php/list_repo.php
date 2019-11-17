@@ -14,7 +14,7 @@ while($reg = $result->fetchObject()){
                           <button type='button' class='btn btn-primary'>Configuracion</button>
                           
                         <button type='button' class='btn btn-primary'>
-                            <a href='http://localhost/theme/html/myrepo.php' >Entrar</a>
+                            <a href='http://localhost/theme/html/myrepo.php?repo=$reg->idREPOSITORIO' >Entrar</a>
                         </button>
       				</div>");
     
