@@ -101,14 +101,17 @@ echo utf8_encode("
                                 <tbody>
               ");
 
-while($reg = $result->fetchObject()){
+$query="SELECT * FROM desarrollador  inner join usuario on desarrollador.USUARIO_idUSUARIO=usuario.idUSUARIO
+where desarrollador.REPOSITORIO_idREPOSITORIO = $repo";
+$rs = $cnx->query($query);
+while($re = $rs->fetchObject()){
     $tipodev = 'Invitado';
-    if ($reg->TIPODESARROLLADOR_idTIPODESARROLLADOR==1){
+    if ($re->TIPODESARROLLADOR_idTIPODESARROLLADOR==1){
         $tipodev = 'Propietario';
     }
     echo utf8_encode("     
          <tr>
-            <td><a href='#'>$reg->usser</a></td>
+            <td><a href='#'>$re->nombre</a></td>
             <td>$tipodev</td>
             <td>
                 <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
@@ -120,13 +123,48 @@ while($reg = $result->fetchObject()){
 }
 
 echo utf8_encode(" 
-      </tbody>
+                            </tbody>
                         </table>
                       </div><!-- /content-panel -->
                   </div><!-- /col-md-12 -->
               </div><!-- /row --> 
-    <div class='tab-pane fade' id='config' role='tabpanel' aria-labelledby='contact-tab'>...</div>
-    </div>
+    <div class='tab-pane fade' id='config' role='tabpanel' aria-labelledby='contact-tab'>
+        <div class='col-md-12'>
+            <div class='content-panel'>
+                <form action='' method='post'>
+
 ") ;
+
+$result = $cnx->query($sql);
+if ($reg = $result->fetchObject()){
+echo utf8_encode("
+    <div class='form-group'>
+        <label for='nombre_repo'>Nombre del repositorio:</label>
+        <input type='text' class='form-control' id='nombre_repo' name='nombre_repo' value='$reg->nombre' autofocus>
+    </div>
+    <div class='form-group'>
+        <label>Describe tu nuevo proyecto</label>
+        <textarea class='form-control' id='about_repo' name='about_repo'  rows='3'>$reg->descripcion</textarea>
+    </div>
+    
+    <div class='form-group'>
+        <label>Genero musical</label>
+        <select class='cbx form-control form-control-lg' value='$reg->GENERO_idGENERO' name='gnrmusical' id='gnrmusical'> 
+            
+        </select>
+    </div>
+    <div class='form-check'>
+        <input class='form-check-input' type='checkbox' value='0' id='privado'>
+        <label class='form-check-label' >
+            Hacer privado
+        </label>
+    </div>
+    <button type='button' onclick='actualizar_repositorio()' class='btn btn-primary'>Save changes</button>
+    </form>
+    </div>
+</div>
+");
+}
+    
 
 ?>

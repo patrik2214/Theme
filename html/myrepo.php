@@ -176,9 +176,11 @@
                 <!--  notification end -->
             </div>
             <div class="top-menu">
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Logout</a></li>
-            	</ul>
+            	<form action="../php/close_session.php" method="post">
+            	    <ul class="nav pull-right top-menu">
+                        <li> <button type="submit" class="logout" >Logout</button> </li>
+            	    </ul>
+                </form>
             </div>
         </header>
       <!--header end-->
