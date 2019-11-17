@@ -1,9 +1,8 @@
 <?php
 
-requiere_once();
+requiere_once(conexion.php);
 
 session_start();
-$username = $_SESSION['username'];
 $idusuario = $_SESSION['idusuario'];
 
 $name = $_POST['txtname'];
@@ -105,9 +104,5 @@ if($imgload==true and $name1==true and  $lastname1==true and $username1==true an
     }
     
 }
-
-
-
-
 
 ?>

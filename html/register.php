@@ -175,7 +175,7 @@ if(isset($_POST['submit'])){
 
                 <div class="g-recaptcha" data-sitekey="6LfpPboUAAAAAC2yEYpndy3nwCo3k44NmhIkGeJP"></div><br>
                 <div class="form-group">
-                   <button  class="btn btn-success" type="submit" name="submit">Guardar</button><br>
+                   <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
                 </div>
         
                 <?php
