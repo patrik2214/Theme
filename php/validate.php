@@ -14,15 +14,15 @@ if(isset($_POST['submit'])){
     $captcha=$_POST['g-recaptcha-response'];
 
     if(!$captcha){
-    echo "<script> alert('Complete el captcha'); window.location.href='register.php';</script>";
-    exit;
+        echo "<script> alert('Complete el captcha'); window.location.href='register.php';</script>";
+        exit;
     }
     //Clave de captcha 
     $secretKey = "6LfpPboUAAAAAHb3--UcUTOVgftFH8HneL2V2guI";
     $ip = $_SERVER['REMOTE_ADDR'];
     $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
     $responseKeys = json_decode($response,true);
-
+    // falta validar repuesta del captcha
     try{
   
         $cnx->beginTransaction();
@@ -108,33 +108,39 @@ if(isset($_POST['submit'])){
                 if($password==$cpassword){
                     move_uploaded_file ($_FILES['img']['tmp_name'], $add);
                     
-                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,1,:foto)");
+                    $uno=1;
+
+                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,TIPOUSUARIO_idTIPOUSUARIO,foto) 
+                    VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,:tipousuario,:foto)");
                     $a->bindParam(":idusuario",$idusuario);
                     $a->bindParam(":nombre",$name);
                     $a->bindParam(":apellido",$lastname);
                     $a->bindParam(":nombreusuario",$username);
                     $a->bindParam(":correo",$email);
                     $a->bindParam(":password",$password);
+                    $a->bindParam(":tipousuario",$uno);
                     $a->bindParam(":foto",$add);
                     $a->execute();
-    
         
                 }
             }
         }else{
             if($name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
                 if($password==$cpassword){
-                    move_uploaded_file ($_FILES['img']['tmp_name'], $add);
-                    
-                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,1,null)");
+
+                    $uno=1;
+                    $nulidad=null;
+
+                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,TIPOUSUARIO_idTIPOUSUARIO,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,now(),:password,:tipousuario,:foto)");
                     $a->bindParam(":idusuario",$idusuario);
                     $a->bindParam(":nombre",$name);
                     $a->bindParam(":apellido",$lastname);
                     $a->bindParam(":nombreusuario",$username);
                     $a->bindParam(":correo",$email);
                     $a->bindParam(":password",$password);
+                    $a->bindParam(":tipousuario",$uno);
+                    $a->bindParam(":foto",$nulidad);
                     $a->execute();
-    
         
                 }
             }
