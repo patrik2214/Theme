@@ -26,13 +26,13 @@ if(isset($_POST['submit'])){
     try{
   
         $cnx->beginTransaction();
-    
-        $rs = $cnx->query("SELECT COUNT(*) as email FROM usuario WHERE correo='$email'") or $resp=0;
+        // como que email1 lo metes aca si arriba le pones falso
+        $rs = $cnx->query("SELECT COUNT(*) as email FROM usuario WHERE correo='$email1'") or $resp=0;
         $reg = $rs->fetchObject();
         $email2 = $reg->email;
     
         #echo $email2;
-
+        // username tampoco existe
         $rs = $cnx->query("SELECT COUNT(*) as valor FROM usuario WHERE nombreusuario='$username'") or $resp=0;
         $reg = $rs->fetchObject();
         $username2 = $reg->valor;
@@ -106,16 +106,12 @@ if(isset($_POST['submit'])){
         if($imgload==true and $name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
             if($password==$cpassword){
                 move_uploaded_file ($_FILES['img']['tmp_name'], $add);
-                
-                $sql="INSERT INTO USUARIO VALUES('$idusuario','$name','$lastname','$username','$email',CURRENT_DATE,'$password',1,'$add')";
-                $resp=1;
-                $cnx->query($sql) or $resp=0;
-    
+                $b=$cnx->prepare("INSERT INTO USUARIO VALUES('$idusuario','$name','$lastname','$username','$email',CURRENT_DATE,'$password',1,'$add')");
+                $b->execute();
             }
         }
-            
 
-        $cnx->commit();
+        $cnx->commit() ;
     } catch(PDOException $x) { 
         $cnx->rollBack();
         $resp=0; 

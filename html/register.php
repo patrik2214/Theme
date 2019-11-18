@@ -135,7 +135,7 @@ if(isset($_POST['submit'])){
             <h3><i class="fa fa-angle-right"></i>Sing In Here !</h3>
 
             <div class="col-lg-8 col-md-8 col-sm-8 mb">
-		    <form  action="" method="POST" enctype="multipart/form-data">
+		    <form  action="../php/validate.php" method="POST" enctype="multipart/form-data">
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" class="form-control" name="txtname" id="txtname" value="<?php if(isset($name))echo $name ?>"
@@ -173,10 +173,6 @@ if(isset($_POST['submit'])){
                 <div class="form-group">
                    <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
                 </div>
-        
-                <?php
-                    include("../php/validate.php");
-                ?>
 			</form>
 		</div>
         
@@ -190,7 +186,7 @@ if(isset($_POST['submit'])){
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              @DerechosReservadosSHART-2019
+              @2019 - Shart.com
               <a class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
