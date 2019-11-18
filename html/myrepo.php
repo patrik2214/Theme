@@ -279,12 +279,83 @@
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <div class="wrapper" id="myrepository">
-              <?php
-                    echo $_GET['repo'];
-              ?>
+        <div class="wrapper" >
+            
+            <div id="myrepository" class="table">
+            </div>
 
-          </div>
+
+
+
+
+            <div class="modal fade" id="new_rama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar una nueva version de tu cancion</h4>
+                    </div>
+                    <div class="modal-body">
+                        
+                        
+                        <div class="form-group">
+                            <h4>Genero musical</h4>
+                            <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
+                                
+                            </select>
+                        </div>
+                       
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" onclick="new_pry(<?php echo $_GET['repo']; ?>)" class="btn btn-primary">Crear</button>
+                    </div>
+                </div>
+                </div>
+            </div>    
+            <div class="modal fade" id="new_colab" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h4 class="modal-title" id="myModalLabel">Agregar colaboradores a tu trabajo</h4>
+                    </div>
+                    <div class="modal-body">
+                        <form >
+                            <input type="search" name="busqueda" class="form-control" id="busqueda" placeholder="Busque a su colaborador" />
+                        </form>
+                        <div class="content-panel">
+                            <table class="table table-hover">
+                            <h3>Colaboradores a agregar</h3>
+                            <hr>
+                                <thead>
+                                <tr>
+                                    <th>#</th>
+                                    <th>First Name</th>
+                                    <th>Last Name</th>
+                                    <th>Username</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <td>1</td>
+                                    <td>Mark</td>
+                                    <td>Otto</td>
+                                    <td>@mdo</td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div><!--/content-panel -->
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" onclick="new_colab(<?php echo $_GET['repo']; ?>)" class="btn btn-primary">Agregar</button>
+                    </div>
+                </div>
+                </div>
+            </div>    
+
+        </div><!-- wrapper end --> 
       </section><!-- /MAIN CONTENT -->
 
       <!--main content end-->
@@ -316,7 +387,12 @@
 		window.load = view_repo(<?php
                     echo $_GET['repo'];
               ?>);
-	</script>
+    </script>
+    
+    <!-- sweet alert for alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
+    
     <!--script for this page-->
     
   <!-- <script>
@@ -327,6 +403,21 @@
       });
 
   </script> -->
+  <script type="text/javascript">
+    	 $(document).ready(function (){
+            $.ajax({
+                url: "../php/listar_generos.php",
+                type: "post",
+                data: {},
+                success: function(data) {
+                    $("#gnrmusical").html(data);
+                },
+                error: function(jqXhr, textStatus, error) {
+                    console.log(error);
+                }
+            });
+        });
+    </script>
 
   </body>
 </html>

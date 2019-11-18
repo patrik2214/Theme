@@ -221,3 +221,92 @@ function view_repo(id) {
 		}
 	});
 }
+
+function editar_repo(id) {
+	$.ajax({
+		url: "../php/editar.php",
+		dataType: "text",
+		type: "post",
+		data: { id: id },
+		success: function(data) {
+			var datos = JSON.parse(data);
+			$("#about_repo").val(datos.descripcion);
+			$("#nombre_repo").val(datos.nombre);
+			$("#cbocategoria").val(datos.idgenero);
+			if (datos.publico == 1) {
+				$("#privado").checked.val(true);
+			} else {
+				$("#privado").checked.val(false);
+			}
+			console.log(data);
+		},
+		error: function(jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
+}
+
+function new_pry(rep) {
+	var gnr = $("#gnrmusical").val();
+	if (gnr == -1) {
+		Swal.fire({
+			icon: "error",
+			title: "Oops...",
+			text: "Elige un nuevo genero!"
+		});
+	} else {
+		$.ajax({
+			url: "../php/new_pry.php",
+			type: "post",
+			data: { idrepo: rep, idgnr: gnr },
+			success: function(data) {
+				if (data == 1) {
+					$("#new_rama").modal("toggle");
+					Swal.fire(
+						"Good job!",
+						"Comienza a crear una nueva version de tu cancion!",
+						"success"
+					);
+					listar_prys(rep);
+				} else {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Ocurrio un problema!"
+					});
+				}
+			},
+			error: function(jqXhr, textStatus, errorThrown) {
+				console.log(errorThrown);
+			}
+		});
+	}
+}
+
+function listar_prys(id) {
+	$.ajax({
+		url: "../php/list_prys.php",
+		type: "post",
+		data: { idrepo: id },
+		success: function(data) {
+			$("#divregistros").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
+function listar_colb(id) {
+	$.ajax({
+		url: "../php/list_colabs.php",
+		type: "post",
+		data: { idrepo: id },
+		success: function(data) {
+			$("#divcolaboradores").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}

@@ -300,16 +300,16 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 </div>
                 <br>
                 <br>
+                <br>
+                <div class="col-lg-12">
+                    <div class="showback">
+                        <!-- Barra de busqueda -->
+                        <form >
+                            <input type="search" name="busqueda" class="form-control" id="busqueda" placeholder="Ingrese repositorio a buscar" />
+                        </form>
+                    </div><!-- /showback -->
+                </div>
                 <! -- MODALS -->
-                    <br>
-                    <div class="col-lg-12">
-                        <div class="showback">
-                            <!-- Barra de busqueda -->
-                            <form >
-                                <input type="search" name="busqueda" class="form-control" id="busqueda" placeholder="Ingrese repositorio a buscar" />
-                            </form>
-                        </div><!-- /showback -->
-                    </div>
                 <!-- Modal -->
                 <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                     <div class="modal-dialog">
