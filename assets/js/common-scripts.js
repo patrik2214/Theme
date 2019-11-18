@@ -343,8 +343,7 @@ function listar_colb(id) {
 	});
 }
 
-<<<<<<< HEAD
-function modify_user(idusuario){
+function modify_user(idusuario) {
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
 	var username = document.getElementById("txtusername").value;
@@ -352,34 +351,42 @@ function modify_user(idusuario){
 	var password = document.getElementById("txtpass").value;
 	var cpassword = document.getElementById("txtcpass").value;
 	var img = File.getElementById("img").value;
-	
+
 	$.ajax({
-        url: 'update_info_user.php',
-        type: 'post',
-        data: {"name":name, "lastname":lastname, "username":username ,"email":email,"pass":password,"cpass": cpassword,"img":img,"idusuario":idusuario},
-        success: function( data ){
-			console.log(data);           
-        },
-        error: function( jqXhr, textStatus, error ){
-            console.log( error );
-        }
-    });
+		url: "update_info_user.php",
+		type: "post",
+		data: {
+			name: name,
+			lastname: lastname,
+			username: username,
+			email: email,
+			pass: password,
+			cpass: cpassword,
+			img: img,
+			idusuario: idusuario
+		},
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
 }
 
-function delete_user(idusuario){
+function delete_user(idusuario) {
 	$.ajax({
-        url: 'update_info_user.php',
-        type: 'post',
-        data: {"idusuario":idusuario},
-        success: function( data ){
-			console.log(data);           
-        },
-        error: function( jqXhr, textStatus, error ){
-            console.log( error );
-        }
-    });
+		url: "update_info_user.php",
+		type: "post",
+		data: { idusuario: idusuario },
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
 }
-=======
 function editar_pry(idpry) {
 	$.ajax({
 		url: "../php/editar_pry.php",
@@ -401,4 +408,3 @@ function clean_gnr() {
 	$("#gnrmusical").val(-1);
 	$("#idpry").val("");
 }
->>>>>>> 020ca3302babea201d55f73eeb5e916c6618ae61
