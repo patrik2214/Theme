@@ -103,22 +103,52 @@ if(isset($_POST['submit'])){
             $cpassword1=true;
         }
     
-        if($imgload==true and $name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
-            if($password==$cpassword){
-                move_uploaded_file ($_FILES['img']['tmp_name'], $add);
-                $b=$cnx->prepare("INSERT INTO USUARIO VALUES('$idusuario','$name','$lastname','$username','$email',CURRENT_DATE,'$password',1,'$add')");
-                $b->execute();
+        if($imgload==true){
+            if($name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
+                if($password==$cpassword){
+                    move_uploaded_file ($_FILES['img']['tmp_name'], $add);
+                    
+                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,1,:foto)");
+                    $a->bindParam(":idusuario",$idusuario);
+                    $a->bindParam(":nombre",$name);
+                    $a->bindParam(":apellido",$lastname);
+                    $a->bindParam(":nombreusuario",$username);
+                    $a->bindParam(":correo",$email);
+                    $a->bindParam(":password",$password);
+                    $a->bindParam(":foto",$add);
+                    $a->execute();
+    
+        
+                }
+            }
+        }else{
+            if($name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
+                if($password==$cpassword){
+                    move_uploaded_file ($_FILES['img']['tmp_name'], $add);
+                    
+                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,1,null)");
+                    $a->bindParam(":idusuario",$idusuario);
+                    $a->bindParam(":nombre",$name);
+                    $a->bindParam(":apellido",$lastname);
+                    $a->bindParam(":nombreusuario",$username);
+                    $a->bindParam(":correo",$email);
+                    $a->bindParam(":password",$password);
+                    $a->execute();
+    
+        
+                }
             }
         }
 
-        $cnx->commit() ;
-    } catch(PDOException $x) { 
+
+        $cnx->commit();
+    }catch(PDOException $x) { 
         $cnx->rollBack();
         $resp=0; 
     }
 
     if ($resp==1){echo "<script> alert('Registro realizado correctamente')</script>";}
-        else{echo "<script> alert('Hubo algun error')</script>";}
+    else{echo "<script> alert('Hubo algun error')</script>";}
     
 }
 ?>
