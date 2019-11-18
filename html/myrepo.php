@@ -203,13 +203,13 @@
                           <span>Repositories</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="general.html">My Repositories</a></li>
-                          <li><a  href="buttons.html">New Repositories</a></li>
+                          <li><a  href="myrepo.php">My Repositories</a></li>
+                          <li><a  href="index.php">New Repositories</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="setting_user.php" >
+                      <a href="settings_user.php" >
                           <i class="fa fa-tasks"></i>
                           <span>Settings</span>
                       </a>
