@@ -51,7 +51,7 @@ echo utf8_encode("
         <div class='col-md-12'>
             <div class='content-panel'>
             <table class='table table-striped table-advance table-hover'>
-                <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#new_rama' >Agregar una rama </button> <br>
+                <button type='button' class='btn btn-primary' onclick='clean_gnr()' data-toggle='modal' data-target='#new_rama' >Agregar una rama </button> <br>
                     <hr>
                 <thead>
                     <tr>

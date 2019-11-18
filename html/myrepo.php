@@ -296,18 +296,16 @@
                     <h4 class="modal-title" id="myModalLabel">Agregar una nueva version de tu cancion</h4>
                     </div>
                     <div class="modal-body">
-                        
-                        
                         <div class="form-group">
                             <h4>Genero musical</h4>
+                            <input type="hidden" name="idpry" id="idpry" value="">
                             <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
                                 
                             </select>
                         </div>
-                       
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-default" onclick="clean_gnr()" data-dismiss="modal">Cancelar</button>
                     <button type="button" onclick="new_pry(<?php echo $_GET['repo']; ?>)" class="btn btn-primary">Crear</button>
                     </div>
                 </div>
@@ -392,7 +390,7 @@
     <!-- sweet alert for alerts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
-    
+
     <!--script for this page-->
     
   <!-- <script>
