@@ -11,9 +11,9 @@ while ($re = $rs->fetchObject()){
                         <tr>
                             <td><a href='#'>$re->descripcion</a></td>
                             <td>
-                                <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
+                                <button onclick='editar_pry($re->idPROYECTO)' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#new_rama'><i class='fa fa-pencil'></i></button>
                                 <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
                             </td>
                         </tr>");
 };
+//  <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>

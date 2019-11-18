@@ -238,7 +238,6 @@ function editar_repo(id) {
 			} else {
 				$("#privado").checked.val(false);
 			}
-			console.log(data);
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
@@ -247,27 +246,25 @@ function editar_repo(id) {
 }
 
 function new_pry(rep) {
-	var gnr = $("#gnrmusical").val();
-	if (gnr == -1) {
-		Swal.fire({
-			icon: "error",
-			title: "Oops...",
-			text: "Elige un nuevo genero!"
-		});
-	} else {
+	let gnr = $("#gnrmusical").val();
+	let idpry = $("#idpry").val();
+	if (idpry > 0) {
+		// Editar
 		$.ajax({
-			url: "../php/new_pry.php",
+			url: "../php/update_pry.php",
+			dataType: "text",
 			type: "post",
-			data: { idrepo: rep, idgnr: gnr },
+			data: {
+				idgnr: gnr,
+				idpry: idpry
+			},
 			success: function(data) {
+				console.log(data);
 				if (data == 1) {
 					$("#new_rama").modal("toggle");
-					Swal.fire(
-						"Good job!",
-						"Comienza a crear una nueva version de tu cancion!",
-						"success"
-					);
+					Swal.fire("Good job!", "Actualizacion realizada!", "success");
 					listar_prys(rep);
+					$("#gnrmusical").val(-1);
 				} else {
 					Swal.fire({
 						icon: "error",
@@ -280,6 +277,41 @@ function new_pry(rep) {
 				console.log(errorThrown);
 			}
 		});
+	} else {
+		if (gnr == -1) {
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Elige un nuevo genero!"
+			});
+		} else {
+			$.ajax({
+				url: "../php/new_pry.php",
+				type: "post",
+				data: { idrepo: rep, idgnr: gnr },
+				success: function(data) {
+					if (data == 1) {
+						$("#new_rama").modal("toggle");
+						Swal.fire(
+							"Good job!",
+							"Comienza a crear una nueva version de tu cancion!",
+							"success"
+						);
+						listar_prys(rep);
+						$("#gnrmusical").val(-1);
+					} else {
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Ocurrio un problema!"
+						});
+					}
+				},
+				error: function(jqXhr, textStatus, errorThrown) {
+					console.log(errorThrown);
+				}
+			});
+		}
 	}
 }
 
@@ -311,6 +343,7 @@ function listar_colb(id) {
 	});
 }
 
+<<<<<<< HEAD
 function modify_user(idusuario){
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
@@ -346,3 +379,26 @@ function delete_user(idusuario){
         }
     });
 }
+=======
+function editar_pry(idpry) {
+	$.ajax({
+		url: "../php/editar_pry.php",
+		dataType: "text",
+		type: "post",
+		data: { idpry: idpry },
+		success: function(data) {
+			var datos = JSON.parse(data);
+			$("#gnrmusical").val(datos.GENERO_idGENERO);
+			$("#idpry").val(datos.idPROYECTO);
+		},
+		error: function(jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
+}
+
+function clean_gnr() {
+	$("#gnrmusical").val(-1);
+	$("#idpry").val("");
+}
+>>>>>>> 020ca3302babea201d55f73eeb5e916c6618ae61

@@ -226,13 +226,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                           <li><a  href="panels.html">Panels</a></li>
                       </ul>
                   </li>
-
-                  <li class="sub-menu">
-                      <a href="../html/settings_user.php" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Settings</span>
-                      </a>
-                  </li>
+                  
                   <li class="sub-menu">
                       <a href="javascript:;" >
                           <i class="fa fa-book"></i>
@@ -408,7 +402,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             // (string | mandatory) the heading of the notification
             title: 'Welcome to SHART!',
             // (string | mandatory) the text inside the notification
-            text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo. Free version for <a href="http..//blacktie.co" target="_blank" style="color:#ffd777">BlackTie.co</a>.',
+            text: 'Hover me to enable the Close Button. You can hide the left sidebar clicking on the button next to the logo.',
             // (string | optional) the image to display on the left
             image: '../assets/img/ui-sam.jpg',
             // (bool | optional) if you want it to fade out on its own or just sit there
