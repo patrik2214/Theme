@@ -111,7 +111,7 @@ if(isset($_POST['submit'])){
                     $uno=1;
 
                     $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,TIPOUSUARIO_idTIPOUSUARIO,foto) 
-                    VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,:tipousuario,:foto)");
+                    VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,now(),:password,:tipousuario,:foto)");
                     $a->bindParam(":idusuario",$idusuario);
                     $a->bindParam(":nombre",$name);
                     $a->bindParam(":apellido",$lastname);

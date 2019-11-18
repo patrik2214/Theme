@@ -14,23 +14,27 @@ $cpassword = $_POST['cpass'];
 //Creamos una variable para ver si se sube o no el archivo
 $imgload=true;
 
-//Seteamos nombre, tipo y tamaño del archivo
-$file_name=$_FILES['img']['name'];
-$img_size=$_FILES['img']['size'];
-$file_type=$_FILES['img']['type'];
+if($_FILES['img']['name']==null){
+    $imgload=false;
+}else{
+    //Seteamos nombre, tipo y tamaño del archivo
+    $file_name=$_FILES['img']['name'];
+    $img_size=$_FILES['img']['size'];
+    $file_type=$_FILES['img']['type'];
 
-//verificamos tamaño
-if ($img_size>200000){
-    $imgload=false;
+    //verificamos tamaño
+    if ($img_size>200000){
+        $imgload=false;
+    }
+    //verificamos que solo sea imagen
+    if (!($file_type =="image/jpeg" or $file_type=="image/gif")){
+        // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
+        $imgload=false;
+    }
+    //seteamos la ruta de la carpeta
+    $add="../uploads/$file_name";
+    //lo movemos del temporal a la carpeta
 }
-//verificamos que solo sea imagen
-if (!($file_type =="image/jpeg" or $file_type=="image/gif")){
-    // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
-    $imgload=false;
-}
-//seteamos la ruta de la carpeta
-$add="uploads/$file_name";
-//lo movemos del temporal a la carpeta
 
 if(empty($name)){
     echo "<p class='error'>* Enter Here Your Name</p>";
@@ -81,16 +85,48 @@ if(empty($cpassword)){
     $cpassword1=true;
 }
     
-if($imgload==true and $name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
-    if($password==$cpassword){
-       move_uploaded_file ($_FILES['img']['tmp_name'], $add);
-                
-        $sql="UPDATE USUARIO SET nombre='$name',apellido='$lastname',nombreusuario='$username',correo='$email',contraseña='$password',tipousurio_idtipousuario=1,foto='$add' WHERE='$idusuario'";
-        $resp=1;
-        $cnx->query($sql) or $resp=0;
+if($imgload==true){
+    if ($name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
+        if($password==$cpassword){
+           move_uploaded_file ($_FILES['img']['tmp_name'], $add);
+                    
+            $c=$cnx->prepare("UPDATE USUARIO SET nombre=:nombre,apellido=:apellido,nombreusuario=:nombreusuario,correo=:correo,password=:password,foto=::foto WHERE idusuario=:idusuario");
+            $c->bindParam(":nombre",$name);
+            $c->bindParam(":apellido",$lastname);
+            $c->bindParam(":nombreusuario",$username);
+            $c->bindParam(":correo",$email);
+            $c->bindParam(":password",$password);
+            $c->bindParam(":foto",$add);
+            $c->bindParam(":idusuario",$idusuario);
+            $c->execute();
     
+        
+        }
+        
     }
+}else{
+    if ($name1==true and  $lastname1==true and $username1==true and  $email1==true and $password1==true and $cpassword1==true){
+        if($password==$cpassword){
+            
+            $nuli=null;
+            
+            $c=$cnx->prepare("UPDATE USUARIO SET nombre=:nombre,apellido=:apellido,nombreusuario=:nombreusuario,correo=:correo,password=:password,foto=::foto WHERE idusuario=:idusuario");
+            $c->bindParam(":nombre",$name);
+            $c->bindParam(":apellido",$lastname);
+            $c->bindParam(":nombreusuario",$username);
+            $c->bindParam(":correo",$email);
+            $c->bindParam(":password",$password);
+            $c->bindParam(":foto",$nuli);
+            $c->bindParam(":idusuario",$idusuario);
+            $c->execute();
     
+        
+        }
+        
+    }
 }
+
+
+ 
 
 ?>

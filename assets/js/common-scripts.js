@@ -343,6 +343,21 @@ function listar_colb(id) {
 	});
 }
 
+function list_user_info(){
+	$.ajax({
+		url: "list_user.php",
+		type: "post",
+		data: {},
+		success: function(data) {
+			console.log(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
+
 function modify_user(idusuario) {
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;

@@ -4,13 +4,13 @@ require_once("conexion.php");
 session_start();
 $user =  $_SESSION['idusuario'];
 
-
-$sql="SELECT * FROM USUARIO WHERE idusuario='$user'";
+$sql="SELECT * FROM USUARIO WHERE idusuario=";
 $result = $cnx->query($sql);
 
 while($reg = $result->fetchObject()){
 
-    echo utf8_encode("<div class='form-group'>
+    echo utf8_encode("
+        <div class='form-group'>
                 <label>Name</label>
                 <input type='text' class='form-control' name='txtname' id='txtname' placeholder='Enter here' value='$reg->nombre'>
          </div>
@@ -41,11 +41,6 @@ while($reg = $result->fetchObject()){
          <div class='row'>
             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
                 <button  class='btn btn-success' type='submit' onclick='modify_user($reg->$idusuario)'>Save All Changes</button><br>
-            </div>
-                    
-            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
-                <button  class='btn btn-success' type='submit' onclick='delete_user($reg->$idusuario)'>Delete Account</button><br>
-            </div> 
-         </div>");
+                <button  class='btn btn-success' type='submit' onclick='modify_user($reg->$idusuario)'>Delete Account</button><br>");
 }                
 ?>

@@ -22,6 +22,9 @@
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="../assets/js/chart-master/Chart.js"></script>
+    <script type="text/javascript">
+		window.load = list_user_info();
+	</script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -103,8 +106,8 @@
             <div class="col-lg-8 col-md-8 col-sm-8 mb">
 		    <form  action="list_user.php" method="POST" enctype="multipart/form-data">
 
-			</form>
-		</div>
+
+		    </div>
         
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
