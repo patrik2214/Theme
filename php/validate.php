@@ -126,14 +126,13 @@ if(isset($_POST['submit'])){
                 if($password==$cpassword){
                     move_uploaded_file ($_FILES['img']['tmp_name'], $add);
                     
-                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,1,:foto)");
+                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,CURRENT_DATE,:password,1,null)");
                     $a->bindParam(":idusuario",$idusuario);
                     $a->bindParam(":nombre",$name);
                     $a->bindParam(":apellido",$lastname);
                     $a->bindParam(":nombreusuario",$username);
                     $a->bindParam(":correo",$email);
                     $a->bindParam(":password",$password);
-                    $a->bindParam(":foto",$add);
                     $a->execute();
     
         
@@ -143,13 +142,13 @@ if(isset($_POST['submit'])){
 
 
         $cnx->commit();
-    } catch(PDOException $x) { 
+    }catch(PDOException $x) { 
         $cnx->rollBack();
         $resp=0; 
     }
 
     if ($resp==1){echo "<script> alert('Registro realizado correctamente')</script>";}
-        else{echo "<script> alert('Hubo algun error')</script>";}
+    else{echo "<script> alert('Hubo algun error')</script>";}
     
 }
 ?>
