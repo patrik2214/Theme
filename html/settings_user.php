@@ -62,31 +62,47 @@
               
               	  <p class="centered"><a href="profile.html"><img src="../assets/img/logo.png" class="img-circle" width="60"></a></p>
               	  
-              	  	
                     <li class="sub-menu">
-                      <a href="home.php">
-                      <i class="fa fa-tasks"></i>
-                          <span>Home</span>
+                      <a href="index.php" >
+                          <i class="fa fa-dashboard"></i>
+                          <span>Repositories</span>
                       </a>
+                      <ul class="sub">
+                          <li><a  href="general.html">My Repositories</a></li>
+                          <li><a  href="buttons.html">New Repositories</a></li>
+                      </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a  href="about.php" >
-                      <i class="fa fa-th"></i>
-                          <span>About As</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="register.php" >
-                      <i class="fa fa-cogs"></i>
-                          <span>Register</span>
+                      <a href="setting_user.php" >
+                          <i class="fa fa-tasks"></i>
+                          <span>Settings</span>
                       </a>
                   </li>
                   <li class="sub-menu">
-                      <a href="galery.php" >
-                      <i class="fa fa-book"></i>
-                          <span>Gallery</span>
+                      <a href="javascript:;" >
+                          <i class="fa fa-th"></i>
+                          <span>Search</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="basic_table.html">Friends</a></li>
+                          <li><a  href="responsive_table.html">Repositories</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class=" fa fa-bar-chart-o"></i>
+                          <span>Charts</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="morris.html">Morris</a></li>
+                          <li><a  href="chartjs.html">Chartjs</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>Be Premium</span>
                       </a>
                   </li>
               </ul>
