@@ -1,3 +1,38 @@
+<?php
+
+if(isset($_POST['submit'])){
+    $name = $_POST['txtname'];
+    $lastname = $_POST['txtlastname'];
+    $username = $_POST['txtusername'];
+    $email = $_POST['txtemail'];
+    $password = $_POST['txtpass'];
+    $cpassword = $_POST['txtcpass'];
+
+    //Subir la Imagen
+    //Creamos una variable para ver si se sube o no el archivo
+    $imgload=true;
+
+    //Seteamos nombre, tipo y tamaño del archivo
+    $file_name=$_FILES['img']['name'];
+    $img_size=$_FILES['img']['size'];
+    $file_type=$_FILES['img']['type'];
+
+    //verificamos tamaño
+    if ($img_size>200000){
+        $imgload=false;
+    }
+    //verificamos que solo sea imagen
+    if (!($file_type =="image/jpeg" or $file_type=="image/gif")){
+        // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
+        $imgload=false;
+    }
+    //seteamos la ruta de la carpeta
+    $add="uploads/$file_name";
+    //lo movemos del temporal a la carpeta
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -22,6 +57,7 @@
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="../assets/js/chart-master/Chart.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -59,7 +95,8 @@
               
               	  <p class="centered"><a href="profile.html"><img src="../assets/img/logo.png" class="img-circle" width="60"></a></p>
               	  
-                  <li class="sub-menu">
+              	  	
+                    <li class="sub-menu">
                       <a href="home.php">
                       <i class="fa fa-tasks"></i>
                           <span>Home</span>
@@ -82,7 +119,7 @@
                   <li class="sub-menu">
                       <a href="galery.php" >
                       <i class="fa fa-book"></i>
-                          <span>Galery</span>
+                          <span>Gallery</span>
                       </a>
                   </li>
               </ul>
@@ -97,11 +134,56 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          
-            
+            <h3><i class="fa fa-angle-right"></i>Sing In Here !</h3>
 
-                  
-                  
+            <div class="col-lg-8 col-md-8 col-sm-8 mb">
+		    <form  action="" method="POST" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label>Name</label>
+                    <input type="text" class="form-control" name="txtname" id="txtname" value="<?php if(isset($name))echo $name ?>"
+                    placeholder="Enter here">
+                </div>
+				<div class="form-group">
+					<label>Last Name</label>
+                    <input type="text" class="form-control" name="txtlastname" id="txtlastname" value="<?php if(isset($lastname))echo $lastname ?>"
+                    placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label>Username</label>
+                    <input type="text" class="form-control" name="txtusername" id="txtusername" value="<?php if(isset($username))echo $username ?>"
+                    placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label>Email</label>
+                    <input type="email" class="form-control" name="txtemail" id="txtemail" value="<?php if(isset($email))echo $email ?>"
+                    placeholder="Enter here">
+                </div>
+				<div class="form-group">
+					<label>Contraseña</label>
+                    <input type="password" class="form-control" name="txtpass" id="txtpass" value="<?php if(isset($password))echo $password ?>"
+                    placeholder="Enter here">
+				</div>
+                <div class="form-group">
+					<label>Confirmar Contraseña</label>
+                    <input type="password" class="form-control" name="txtcpass" id="txtcpass" value="<?php if(isset($cpassword))echo $cpassword ?>"
+                    placeholder="Enter here">
+				</div>
+				<div class="form-group">
+					<label for="uploadedfile">Upload a Picture</label>
+					<input type="file" class="form-control-file" name="img" id="img" >
+                </div>
+
+                <div class="g-recaptcha" data-sitekey="6LfpPboUAAAAAC2yEYpndy3nwCo3k44NmhIkGeJP"></div><br>
+                <div class="form-group">
+                   <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
+                </div>
+        
+                <?php
+                    include("../php/validate.php");
+                ?>
+			</form>
+		</div>
+        
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
@@ -141,27 +223,6 @@
     <script src="../assets/js/sparkline-chart.js"></script>    
 	<script src="../assets/js/zabuto_calendar.js"></script>	
 	
-	<script type="text/javascript">
-        $(document).ready(function () {
-        var unique_id = $.gritter.add({
-            // (string | mandatory) the heading of the notification
-            title: 'Welcome to SHART!',
-            // (string | mandatory) the text inside the notification
-            text: 'Here You can Create Repositories About Music and Search It With your Friends',
-            // (string | optional) the image to display on the left
-            image: '../assets/img/logo.png',
-            // (bool | optional) if you want it to fade out on its own or just sit there
-            sticky: true,
-            // (int | optional) the time you want it to be alive for before fading out
-            time: '',
-            // (string | optional) the class name you want to apply to that specific message
-            class_name: 'my-sticky-class'
-        });
-
-        return false;
-        });
-	</script>
-	
 	<script type="application/javascript">
         $(document).ready(function () {
             $("#date-popover").popover({html: true, trigger: "manual"});
@@ -196,7 +257,9 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+    
 
   </body>
 </html>
+
+
