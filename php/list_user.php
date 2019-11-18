@@ -11,7 +11,7 @@ $result = $cnx->query($sql);
 
 while($reg = $result->fetchObject()){
 
-    echo "<div class='form-group'>
+    echo utf8_encode("<div class='form-group'>
                 <label>Name</label>
                 <input type='text' class='form-control' name='txtname' id='txtname' placeholder='Enter here' value='$reg->nombre'>
          </div>
@@ -47,6 +47,6 @@ while($reg = $result->fetchObject()){
             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
                 <button  class='btn btn-success' type='submit' name='submit2'>Delete Account</button><br>
             </div> 
-         </div>";
+         </div>");
 }                
 ?>
