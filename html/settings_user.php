@@ -1,42 +1,3 @@
-<?php
-
-if(isset($_POST['submit'])){
-    $name = $_POST['txtname'];
-    $lastname = $_POST['txtlastname'];
-    $username = $_POST['txtusername'];
-    $email = $_POST['txtemail'];
-    $password = $_POST['txtpass'];
-    $cpassword = $_POST['txtcpass'];
-
-    //Subir la Imagen
-    //Creamos una variable para ver si se sube o no el archivo
-    $imgload=true;
-
-    //Seteamos nombre, tipo y tamaño del archivo
-    $file_name=$_FILES['img']['name'];
-    $img_size=$_FILES['img']['size'];
-    $file_type=$_FILES['img']['type'];
-
-    //verificamos tamaño
-    if ($img_size>200000){
-        $imgload=false;
-    }
-    //verificamos que solo sea imagen
-    if (!($file_type =="image/jpeg" or $file_type=="image/gif")){
-        // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
-        $imgload=false;
-    }
-    //seteamos la ruta de la carpeta
-    $add="uploads/$file_name";
-    //lo movemos del temporal a la carpeta
-}elseif (isset($_POST['submit2'])) {
-    session_start();
-    if(!isset($_SESSION['idusuario'])){
-        $user=$_SESSION['idusuario'];
-    }
-}
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -142,12 +103,6 @@ if(isset($_POST['submit'])){
             <div class="col-lg-8 col-md-8 col-sm-8 mb">
 		    <form  action="list_user.php" method="POST" enctype="multipart/form-data">
 
-
-                <?php
-
-                    include("../php/list_user.php");
-                    include("../php/update_info_user.php");
-                ?>
 			</form>
 		</div>
         
@@ -188,7 +143,8 @@ if(isset($_POST['submit'])){
 
     <!--script for this page-->
     <script src="../assets/js/sparkline-chart.js"></script>    
-	<script src="../assets/js/zabuto_calendar.js"></script>	
+    <script src="../assets/js/zabuto_calendar.js"></script>
+    <script src="../assets/js/common-scriopts.js"></script>	
 	
 	<script type="application/javascript">
         $(document).ready(function () {

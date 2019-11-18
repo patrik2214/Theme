@@ -1,16 +1,14 @@
 <?php
 
-requiere_once(conexion.php);
+requiere_once("conexion.php");
 
-session_start();
-$idusuario = $_SESSION['idusuario'];
-
-$name = $_POST['txtname'];
-$lastname = $_POST['txtlastname'];
-$username = $_POST['txtusername'];
-$email = $_POST['txtemail'];
-$password = $_POST['txtpass'];
-$cpassword = $_POST['txtcpass'];
+$idusuario = $_POST['idusuario'];
+$name = $_POST['name'];
+$lastname = $_POST['lastname'];
+$username = $_POST['username'];
+$email = $_POST['email'];
+$password = $_POST['pass'];
+$cpassword = $_POST['cpass'];
 
 //Subir la Imagen
 //Creamos una variable para ver si se sube o no el archivo
@@ -33,16 +31,6 @@ if (!($file_type =="image/jpeg" or $file_type=="image/gif")){
 //seteamos la ruta de la carpeta
 $add="uploads/$file_name";
 //lo movemos del temporal a la carpeta
-
-if(!$captcha){
-    echo "<script> alert('Complete el captcha'); window.location.href='index.html';</script>";
-    exit;
-    }
-    //Clave de captcha 
-    $secretKey = "6LfpPboUAAAAAHb3--UcUTOVgftFH8HneL2V2guI";
-    $ip = $_SERVER['REMOTE_ADDR'];
-    $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
-    $responseKeys = json_decode($response,true);
 
 if(empty($name)){
     echo "<p class='error'>* Enter Here Your Name</p>";

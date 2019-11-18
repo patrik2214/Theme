@@ -1,12 +1,11 @@
-<?php 
-
+<?php
 require_once("conexion.php");
 
 session_start();
-$idusuario = $_SESSION['idusuario'];
+$user =  $_SESSION['idusuario'];
 
 
-$sql="SELECT * FROM USUARIO WHERE idusuario='$idusuario'";
+$sql="SELECT * FROM USUARIO WHERE idusuario='$user'";
 $result = $cnx->query($sql);
 
 while($reg = $result->fetchObject()){
@@ -29,7 +28,7 @@ while($reg = $result->fetchObject()){
             </div>
 		 <div class='form-group'>
 		    <label>Contraseña</label>
-			<input type='password' class='form-control' name='txtpass' id='txtpass' placeholder='Enter here' value='$reg->contraseña'>
+			<input type='password' class='form-control' name='txtpass' id='txtpass' placeholder='Enter here' value='$reg->password'>
 		 </div>
          <div class='form-group'>
 			<label>Confirmar Contraseña</label>
@@ -41,11 +40,11 @@ while($reg = $result->fetchObject()){
          </div>
          <div class='row'>
             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
-                <button  class='btn btn-success' type='submit' name='submit'>Save All Changes</button><br>
+                <button  class='btn btn-success' type='submit' onclick='modify_user($reg->$idusuario)'>Save All Changes</button><br>
             </div>
                     
             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
-                <button  class='btn btn-success' type='submit' name='submit2'>Delete Account</button><br>
+                <button  class='btn btn-success' type='submit' onclick='delete_user($reg->$idusuario)'>Delete Account</button><br>
             </div> 
          </div>");
 }                

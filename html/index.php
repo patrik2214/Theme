@@ -211,7 +211,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                   <li class="mt">
                       <a class="active" href="index.php">
                           <i class="fa fa-dashboard"></i>
-                          <span>Repositorios</span>
+                          <span>Repositories</span>
                       </a>
                   </li>
 
@@ -228,15 +228,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                   </li>
 
                   <li class="sub-menu">
-                      <a href="javascript:;" >
+                      <a href="../html/settings_user.php" >
                           <i class="fa fa-cogs"></i>
-                          <span>Components</span>
+                          <span>Settings</span>
                       </a>
-                      <ul class="sub">
-                          <li><a  href="calendar.html">Calendar</a></li>
-                          <li><a  href="gallery.html">Gallery</a></li>
-                          <li><a  href="todo_list.html">Todo List</a></li>
-                      </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >

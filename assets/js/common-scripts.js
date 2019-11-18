@@ -310,3 +310,39 @@ function listar_colb(id) {
 		}
 	});
 }
+
+function modify_user(idusuario){
+	var name = document.getElementById("txtname").value;
+	var lastname = document.getElementById("txtlastname").value;
+	var username = document.getElementById("txtusername").value;
+	var email = document.getElementById("txtemail").value;
+	var password = document.getElementById("txtpass").value;
+	var cpassword = document.getElementById("txtcpass").value;
+	var img = File.getElementById("img").value;
+	
+	$.ajax({
+        url: 'update_info_user.php',
+        type: 'post',
+        data: {"name":name, "lastname":lastname, "username":username ,"email":email,"pass":password,"cpass": cpassword,"img":img,"idusuario":idusuario},
+        success: function( data ){
+			console.log(data);           
+        },
+        error: function( jqXhr, textStatus, error ){
+            console.log( error );
+        }
+    });
+}
+
+function delete_user(idusuario){
+	$.ajax({
+        url: 'update_info_user.php',
+        type: 'post',
+        data: {"idusuario":idusuario},
+        success: function( data ){
+			console.log(data);           
+        },
+        error: function( jqXhr, textStatus, error ){
+            console.log( error );
+        }
+    });
+}

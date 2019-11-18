@@ -9,13 +9,12 @@ $password1 = false;
 $cpassword1 = false;
 $resp=1;
 
-
 if(isset($_POST['submit'])){
 
     $captcha=$_POST['g-recaptcha-response'];
 
     if(!$captcha){
-    echo "<script> alert('Complete el captcha'); window.location.href='index.html';</script>";
+    echo "<script> alert('Complete el captcha'); window.location.href='register.php';</script>";
     exit;
     }
     //Clave de captcha 
@@ -32,15 +31,21 @@ if(isset($_POST['submit'])){
         $reg = $rs->fetchObject();
         $email2 = $reg->email;
     
+        #echo $email2;
+
         $rs = $cnx->query("SELECT COUNT(*) as valor FROM usuario WHERE nombreusuario='$username'") or $resp=0;
         $reg = $rs->fetchObject();
         $username2 = $reg->valor;
     
+        #echo $username2;
+
         $rs = $cnx->query("SELECT COALESCE(max(idusuario),0)+1 as valor FROM usuario") or $resp=0;
         $reg = $rs->fetchObject();
         $idusuario = $reg->valor;
         
         
+        #echo $idusuario;
+
         if(empty($name)){
             echo "<p class='error'>* Enter Here Your Name</p>";
         }elseif (strlen($name)>45) {
@@ -108,21 +113,16 @@ if(isset($_POST['submit'])){
     
             }
         }
-    
+            
+
         $cnx->commit();
     } catch(PDOException $x) { 
         $cnx->rollBack();
         $resp=0; 
     }
-    if ($resp==1 ){
-        session_start();
-        $_SESSION['username']= $username;
-        $_SESSION['idusuario']= $idusuario; 
-    
-        header("location: ../html/login.php");
-    }else{
-        header("location: ../html/home.php");
-    }
 
+    if ($resp==1){echo "<script> alert('Registro realizado correctamente')</script>";}
+        else{echo "<script> alert('Hubo algun error')</script>";}
+    
 }
 ?>

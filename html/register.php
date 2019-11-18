@@ -5,8 +5,8 @@ if(isset($_POST['submit'])){
     $lastname = $_POST['txtlastname'];
     $username = $_POST['txtusername'];
     $email = $_POST['txtemail'];
-    $password = $_POST['txtpass'];
-    $cpassword = $_POST['txtcpass'];
+    $password = sha1($_POST['txtpass']);
+    $cpassword = sha1($_POST['txtcpass']);
 
     //Subir la Imagen
     //Creamos una variable para ver si se sube o no el archivo
@@ -30,9 +30,7 @@ if(isset($_POST['submit'])){
     $add="uploads/$file_name";
     //lo movemos del temporal a la carpeta
 }
-
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -160,13 +158,11 @@ if(isset($_POST['submit'])){
                 </div>
 				<div class="form-group">
 					<label>Contraseña</label>
-                    <input type="password" class="form-control" name="txtpass" id="txtpass" value="<?php if(isset($password))echo $password ?>"
-                    placeholder="Enter here">
+                    <input type="password" class="form-control" name="txtpass" id="txtpass" placeholder="Enter here">
 				</div>
                 <div class="form-group">
 					<label>Confirmar Contraseña</label>
-                    <input type="password" class="form-control" name="txtcpass" id="txtcpass" value="<?php if(isset($cpassword))echo $cpassword ?>"
-                    placeholder="Enter here">
+                    <input type="password" class="form-control" name="txtcpass" id="txtcpass"placeholder="Enter here">
 				</div>
 				<div class="form-group">
 					<label for="uploadedfile">Upload a Picture</label>
