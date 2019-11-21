@@ -311,7 +311,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper">   
+          <section class="wrapper site-min-height">   
               <div class="row mt ">
                 <!-- Button trigger modal -->
                 <div class="col-lg-12">
