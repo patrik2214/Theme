@@ -147,7 +147,7 @@ INSERT INTO genero (idGENERO, descripcion) VALUES (6, 'Rock');
 INSERT INTO genero (idGENERO, descripcion) VALUES (7, 'Metal');
 INSERT INTO genero (idGENERO, descripcion) VALUES (8, 'Country');
 INSERT INTO genero (idGENERO, descripcion) VALUES (9, 'Funk');
-INSERT INTO genero (idGENERO, descripcio) VALUES (10, 'Disco');
+INSERT INTO genero (idGENERO, descripcion) VALUES (10, 'Disco');
 INSERT INTO genero (idGENERO, descripcion) VALUES (11, 'House');
 INSERT INTO genero (idGENERO, descripcion) VALUES (12, 'Techno');
 INSERT INTO genero (idGENERO, descripcion) VALUES (13, 'Pop');
@@ -167,4 +167,10 @@ INSERT INTO genero (idGENERO, descripcion) VALUES (26, 'Jazz');
 INSERT INTO genero (idGENERO, descripcion) VALUES (27, 'Música clásica');
 
 --INSERT INTO TIPO DESARROLLADOR
-INSERT INTO tipodesarrollador (idTIPODESARROLLADOR, descripcion) VALUES (1, Owner), (2, Colaborator);
+INSERT INTO tipodesarrollador (idTIPODESARROLLADOR, descripcion) VALUES (1, 'Owner'), (2,'Colaborator');
+
+
+
+---------------------------------------------------------------------------
+----Funciones y Procedimientos Almacenados 
+---------------------------------------------------------------------------
