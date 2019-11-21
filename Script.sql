@@ -133,7 +133,7 @@ CREATE TABLE IF NOT EXISTS `mydb`.`DESARROLLADOR` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
-
+ALTER TABLE `desarrollador` ADD `estado` BOOLEAN NOT NULL AFTER `TIPODESARROLLADOR_idTIPODESARROLLADOR`;
 -- -----------------------------------------------------
 -- Table `mydb`.`PROYECTO`
 -- -----------------------------------------------------

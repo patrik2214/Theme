@@ -43,12 +43,13 @@ try
     $idcol = $re->ultimo;
 
     $uno = 1 ;
-	$c=$cnx->prepare("INSERT INTO desarrollador (idCOLABORADOR, USUARIO_idUSUARIO, REPOSITORIO_idREPOSITORIO, TIPODESARROLLADOR_idTIPODESARROLLADOR) 
-       VALUES(:idcol,:user,:repo,:tipo)");
+	$c=$cnx->prepare("INSERT INTO desarrollador (idCOLABORADOR, USUARIO_idUSUARIO, REPOSITORIO_idREPOSITORIO, TIPODESARROLLADOR_idTIPODESARROLLADOR, estado) 
+       VALUES(:idcol,:user,:repo,:tipo, :est)");
     $c->bindParam(":idcol",$idcol);
     $c->bindParam(":user",$user);
     $c->bindParam(":repo",$idrepo);
     $c->bindParam(":tipo", $uno);
+    $c->bindParam(":est", $uno);
     $c->execute();
 
 	$cnx->commit();
