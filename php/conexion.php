@@ -1,6 +1,6 @@
 <?php
 // PDO PHP Data Object
-$driver = "mysql";
+$driver = "pgsql";
 $servidor = "localhost";
 $basedatos = "mydb";
 $usuario = "root";
