@@ -477,3 +477,30 @@ function delete_pry(idpry) {
 		}
 	})
 }
+
+FB.getLoginStatus(function (response) {
+	statusChangeCallback(response);
+});
+
+
+function checkLoginState() {
+	FB.getLoginStatus(function (response) {
+		statusChangeCallback(response);
+	});
+}
+
+function buscar() {
+	var textoBusqueda = $("#busqueda").val();
+	$.ajax({
+		url: "../php/buscar_repo.php",
+		type: 'post',
+		data: { 'txtbuscar': textoBusqueda },
+		success: function (data) {
+			$("#colum1").html(data);
+
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}

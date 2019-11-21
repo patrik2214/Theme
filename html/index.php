@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION['idusuario'])) header("location: login.php");
 ?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +12,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <script
+    <!-- <script
       src="https://kit.fontawesome.com/fa723842a6.js"
       crossorigin="anonymous"
-    ></script>
+    ></script> -->
     <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
     <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
@@ -326,7 +326,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     <div class="showback">
                         <!-- Barra de busqueda -->
                         <form >
-                            <input type="search" name="busqueda" class="form-control" id="busqueda" placeholder="Ingrese repositorio a buscar" />
+                            <input type="search" name="busqueda" class="form-control" id="busqueda" onkeyup="buscar()" placeholder="Ingrese repositorio a buscar" />
                         </form>
                     </div><!-- /showback -->
                 </div>
@@ -373,11 +373,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       			<div class="col-lg-12 col-md-12 " id="colum1" >      			
       				
       			</div><!-- /col-lg-6 -->      			
-      			
-      			<div class="col-lg-6 col-md-6 col-sm-12" id="colum2">                 
-      				
-      			</div><!-- /col-lg-6 -->
-      			
+      			      			
       		</div><!--/ row -->
                   
                   

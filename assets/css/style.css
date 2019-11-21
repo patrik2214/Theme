@@ -22,11 +22,11 @@ a:focus {
 	outline: none;
 }
 ::selection {
-	background: #e22929;
+	background: #444950;
 	color: #fff;
 }
 ::-moz-selection {
-	background: #e22929;
+	background: #444950;
 	color: #fff;
 }
 
@@ -37,7 +37,7 @@ a:focus {
 
 /* Bootstrap Modifications */
 .modal-header {
-	background: #e22929;
+	background: #444950;
 }
 
 .modal-title {
@@ -65,7 +65,7 @@ a:focus {
 /*Theme Backgrounds*/
 
 .bg-theme {
-	background-color: #e22929;
+	background-color: #444950;
 }
 
 .bg-theme02 {
@@ -83,8 +83,8 @@ a:focus {
 
 .btn-theme {
 	color: #fff;
-	background-color: #e22929;
-	border-color: #48bcb4;
+	background-color: #444950;
+	border-color: #92C4E8;
 }
 .btn-theme:hover,
 .btn-theme:focus,
@@ -92,8 +92,8 @@ a:focus {
 .btn-theme.active,
 .open .dropdown-toggle.btn-theme {
 	color: #fff;
-	background-color: #48bcb4;
-	border-color: #48bcb4;
+	background-color: #92C4E8;
+	border-color: #92C4E8;
 }
 
 .btn-theme02 {
@@ -128,8 +128,8 @@ a:focus {
 
 .btn-theme04 {
 	color: #fff;
-	background-color: #ed5565;
-	border-color: #da4453;
+	background-color: #5cb85c;
+	border-color: #5cb85c;
 }
 .btn-theme04:hover,
 .btn-theme04:focus,
@@ -137,14 +137,14 @@ a:focus {
 .btn-theme04.active,
 .open .dropdown-toggle.btn-theme04 {
 	color: #fff;
-	background-color: #da4453;
-	border-color: #da4453;
+	background-color: #4cae4c;
+	border-color: #4cae4c;
 }
 
 .btn-clear-g {
-	color: #48bcb4;
+	color: #92C4E8;
 	background: transparent;
-	border-color: #48bcb4;
+	border-color: #92C4E8;
 }
 
 .btn-clear-g:hover {
@@ -199,11 +199,11 @@ hr {
 /*Exclusive Theme Colors Configuration*/
 
 .label-theme {
-	background-color: #e22929;
+	background-color: #444950;
 }
 
 .bg-theme {
-	background-color: #e22929;
+	background-color: #444950;
 }
 
 ul.top-menu > li > .logout {
@@ -214,7 +214,7 @@ ul.top-menu > li > .logout {
 	border: 1px solid #64c3c2 !important;
 	padding: 5px 15px;
 	margin-right: 15px;
-	background: #e22929;
+	background: #444950;
 	margin-top: 15px;
 }
 
@@ -319,7 +319,7 @@ ul.sidebar-menu li ul.sub li a:hover {
 }
 
 ul.sidebar-menu li ul.sub li.active a {
-	color: #e22929;
+	color: #444950;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	-o-transition: all 0.3s ease;
@@ -360,7 +360,7 @@ ul.sidebar-menu li a {
 ul.sidebar-menu li a.active,
 ul.sidebar-menu li a:hover,
 ul.sidebar-menu li a:focus {
-	background: #e22929;
+	background: #444950;
 	color: #fff;
 	display: block;
 
@@ -410,8 +410,8 @@ ul.sidebar-menu li a.active i {
 }
 
 .black-bg {
-	background: #dd2f10;
-	border-bottom: 1px solid #dd2f10;
+	background: #444950;
+	border-bottom: 1px solid #444950;
 }
 
 .wrapper {
@@ -443,7 +443,7 @@ a.logo:focus {
 }
 
 a.logo span {
-	color: #e22929;
+	color: #444950;
 }
 
 /*notification*/
@@ -522,7 +522,7 @@ ul.top-menu > li > a:focus {
 }
 
 .dropdown-menu.extended li p.green {
-	background-color: #e22929;
+	background-color: #444950;
 	color: #fff;
 }
 
@@ -726,9 +726,9 @@ ul.top-menu > li > a:focus {
 	border-top-color: #fcb322 !important;
 }
 .notify-arrow-green {
-	border-color: transparent transparent #e22929;
-	border-bottom-color: #e22929 !important;
-	border-top-color: #e22929 !important;
+	border-color: transparent transparent #444950;
+	border-bottom-color: #444950 !important;
+	border-top-color: #444950 !important;
 }
 
 /*--sidebar toggle---*/
@@ -820,7 +820,7 @@ ul.top-menu > li > a:focus {
 }
 
 .ds a {
-	color: #e22929;
+	color: #444950;
 }
 
 /* LINE ICONS CONFIGURATION */
@@ -915,7 +915,7 @@ ul.top-menu > li > a:focus {
 	position: absolute;
 	bottom: 0;
 	background: #ff865c;
-	color: #e22929;
+	color: #444950;
 	width: 100%;
 	-webkit-border-radius: 5px 5px 0 0;
 	-moz-border-radius: 5px 5px 0 0;
@@ -1045,7 +1045,7 @@ PANELS CONFIGURATIONS
 /*Green Panel*/
 .green-panel {
 	text-align: center;
-	background: #e22929;
+	background: #444950;
 }
 .green-panel .green-header {
 	background: #43b1a9;
@@ -1089,7 +1089,7 @@ PANELS CONFIGURATIONS
 }
 
 .white-panel i {
-	color: #e22929;
+	color: #444950;
 	padding-right: 4px;
 	font-size: 14px;
 }
@@ -1503,7 +1503,7 @@ PANELS CONFIGURATIONS
 	font-weight: 900;
 }
 .profile-01 {
-	background: #e22929;
+	background: #444950;
 	height: 50px;
 }
 .profile-01:hover {
@@ -1551,7 +1551,7 @@ PANELS CONFIGURATIONS
 	color: #cdcdcd;
 }
 .pr2-social a:hover {
-	color: #e22929;
+	color: #444950;
 }
 .pr2-social i {
 	margin-top: 15px;
@@ -1607,7 +1607,7 @@ PANELS CONFIGURATIONS
 }
 .panel.terques-chart .chart-tittle .value a:hover,
 .panel.terques-chart .chart-tittle .value a.active {
-	color: #e22929;
+	color: #444950;
 	font-size: 12px;
 }
 .panel.terques-chart .chart-tittle {
@@ -1661,7 +1661,7 @@ PANELS CONFIGURATIONS
 	display: block;
 	position: relative;
 	overflow: hidden;
-	background-color: #e22929;
+	background-color: #444950;
 	-webkit-transition: background-color 0.4s;
 	-moz-transition: background-color 0.4s;
 	-o-transition: background-color 0.4s;
@@ -1680,7 +1680,7 @@ PANELS CONFIGURATIONS
 }
 
 .project:hover .photo-wrapper {
-	background-color: #e22929;
+	background-color: #444950;
 	background-image: url(../img/zoom.png);
 	background-repeat: no-repeat;
 	background-position: center;
@@ -1919,7 +1919,7 @@ label {
 	margin: 0;
 	padding: 25px 20px;
 	text-align: center;
-	background: #e22929;
+	background: #444950;
 	border-radius: 5px 5px 0 0;
 	-webkit-border-radius: 5px 5px 0 0;
 	color: #fff;
@@ -2200,7 +2200,7 @@ label {
 
 /*footer*/
 .site-footer {
-	background: #e22929;
+	background: #444950;
 	color: #fff;
 	padding: 10px 0;
 }

@@ -31,7 +31,30 @@ if(isset($_SESSION['idusuario'])) header("location: index.php");
   </head>
 
   <body>
+	<!-- SCRIPT FOR LOGIN WITH FACEBOOK -->
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/es_LA/sdk.js#xfbml=1&version=v5.0&appId=538250367014752"></script>
+	<!-- <script>
+	window.fbAsyncInit = function() {
+		FB.init({
+		appId      : '{your-app-id}',
+		cookie     : true,
+		xfbml      : true,
+		version    : '{api-version}'
+		});
+		
+		FB.AppEvents.logPageView();   
+		
+	};
 
+	(function(d, s, id){
+		var js, fjs = d.getElementsByTagName(s)[0];
+		if (d.getElementById(id)) {return;}
+		js = d.createElement(s); js.id = id;
+		js.src = "https://connect.facebook.net/en_US/sdk.js";
+		fjs.parentNode.insertBefore(js, fjs);
+	}(document, 'script', 'facebook-jssdk'));
+	</script> -->
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
@@ -47,7 +70,7 @@ if(isset($_SESSION['idusuario'])) header("location: index.php");
 						if($variable=='errorCredenciales') {
 					?>
 						<div class="alert alert-danger" role="alert">
-							<p>Usuario no encontrado</p>
+							<p>Usuario no encontrado</p>	
 						</div>
 						
 					<?php
@@ -61,8 +84,8 @@ if(isset($_SESSION['idusuario'])) header("location: index.php");
 		            
 		            <div class="login-social-link centered">
 		            <p>or you can sign in via your social network</p>
-		                <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button>
-		                <button class="btn btn-twitter" type="submit"><i class="fa fa-twitter"></i> Twitter</button>
+		                <!-- <button class="btn btn-facebook" type="submit"><i class="fa fa-facebook"></i> Facebook</button> -->
+						<div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-auto-logout-link="false" data-use-continue-as="false"></div>
 		            </div>
 		            <div class="registration">
 		                Don't have an account yet?<br/>
@@ -110,7 +133,8 @@ if(isset($_SESSION['idusuario'])) header("location: index.php");
     <script>
         // $.backstretch("../assets/img/login-bg.jpg");
         // $.backstretch("../assets/img/back_login.jpg");
-    </script>    
+    </script>
+    
 	<style>
 		body { 
 			background: url("../assets/img/login-bg.jpg") fixed center no-repeat ; 

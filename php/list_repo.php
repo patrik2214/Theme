@@ -8,9 +8,9 @@ $sql="SELECT * FROM repositorio inner join desarrollador on repositorio.idREPOSI
     where desarrollador.USUARIO_idUSUARIO = $user and desarrollador.TIPODESARROLLADOR_idTIPODESARROLLADOR=1 ";
 $result = $cnx->query($sql);
 while($reg = $result->fetchObject()){
-    echo utf8_encode("<div class='showback'>
-                          <h4><i class='fa fa-angle-right'></i>$reg->nombre</h4>
-                          <p>$reg->descripcion</p>                          
+    echo ("<div class='showback'>
+                        <h4><i class='fa fa-angle-right'></i>$reg->nombre</h4>
+                        <p>$reg->descripcion</p>                          
                         <button type='button' class='btn btn-default'>
                             <a href='http://localhost/theme/html/myrepo.php?repo=$reg->idREPOSITORIO' >Entrar</a>
                         </button>
