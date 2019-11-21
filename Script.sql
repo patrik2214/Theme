@@ -128,43 +128,43 @@ CREATE TABLE PAGO (
   idPAGO INT PRIMARY KEY,
   idTIPOPAGO INT NOT NULL REFERENCES TIPOPAGO,
   idVENTA INT NOT NULL REFERENCES VENTA);
-
+---------------------------------------------------------------
 -- INSERT SCRIPTS
+---------------------------------------------------------------
+
 -- INSERT INTO USUARIO
-INSERT INTO `usuario` (`idUSUARIO`, `nombre`, `apellido`, `nombreUsuario`, `correo`, `fecha_registro`, `password`, `TIPOUSUARIO_idTIPOUSUARIO`, `foto`) 
-VALUES ('1', 'wer', 'wer', 'wer', 'wer@wer.com', '2019-11-14', SHA1('wer'), '1', NULL);
-
---INSERT INTO tipo repositorio TABLA ELIMINADA EN EL PROCESO
---INSERT INTO `tiporepositorio` (`idTIPOREPOSITORIO`, `publico`, `colaborativo`) VALUES ('1', '1', '0'), ('2', '1', '1'), ('3', '0', '1');
-
+/* Hay que registrarlo desde la app
+INSERT INTO usuario (idUSUARIO, nombre, apellido, nombreUsuario, correo, fecha_registro, password, idTIPOUSUARIO, foto, estado) 
+VALUES (1, 'wer', 'wer', 'wer', 'wer@wer.com', '2019-11-14', 'wer', '1', NULL,true);
+*/
 --INSERT INTO GENEROS MUSICALES
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('1', 'Blues');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('2', 'R&B');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('3', 'Rock and Roll');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('4', 'Gospel');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('5', 'Soul');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('6', 'Rock');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('7', 'Metal');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('8', 'Country');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('9', 'Funk');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('10', 'Disco');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('11', 'House');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('12', 'Techno');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('13', 'Pop');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('14', 'Ska');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('15', 'Reggae');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('16', 'Hip Hop');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('17', 'Drum and Bass');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('18', 'Garage');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('19', 'Flamenco');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('20', 'Salsa');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('21', 'Reggaeton');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('22', 'Música instrumental');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('23', 'Banda sonora');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('24', 'Música pragmática');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('25', 'Música vocal');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('26', 'Jazz');
-INSERT INTO `genero` (`idGENERO`, `descripcion`) VALUES ('27', 'Música clásica');
+INSERT INTO genero (idGENERO, descripcion) VALUES (2, 'R&B');
+INSERT INTO genero (idGENERO, descripcion) VALUES (1, 'Blues');
+INSERT INTO genero (idGENERO, descripcion) VALUES (3, 'Rock and Roll');
+INSERT INTO genero (idGENERO, descripcion) VALUES (4, 'Gospel');
+INSERT INTO genero (idGENERO, descripcion) VALUES (5, 'Soul');
+INSERT INTO genero (idGENERO, descripcion) VALUES (6, 'Rock');
+INSERT INTO genero (idGENERO, descripcion) VALUES (7, 'Metal');
+INSERT INTO genero (idGENERO, descripcion) VALUES (8, 'Country');
+INSERT INTO genero (idGENERO, descripcion) VALUES (9, 'Funk');
+INSERT INTO genero (idGENERO, descripcio) VALUES (10, 'Disco');
+INSERT INTO genero (idGENERO, descripcion) VALUES (11, 'House');
+INSERT INTO genero (idGENERO, descripcion) VALUES (12, 'Techno');
+INSERT INTO genero (idGENERO, descripcion) VALUES (13, 'Pop');
+INSERT INTO genero (idGENERO, descripcion) VALUES (14, 'Ska');
+INSERT INTO genero (idGENERO, descripcion) VALUES (15, 'Reggae');
+INSERT INTO genero (idGENERO, descripcion) VALUES (16, 'Hip Hop');
+INSERT INTO genero (idGENERO, descripcion) VALUES (17, 'Drum and Bass');
+INSERT INTO genero (idGENERO, descripcion) VALUES (18, 'Garage');
+INSERT INTO genero (idGENERO, descripcion) VALUES (19, 'Flamenco');
+INSERT INTO genero (idGENERO, descripcion) VALUES (20, 'Salsa');
+INSERT INTO genero (idGENERO, descripcion) VALUES (21, 'Reggaeton');
+INSERT INTO genero (idGENERO, descripcion) VALUES (22, 'Música instrumental');
+INSERT INTO genero (idGENERO, descripcion) VALUES (23, 'Banda sonora');
+INSERT INTO genero (idGENERO, descripcion) VALUES (24, 'Música pragmática');
+INSERT INTO genero (idGENERO, descripcion) VALUES (25, 'Música vocal');
+INSERT INTO genero (idGENERO, descripcion) VALUES (26, 'Jazz');
+INSERT INTO genero (idGENERO, descripcion) VALUES (27, 'Música clásica');
 
 --INSERT INTO TIPO DESARROLLADOR
-INSERT INTO `tipodesarrollador` (`idTIPODESARROLLADOR`, `descripcion`) VALUES ('1', 'Owner'), ('2', 'Colaborator');
+INSERT INTO tipodesarrollador (idTIPODESARROLLADOR, descripcion) VALUES (1, Owner), (2, Colaborator);
