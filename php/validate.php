@@ -115,7 +115,7 @@ if(isset($_POST['submit'])){
                     
                     $uno=1;
 
-                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,TIPOUSUARIO_idTIPOUSUARIO,foto) 
+                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,idTIPOUSUARIO,foto) 
                     VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,now(),:password,:tipousuario,:foto)");
                     $a->bindParam(":idusuario",$idusuario);
                     $a->bindParam(":nombre",$name);
@@ -136,7 +136,7 @@ if(isset($_POST['submit'])){
                     $uno=1;
                     $nulidad=null;
 
-                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,TIPOUSUARIO_idTIPOUSUARIO,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,now(),:password,:tipousuario,:foto)");
+                    $a=$cnx->prepare("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,idTIPOUSUARIO,foto) VALUES(:idusuario,:nombre,:apellido,:nombreusuario,:correo,now(),:password,:tipousuario,:foto)");
                     $a->bindParam(":idusuario",$idusuario);
                     $a->bindParam(":nombre",$name);
                     $a->bindParam(":apellido",$lastname);
@@ -159,7 +159,9 @@ if(isset($_POST['submit'])){
     }
 
     if ($resp==1){echo "<script> alert('Registro realizado correctamente')</script>";}
-    else{echo "<script> alert('Hubo algun error')</script>";}
+    else{echo "<script> alert('Hubo algun error')</script>";
+        
+    }
     
 }
 ?>
