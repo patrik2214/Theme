@@ -12,7 +12,7 @@ while ($re = $rs->fetchObject()){
                             <td><a href='#'>$re->descripcion</a></td>
                             <td>
                                 <button onclick='editar_pry($re->idPROYECTO)' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#new_rama'><i class='fa fa-pencil'></i></button>
-                                <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
+                                <button onclick='delete_pry($re->idPROYECTO)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
                             </td>
                         </tr>");
 };

@@ -162,7 +162,6 @@ function new_repositorio() {
 			type: "post",
 			data: { gnr: gnr, des: des, nom: nom, priv: priv },
 			success: function(data) {
-				console.log(data);
 				if (data == 1) {
 					$("#myModal").modal("toggle");
 					Swal.fire("Good job!", "Repositorio listo para usar!", "success");
@@ -213,7 +212,6 @@ function view_repo(id) {
 		type: "post",
 		data: { idrepo: id },
 		success: function(data) {
-			console.log(data);
 			$("#myrepository").html(data);
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
@@ -259,7 +257,6 @@ function new_pry(rep) {
 				idpry: idpry
 			},
 			success: function(data) {
-				console.log(data);
 				if (data == 1) {
 					$("#new_rama").modal("toggle");
 					Swal.fire("Good job!", "Actualizacion realizada!", "success");
@@ -434,3 +431,49 @@ function clean_gnr() {
 	$("#idpry").val("");
 }
 
+function delete_pry(idpry) {
+	Swal.fire({
+		title: 'Are you sure?',
+		text: "You won't be able to revert this!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yes, delete it!'
+	}).then((result) => {
+		if (result.value) {
+			$.ajax({
+				url: "../php/delete_pry.php",
+				dataType: "text",
+				type: "post",
+				data: { idpry: idpry },
+				success: function (data) {
+					console.log(data);
+					if (data == 1) {
+						Swal.fire({
+							position: 'top-end',
+							icon: 'success',
+							title: 'Your work has been saved',
+							showConfirmButton: false,
+							timer: 1500
+						});
+						$("#home-tab").trigger('click');
+
+					} else {
+						Swal.fire({
+							position: 'top-end',
+							icon: 'error',
+							title: 'Error borrando los archivos',
+							showConfirmButton: false,
+							timer: 1500
+						});
+					}
+				},
+				error: function (jqXhr, textStatus, errorThrown) {
+					console.log(errorThrown);
+				}
+			});
+			
+		}
+	})
+}

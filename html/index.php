@@ -204,16 +204,16 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             	    </ul> -->
                 <!-- </form> -->
                 <div class="btn-group pull-right">
-						  <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
-						    <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
-						  </button>
-						  <ul class="dropdown-menu pull-right" role="menu">
-						    <li><a href="#">Be premium</a></li>
-						    <li><a href="#">Editar mi perfil</a></li>
-						    <li class="divider"></li>
-						    <li><a href="../php/close_session.php">Logout</a></li>
-						  </ul>
-						</div>
+                    <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
+                    <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu pull-right" role="menu">
+                    <li><a href="#">Be premium</a></li>
+                    <li><a href="#">Editar mi perfil</a></li>
+                    <li class="divider"></li>
+                    <li><a href="../php/close_session.php">Logout</a></li>
+                    </ul>
+                </div>
             </div>
         </header>
       <!--header end-->
