@@ -85,7 +85,10 @@ if(!isset($_SESSION['usuario'])) header("location: login.php");
 		
 		        </div>
 		
-		          <!-- Modal -->
+		        
+		
+		      </form>	  	
+						  <!-- Modal -->
 		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
 		              <div class="modal-dialog">
 		                  <div class="modal-content">
@@ -106,9 +109,6 @@ if(!isset($_SESSION['usuario'])) header("location: login.php");
 		              </div>
 		          </div>
 		          <!-- modal -->
-		
-		      </form>	  	
-	  	
 	  	</div>
 	  </div>
 	<!-- js placed at the end of the document so the pages load faster -->

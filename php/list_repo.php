@@ -10,10 +10,8 @@ $result = $cnx->query($sql);
 while($reg = $result->fetchObject()){
     echo utf8_encode("<div class='showback'>
                           <h4><i class='fa fa-angle-right'></i>$reg->nombre</h4>
-                          <p>$reg->descripcion</p>
-                          <button type='button' class='btn btn-primary'>Configuracion</button>
-                          
-                        <button type='button' class='btn btn-primary'>
+                          <p>$reg->descripcion</p>                          
+                        <button type='button' class='btn btn-default'>
                             <a href='http://localhost/theme/html/myrepo.php?repo=$reg->idREPOSITORIO' >Entrar</a>
                         </button>
       				</div>");

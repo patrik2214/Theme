@@ -74,7 +74,10 @@ if(isset($_SESSION['idusuario'])) header("location: index.php");
 		        </div>
 		
 		          <!-- Modal -->
-		          <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
+		          
+		
+		      </form>	
+			  <div aria-hidden="true" aria-labelledby="myModalLabel" role="dialog" tabindex="-1" id="myModal" class="modal fade">
 		              <div class="modal-dialog">
 		                  <div class="modal-content">
 		                      <div class="modal-header">
@@ -93,9 +96,7 @@ if(isset($_SESSION['idusuario'])) header("location: index.php");
 		                  </div>
 		              </div>
 		          </div>
-		          <!-- modal -->
-		
-		      </form>	  	
+		          <!-- modal -->  	
 	  	
 	  	</div>
 	  </div>

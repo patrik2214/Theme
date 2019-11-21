@@ -186,12 +186,34 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 </ul>
                 <!--  notification end -->
             </div>
-            <div class="top-menu">
-                <form action="../php/close_session.php" method="post">
-            	    <ul class="nav pull-right top-menu">
+            <div class="nav pull-right top-menu notify-row">
+                <!-- <div >
+                    <a class="btn btn-secondary dropdown-toggle" href="myperfil.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        top-menu n
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="#">Action</a>
+                        <a class="dropdown-item" href="#">Another action</a>
+                        <a class="dropdown-item" onclick="close_sesion()" href="#">Logout</a>
+                    </div>
+                </div> -->
+                <!-- <form action="../php/close_session.php" method="post"> -->
+            	    <!-- <ul class="dropdown nav pull-right top-menu" >
+                        <li><a href="myperfil.php"></a></li>
                         <li> <button type="submit" class="logout" >Logout</button> </li>
-            	    </ul>
-                </form>
+            	    </ul> -->
+                <!-- </form> -->
+                <div class="btn-group pull-right">
+						  <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
+						    <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
+						  </button>
+						  <ul class="dropdown-menu pull-right" role="menu">
+						    <li><a href="#">Be premium</a></li>
+						    <li><a href="#">Editar mi perfil</a></li>
+						    <li class="divider"></li>
+						    <li><a href="../php/close_session.php">Logout</a></li>
+						  </ul>
+						</div>
             </div>
         </header>
       <!--header end-->
@@ -200,38 +222,71 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <aside>
+       <aside>
           <div id="sidebar"  class="nav-collapse ">
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-              	  <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
+                    
+              	  	
+                  <li class="mt">
+                      <a href="index.php">
+                          <span>My Repositories</span>
+                      </a>
+                  </li>
 
                   <li class="sub-menu">
-                      <a href="index.php" >
-                          <i class="fa fa-dashboard"></i>
-                          <span>Repositories</span>
+                      <a href="javascript:;" >
+                          <i class="fa fa-desktop"></i>
+                          <span>UI Elements</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="myrepo.php">My Repositories</a></li>
-                          <li><a  href="index.php">New Repositories</a></li>
+                          <li><a  href="general.html">General</a></li>
+                          <li><a  href="buttons.html">Buttons</a></li>
+                          <li><a  href="panels.html">Panels</a></li>
                       </ul>
                   </li>
 
                   <li class="sub-menu">
-                      <a href="settings_user.php" >
-                          <i class="fa fa-tasks"></i>
-                          <span>Settings</span>
+                      <a href="javascript:;" >
+                          <i class="fa fa-cogs"></i>
+                          <span>Components</span>
                       </a>
+                      <ul class="sub">
+                          <li><a  href="calendar.html">Calendar</a></li>
+                          <li><a  href="gallery.html">Gallery</a></li>
+                          <li><a  href="todo_list.html">Todo List</a></li>
+                      </ul>
                   </li>
                   <li class="sub-menu">
                       <a href="javascript:;" >
-                          <i class="fa fa-th"></i>
-                          <span>Search</span>
+                          <i class="fa fa-book"></i>
+                          <span>Extra Pages</span>
                       </a>
                       <ul class="sub">
-                          <li><a  href="basic_table.html">Friends</a></li>
-                          <li><a  href="responsive_table.html">Repositories</a></li>
+                          <li><a  href="blank.html">Blank Page</a></li>
+                          <li><a  href="login.html">Login</a></li>
+                          <li><a  href="lock_screen.html">Lock Screen</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a href="javascript:;" >
+                          <i class="fa fa-tasks"></i>
+                          <span>Forms</span>
+                      </a>
+                      <ul class="sub">
+                          <li><a  href="form_component.html">Form Components</a></li>
+                      </ul>
+                  </li>
+                  <li class="sub-menu">
+                      <a  href="javascript:;" >
+                          <i class="fa fa-th"></i>
+                          <span>Data Tables</span>
+                      </a>
+                      <ul class="sub">
+                          <li ><a  href="basic_table.html">Basic Table</a></li>
+                          <li><a  href="responsive_table.html">Responsive Table</a></li>
                       </ul>
                   </li>
                   <li class="sub-menu">
@@ -244,12 +299,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                           <li><a  href="chartjs.html">Chartjs</a></li>
                       </ul>
                   </li>
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Be Premium</span>
-                      </a>
-                  </li>
+
               </ul>
               <!-- sidebar menu end-->
           </div>
@@ -378,7 +428,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
-	<script type="text/javascript">
+    <!-- <script type="text/javascript">
         $(document).ready(function () {
         var unique_id = $.gritter.add({
             // (string | mandatory) the heading of the notification
@@ -397,7 +447,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
 
         return false;
         });
-	</script>
+    </script> -->
 	
 	<script type="application/javascript">
         $(document).ready(function () {
