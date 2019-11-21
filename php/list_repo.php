@@ -4,8 +4,8 @@ require_once("conexion.php");
 session_start();
 $user =  $_SESSION['idusuario'];
 
-$sql="SELECT * FROM repositorio inner join desarrollador on repositorio.idREPOSITORIO = desarrollador.REPOSITORIO_idREPOSITORIO 
-    where desarrollador.USUARIO_idUSUARIO = $user and desarrollador.TIPODESARROLLADOR_idTIPODESARROLLADOR=1 ";
+$sql="SELECT * FROM repositorio r inner join desarrollador d on r.idREPOSITORIO = d.idREPOSITORIO 
+    where d.idUSUARIO = $user and d.idTIPODESARROLLADOR=1 ";
 $result = $cnx->query($sql);
 while($reg = $result->fetchObject()){
     echo ("<div class='showback'>
