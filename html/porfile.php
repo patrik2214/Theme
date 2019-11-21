@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(!isset($_SESSION['idusuario'])) header("location: login.php");
+?>
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -122,22 +126,6 @@
                 <!--  notification end -->
             </div>
             <div class="nav pull-right top-menu notify-row">
-                <!-- <div >
-                    <a class="btn btn-secondary dropdown-toggle" href="myperfil.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        top-menu n
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" onclick="close_sesion()" href="#">Logout</a>
-                    </div>
-                </div> -->
-                <!-- <form action="../php/close_session.php" method="post"> -->
-            	    <!-- <ul class="dropdown nav pull-right top-menu" >
-                        <li><a href="myperfil.php"></a></li>
-                        <li> <button type="submit" class="logout" >Logout</button> </li>
-            	    </ul> -->
-                <!-- </form> -->
                 <div class="btn-group pull-right">
                     <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
                     <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
@@ -162,7 +150,7 @@
               <!-- sidebar menu start-->
               <ul class="sidebar-menu" id="nav-accordion">
               
-                    <p class="centered"><a href="profile.html"><img src="../assets/img/aurora.jpg" class="img-circle" width="70"></a></p>
+                <p class="centered"><a href="profile.html"><img src="../assets/img/aurora.jpg" class="img-circle" width="70"></a></p>
                     
               	  	
                   <li class="mt">
@@ -248,10 +236,12 @@
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">   
-            <h3><i class="fa fa-angle-right"></i>Settings !</h3>
-            <div class="col-lg-8 col-md-8 col-sm-8 mb">
-            <form id="user_data">
-            </from>       
+            <div class="row mt" id="#info">
+                
+                
+      		</div><!--/ row -->
+                  
+                  
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
@@ -286,7 +276,7 @@
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
     <script type="text/javascript">
-		window.load = list_user_info();
+		window.load = porfile_user();
 	</script>
     <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>

@@ -355,6 +355,24 @@ function list_user_info() {
 	});
 }
 
+function porfile_user() {
+	$.ajax({
+		url: "../php/user_porfile.php",
+		type: "post",
+		data: {},
+		success: function(data) {
+			console.log(data);
+			$("#info").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
+
+
+
 function modify_user(idusuario) {
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
