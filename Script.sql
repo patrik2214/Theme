@@ -4,7 +4,7 @@
 -- -----------------------------------------------------
 CREATE TABLE TIPOUSUARIO(
   idTIPOUSUARIO SERIAL PRIMARY KEY,
-  descripcion VARCHAR(45) NOT NULL;
+  descripcion VARCHAR(45) NOT NULL);
 -- -----------------------------------------------------
 -- Table USUARIO
 -- -----------------------------------------------------
@@ -16,8 +16,8 @@ CREATE TABLE USUARIO(
   correo VARCHAR(45) NOT NULL,
   fecha_registro DATE NOT NULL,
   password VARCHAR(41) NOT NULL,
-  idTIPOUSUARIO INT NOT NULL REFERENCES idTIPOUSUARIO,
-  foto varchar(45) NOT NULL
+  idTIPOUSUARIO INT NOT NULL REFERENCES TIPOUSUARIO,
+  foto varchar(45) NOT NULL,
   estado BOOLEAN NOT NULL);
 
 -- -----------------------------------------------------
@@ -35,7 +35,7 @@ CREATE TABLE USUARIO(
 -- -----------------------------------------------------
 -- Table GENERO
 -- -----------------------------------------------------
-CREATE GENERO (
+CREATE TABLE GENERO (
   idGENERO SERIAL PRIMARY KEY,
   descripcion VARCHAR(50) NOT NULL);
 
@@ -46,8 +46,8 @@ CREATE TABLE REPOSITORIO(
   idREPOSITORIO SERIAL PRIMARY KEY,
   fecha_creacion DATE NULL,
   nombre VARCHAR(45) NOT NULL,
-  publico TINYINT(1) NOT NULL,
-  colaborativo TINYINT(1) NOT NULL
+  publico SMALLINT NOT NULL,
+  colaborativo SMALLINT NOT NULL,
   descripcion VARCHAR(100) NULL);
 
 -- -----------------------------------------------------
@@ -62,11 +62,14 @@ CREATE TABLE TIPODESARROLLADOR(
 -- -----------------------------------------------------
 CREATE TABLE DESARROLLADOR (
   idCOLABORADOR INT NULL UNIQUE,
-  idUSUARIO INT NOT NULL REFERENCES USUARIO,
-  idREPOSITORIO INT NOT NULL REFERENCES REPOSITORIO,
-  idTIPODESARROLLADOR INT NOT NULL REFERENCES DESARROLLADOR,
+  idUSUARIO INT NOT NULL,
+  idREPOSITORIO INT NOT NULL,
+  idTIPODESARROLLADOR INT NOT NULL,
   estado BOOLEAN NOT NULL,
-  CONSTRAINT pk_desarrollador PRIMARY KEY (idUSUARIO, idREPOSITORIO, idTIPODESARROLLADOR));
+  CONSTRAINT pk_desarrollador PRIMARY KEY (idUSUARIO, idREPOSITORIO, idTIPODESARROLLADOR),
+  CONSTRAINT fk1 FOREIGN KEY(idREPOSITORIO) REFERENCES REPOSITORIO(idREPOSITORIO),
+  CONSTRAINT fk2 FOREIGN KEY(idUSUARIO) REFERENCES USUARIO(idUSUARIO),
+  CONSTRAINT fk3 FOREIGN KEY(idTIPODESARROLLADOR) REFERENCES TIPODESARROLLADOR(idTIPODESARROLLADOR));
 
 -- -----------------------------------------------------
 -- Table PROYECTO
@@ -106,10 +109,10 @@ CREATE TABLE VENTA (
 -- Table DETALLE
 -- -----------------------------------------------------
 CREATE TABLE DETALLE(
-  idDETALLE SERIAL PRIMARY KEY,
+  idDETALLE SERIAL NOT NULL,
   idVENTA INT NOT NULL REFERENCES VENTA,
   idPROYECTO INT NOT NULL REFERENCES PROYECTO,
-  CONSTRAINT pk_detalle PRIMARY KEY (idDETALLE, idVENTA , idPROYECTO));
+  CONSTRAINT pk_detalle PRIMARY KEY (idDETALLE, idVENTA));
 
 -- -----------------------------------------------------
 -- Table TIPOPAGO
@@ -124,8 +127,7 @@ CREATE TABLE TIPOPAGO (
 CREATE TABLE PAGO (
   idPAGO INT PRIMARY KEY,
   idTIPOPAGO INT NOT NULL REFERENCES TIPOPAGO,
-  idVENTA INT NOT NULL REFERENCES VENTA,
-  PRIMARY KEY (idPAGO, idTIPOPAGO));
+  idVENTA INT NOT NULL REFERENCES VENTA);
 
 -- INSERT SCRIPTS
 -- INSERT INTO USUARIO
