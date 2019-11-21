@@ -343,20 +343,20 @@ function listar_colb(id) {
 	});
 }
 
-function list_user_info(){
+function list_user_info() {
 	$.ajax({
-		url: "list_user.php",
+		url: "../php/list_user.php",
 		type: "post",
 		data: {},
 		success: function(data) {
 			console.log(data);
+			$("#user_data").html(data);
 		},
 		error: function(jqXhr, textStatus, error) {
 			console.log(error);
 		}
 	});
 }
-
 
 function modify_user(idusuario) {
 	var name = document.getElementById("txtname").value;
@@ -365,43 +365,53 @@ function modify_user(idusuario) {
 	var email = document.getElementById("txtemail").value;
 	var password = document.getElementById("txtpass").value;
 	var cpassword = document.getElementById("txtcpass").value;
-	var img = File.getElementById("img").value;
+	var img = document.getElementById("img").files[0];
+
+	var formData = new FormData();
+	formData.append("name", name);
+	formData.append("lastname", lastname);
+	formData.append("username", username);
+	formData.append("email", email);
+	formData.append("pass", password);
+	formData.append("cpass", cpassword);
+	formData.append("img", img);
+	formData.append("idusuario", idusuario);
 
 	$.ajax({
-		url: "update_info_user.php",
+		url: "../php/update_info_user.php",
+		dataType: "text",
 		type: "post",
-		data: {
-			name: name,
-			lastname: lastname,
-			username: username,
-			email: email,
-			pass: password,
-			cpass: cpassword,
-			img: img,
-			idusuario: idusuario
-		},
+		data: formData,
+		contentType: false,
+		processData: false,
 		success: function(data) {
 			console.log(data);
 		},
-		error: function(jqXhr, textStatus, error) {
-			console.log(error);
+		error: function(jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
 		}
 	});
 }
 
 function delete_user(idusuario) {
 	$.ajax({
-		url: "update_info_user.php",
+		url: "../php/delete_user.php",
 		type: "post",
 		data: { idusuario: idusuario },
 		success: function(data) {
 			console.log(data);
+			if (data == 1) {
+				window.location.replace("../html/home.php");
+			} else {
+				alert("todo mal");
+			}
 		},
 		error: function(jqXhr, textStatus, error) {
 			console.log(error);
 		}
 	});
 }
+
 function editar_pry(idpry) {
 	$.ajax({
 		url: "../php/editar_pry.php",

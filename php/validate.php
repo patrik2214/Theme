@@ -23,11 +23,16 @@ if(isset($_POST['submit'])){
     $response=file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=".$secretKey."&response=".$captcha."&remoteip=".$ip);
     $responseKeys = json_decode($response,true);
     // falta validar repuesta del captcha
+
+
+
+
+    
     try{
   
         $cnx->beginTransaction();
         // como que email1 lo metes aca si arriba le pones falso
-        $rs = $cnx->query("SELECT COUNT(*) as email FROM usuario WHERE correo='$email1'") or $resp=0;
+        $rs = $cnx->query("SELECT COUNT(*) as email FROM usuario WHERE correo='$email'") or $resp=0;
         $reg = $rs->fetchObject();
         $email2 = $reg->email;
     

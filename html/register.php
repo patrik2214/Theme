@@ -75,60 +75,22 @@ if(isset($_POST['submit'])){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <header class="header black-bg">
-            <!--logo start-->
+      <!--header start
+       <header class="header black-bg">
+            logo start
             <a class="logo"><b>SHART</b></a>
-            <!--logo end-->
+            logo end
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="login.php">Login</a></li>
             	</ul>
             </div>
-        </header>
+        </header> -->
       <!--header end-->
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="profile.html"><img src="../assets/img/logo.png" class="img-circle" width="60"></a></p>
-              	  
-              	  	
-                    <li class="sub-menu">
-                      <a href="home.php">
-                      <i class="fa fa-tasks"></i>
-                          <span>Home</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a  href="about.php" >
-                      <i class="fa fa-th"></i>
-                          <span>About As</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="register.php" >
-                      <i class="fa fa-cogs"></i>
-                          <span>Register</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="galery.php" >
-                      <i class="fa fa-book"></i>
-                          <span>Gallery</span>
-                      </a>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+      
       <!--sidebar end-->
       
       <!-- **********************************************************************************************************************************************************
@@ -175,9 +137,15 @@ if(isset($_POST['submit'])){
                 </div>
 
                 <div class="g-recaptcha" data-sitekey="6LfpPboUAAAAAC2yEYpndy3nwCo3k44NmhIkGeJP"></div><br>
-                <div class="form-group">
-                   <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
+                <div class="row">
+                    <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
+                        <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
+                    </div>
+                    <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
+                        <button  class="btn btn-success" type="reset" name="reset">Reset</button><br>
+                    </div>
                 </div>
+                
 
                 <?php
 

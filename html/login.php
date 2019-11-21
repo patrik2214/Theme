@@ -66,7 +66,7 @@ if(isset($_SESSION['idusuario'])) header("location: index.php");
 		            </div>
 		            <div class="registration">
 		                Don't have an account yet?<br/>
-		                <a class="" href="#">
+		                <a class="" href="register.php">
 		                    Create an account
 		                </a>
 		            </div>

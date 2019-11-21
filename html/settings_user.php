@@ -22,9 +22,7 @@
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="../assets/js/chart-master/Chart.js"></script>
-    <script type="text/javascript">
-		window.load = list_user_info();
-	</script>
+    
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -120,9 +118,11 @@
             <h3><i class="fa fa-angle-right"></i>Settings !</h3>
 
             <div class="col-lg-8 col-md-8 col-sm-8 mb">
-		    <form  action="list_user.php" method="POST" enctype="multipart/form-data">
-
-
+                <form id="user_data">
+                
+                
+                
+                </form>
 		    </div>
         
       <!-- **********************************************************************************************************************************************************
@@ -163,7 +163,7 @@
     <!--script for this page-->
     <script src="../assets/js/sparkline-chart.js"></script>    
     <script src="../assets/js/zabuto_calendar.js"></script>
-    <script src="../assets/js/common-scriopts.js"></script>	
+    <script src="../assets/js/common-scripts.js"></script>	
 	
 	<script type="application/javascript">
         $(document).ready(function () {
@@ -199,6 +199,9 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
+    <script type="text/javascript">
+		window.load = list_user_info();
+	</script>
     
 
   </body>
