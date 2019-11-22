@@ -379,7 +379,7 @@ function search(username) {
 	$.ajax({
 		url: "../php/porfile_another.php",
 		type: "post",
-		data: {username:username},
+		data: {"username":username},
 		success: function(data) {
 			console.log(data);
 			$("#data").html(data);
@@ -399,7 +399,7 @@ function userlike() {
 	$.ajax({
 		url: "../php/user_result.php",
 		type: "post",
-		data: {username:username},
+		data: {"username":username},
 		success: function(data) {
 			console.log(data);
 			$("#searchuser").html(data);
@@ -450,13 +450,22 @@ function delete_user(idusuario) {
 	$.ajax({
 		url: "../php/delete_user.php",
 		type: "post",
-		data: { idusuario: idusuario },
+		data: { "idusuario": idusuario },
 		success: function(data) {
 			console.log(data);
 			if (data == 1) {
-				window.location.replace("../html/home.php");
+				$("#new_rama").modal("toggle");
+				Swal.fire(
+					"Good job!",
+					"Save All Changes",
+					"success"
+				);
 			} else {
-				alert("todo mal");
+				Swal.fire({
+					icon: "Error",
+					title: "Oops...",
+					text: "Some Problems!"
+				});
 			}
 		},
 		error: function(jqXhr, textStatus, error) {
@@ -586,4 +595,66 @@ function list_all_pistas() {
 			console.log(error);
 		}
 	});
+}
+
+
+function edit_user_admin(idusuario){
+	$.ajax({
+        url: '../php/edit_user_admin.php',
+        type: 'post',
+        data: {"idusuario":idusuario},
+        success: function( data ){
+			var datos = JSON.parse(data);
+			$("#txtidusuario").val(datos.idusuario);
+        	$("#txtname").val(datos.nombre);
+        	$("#txtlastname").val(datos.apellido);
+        	$("#txtusername").val(datos.nombreusuario);
+			$("#txtemail").val(datos.correo);
+			$("#txtdate").val(datos.fecha_registro);
+        },
+        error: function( jqXhr, textStatus, error ){
+            console.log( error );
+        }
+    });
+	$('#divfrm').modal('toggle');
+}
+
+
+function save (){
+	var idsuario = document.getElementById("txtidusuario").value;
+	var name = document.getElementById("txtname").value;
+	var lastname = document.getElementById("txtlastname").value;
+	var username = document.getElementById("txtusername").value;
+	var email = document.getElementById("txtemail").value;
+
+	$.ajax({
+        url: '../php/actualizar_admin.php',
+        type: 'post',
+        data: {"idusuario":idusuario,"name":name,"lastname":lastname,"username":username, "email":email},
+        success: function( data ){
+			console.log(data);
+			if (data == 1) {
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Your updates has been saved',
+					showConfirmButton: false,
+					timer: 1500
+				});
+				$("#home-tab").trigger('click');
+
+			} else {
+				Swal.fire({
+					position: 'top-end',
+					icon: 'error',
+					title: 'Something is Wrong ',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+        },
+        error: function( jqXhr, textStatus, error ){
+            console.log( error );
+        }
+    });
 }

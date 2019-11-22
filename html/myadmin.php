@@ -109,7 +109,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper site-min-height">
-        <div id="divmsg" class="p-3 mb-2 bg-warning text-dark" style="display: none;"> </div>
+        <div class="modal fade" id="new_rama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
         <div>
 		<div class="modal fade" id="divfrm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
 		  <div class="modal-dialog" role="document">
@@ -122,6 +122,10 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		      </div>
 		      <div class="modal-body">
 		        <form>
+                    <div class="form-group">
+						<label for="txtname">Cod</label>
+						<input type="text" class="form-control" name="txtidusuario" id="txtidusuario">
+					</div>
 					<div class="form-group">
 						<label for="txtname">Name</label>
 						<input type="text" class="form-control" name="txtname" id="txtname">
@@ -142,21 +146,6 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 						<label for="txtdate">Date of Registered</label>
 						<input type="date" class="form-control" name="txtdate" id="txtdate">
                     </div>
-                    <div class="form-group">
-                        <label for="txtstate">State</label>
-                        <select name="cbostate"  class="form-control" id="cbostate">
-                            <option value="true">Active</option>
-                            <option value="false">Inactive</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="cbotype">Type of user</label>
-                        <select name="cbotype"  class="form-control" id="cbotype">
-                            <option value="1">Normal</option>
-                            <option value="2">Premium</option>
-                            <option value="3">Admim</option>
-                        </select>
-					</div>
 				</form>
 		      </div>
 		      <div class="modal-footer">
@@ -165,7 +154,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		      </div>
 		    </div>
 		  </div>
-		</div>
+        </div>
 	</div>
             <div class='col-md-12'>
                 <div class='content-panel'>
