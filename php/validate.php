@@ -115,7 +115,7 @@ if(isset($_POST['submit'])){
                         $a->bindParam(":password",$password);
                         $a->bindParam(":tipousuario",$uno);
                         $a->bindParam(":foto",$add);
-                        $a->bindParam(":foto",$estado);
+                        $a->bindParam(":estado",$estado);
                         $a->execute();
     
                         echo "Registrado Correctamente";
@@ -139,7 +139,7 @@ if(isset($_POST['submit'])){
                         $a->bindParam(":password",$password);
                         $a->bindParam(":tipousuario",$uno);
                         $a->bindParam(":foto",$nulidad);
-                        $a->bindParam(":foto",$estado);
+                        $a->bindParam(":estado",$estado);
                         $a->execute();
     
                         echo "Registrado Correctamente";
