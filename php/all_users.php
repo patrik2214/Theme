@@ -16,7 +16,7 @@ while ($re = $rs->fetchObject()){
                             <td>$re->estado</td>
                             <td>
                                 <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                <button onclick='desactivar_user($re->idusuario)' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#new_rama'><i class='fa fa-pencil'></i></button>
+                                <button onclick='desactivar_user($re->idusuario)' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#divfrm'><i class='fa fa-pencil'></i></button>
                                 <button onclick='delete_user($re->idusuario)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
                             </td>
                         </tr>");

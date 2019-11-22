@@ -143,14 +143,19 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 						<input type="date" class="form-control" name="txtdate" id="txtdate">
                     </div>
                     <div class="form-group">
-						<label for="txtstate">State</label>
-						<input type="text" class="form-control" name="txtstate" id="txtstate">
+                        <label for="txtstate">State</label>
+                        <select name="cbostate"  class="form-control" id="cbostate">
+                            <option value="true">Active</option>
+                            <option value="false">Inactive</option>
+                        </select>
                     </div>
                     <div class="form-group">
-                        <select name="cbotype" id="cbotype">Type of user</select>
+                        <label for="cbotype">Type of user</label>
+                        <select name="cbotype"  class="form-control" id="cbotype">
                             <option value="1">Normal</option>
                             <option value="2">Premium</option>
                             <option value="3">Admim</option>
+                        </select>
 					</div>
 				</form>
 		      </div>
