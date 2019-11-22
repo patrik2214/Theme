@@ -115,17 +115,18 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
                     <thead>
                         <tr>
                             <th>Codigo</th>
+                            <th>Url</th>
+                            <th>Cod.Proyecto</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>User</th>
-                            <th>Email</th>
-                            <th>Fecha registro</th>
-                            <th>Tipo usuario</th>
-                            <th>Estado</th>
+                            <th>Cod.Repo</th>
+                            <th>Publico</th>
+                            <th>Colaborativo</th>
+                            <th>Cod.Usuario</th>
+                            <th>Usuario</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
-                    <tbody id='divregistros'>
+                    <tbody id='colum1'>
                     </tbody>
                 </table>
                 </div><!-- /content-panel -->
