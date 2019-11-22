@@ -370,7 +370,37 @@ function porfile_user() {
 	});
 }
 
+function search(username) {
+	$.ajax({
+		url: "../php/porfile_result.php",
+		type: "post",
+		data: {username:username},
+		success: function(data) {
+			console.log(data);
+			$("#data").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
 
+
+function userlike() {
+	var username= document.getElementById("search").value;
+	$.ajax({
+		url: "../php/user_result.php",
+		type: "post",
+		data: {username:username},
+		success: function(data) {
+			console.log(data);
+			$("#searchuser").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
 
 
 function modify_user(idusuario) {

@@ -236,7 +236,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">   
-            <div class="showback" id="#info">
+            <div class="showback" id="info">
                 
                 
       		</div><!--/ row -->
