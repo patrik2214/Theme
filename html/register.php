@@ -75,82 +75,78 @@ if(isset($_POST['submit'])){
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <!--header start
+      <!--header start -->
        <header class="header black-bg">
-            logo start
-            <a class="logo"><b>SHART</b></a>
-            logo end
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Login</a></li>
-            	</ul>
+            <a href="index.php" class="logo"><b>SHART</b></a>
+            <div class="nav pull-right top-menu ">
+                <!-- <form action="../php/close_session.php" method="post"> -->
+            	    <ul class=" nav pull-right top-menu" >
+                        <li ><a class="logout"  href="login.php">Iniciar sesion</a></li>
+                        <!-- <li> <button type="submit" class="logout" >Logout</button> </li> -->
+            	    </ul>
+                <!-- </form> -->
+                
             </div>
-        </header> -->
+        </header>
       <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      
-      <!--sidebar end-->
-      
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-          
-                    <div class="col-lg-6 col-md-6 col-sm-6 mb">
-                        <form  action="" method="POST" enctype="multipart/form-data">
-                            <div class="login-wrap">
-                                <div class="form-group">
-                                    <label>Name</label>
-                                    <input type="text" class="form-control" name="txtname" id="txtname" value="<?php if(isset($name))echo $name ?>"
-                                    placeholder="Enter here">
-                                </div>
-                                <div class="form-group">
-                                    <label>Last Name</label>
-                                    <input type="text" class="form-control" name="txtlastname" id="txtlastname" value="<?php if(isset($lastname))echo $lastname ?>"
-                                    placeholder="Enter here">
-                                </div>
-                                <div class="form-group">
-                                    <label>Username</label>
-                                    <input type="text" class="form-control" name="txtusername" id="txtusername" value="<?php if(isset($username))echo $username ?>"
-                                    placeholder="Enter here">
-                                </div>
-                                <div class="form-group">
-                                    <label>Email</label>
-                                    <input type="email" class="form-control" name="txtemail" id="txtemail" value="<?php if(isset($email))echo $email ?>"
-                                    placeholder="Enter here">
-                                </div>
-                                <div class="form-group">
-                                    <label>Contraseña</label>
-                                    <input type="password" class="form-control" name="txtpass" id="txtpass" placeholder="Enter here">
-                                </div>
-                                <div class="form-group">
-                                    <label>Confirmar Contraseña</label>
-                                    <input type="password" class="form-control" name="txtcpass" id="txtcpass"placeholder="Enter here">
-                                </div>
-                                <div class="form-group">
-                                    <label for="uploadedfile">Upload a Picture</label>
-                                    <input type="file" class="form-control-file" name="img" id="img" >
-                                </div>
-
-                                <div class="g-recaptcha" data-sitekey="6LfpPboUAAAAAC2yEYpndy3nwCo3k44NmhIkGeJP"></div><br>
-                                <div class="row">
-                                    <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
-                                        <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
-                                    </div>
-                                    <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
-                                        <button  class="btn btn-success" type="reset" name="reset">Reset</button><br>
-                                    </div>
-                                </div>
-                                <?php
-                                    include("../php/validate.php");
-                                ?>
+                <div class="col-lg-6 col-md-6 col-sm-6 mb">
+                <h1 class="text-center">Registrate </h1>
+                    <form  action="" method="POST" enctype="multipart/form-data">
+                        <div class="login-wrap">
+                            <div class="form-group">
+                                <label>Name</label>
+                                <input type="text" class="form-control" name="txtname" id="txtname" value="<?php if(isset($name))echo $name ?>"
+                                placeholder="Enter here">
                             </div>
-                        </form>
-                    </div>
+                            <div class="form-group">
+                                <label>Last Name</label>
+                                <input type="text" class="form-control" name="txtlastname" id="txtlastname" value="<?php if(isset($lastname))echo $lastname ?>"
+                                placeholder="Enter here">
+                            </div>
+                            <div class="form-group">
+                                <label>Username</label>
+                                <input type="text" class="form-control" name="txtusername" id="txtusername" value="<?php if(isset($username))echo $username ?>"
+                                placeholder="Enter here">
+                            </div>
+                            <div class="form-group">
+                                <label>Email</label>
+                                <input type="email" class="form-control" name="txtemail" id="txtemail" value="<?php if(isset($email))echo $email ?>"
+                                placeholder="Enter here">
+                            </div>
+                            <div class="form-group">
+                                <label>Contraseña</label>
+                                <input type="password" class="form-control" name="txtpass" id="txtpass" placeholder="Enter here">
+                            </div>
+                            <div class="form-group">
+                                <label>Confirmar Contraseña</label>
+                                <input type="password" class="form-control" name="txtcpass" id="txtcpass"placeholder="Enter here">
+                            </div>
+                            <div class="form-group">
+                                <label for="uploadedfile">Upload a Picture</label>
+                                <input type="file" class="form-control-file" name="img" id="img" >
+                            </div>
+
+                            <div class="g-recaptcha" data-sitekey="6LfpPboUAAAAAC2yEYpndy3nwCo3k44NmhIkGeJP"></div><br>
+                            <div class="row">
+                                <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
+                                    <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
+                                </div>
+                                <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
+                                    <button  class="btn btn-success" type="reset" name="reset">Reset</button><br>
+                                </div>
+                            </div>
+                            <?php
+                                include("../php/validate.php");
+                            ?>
+                        </div>
+                    </form>
+                </div>
             
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
