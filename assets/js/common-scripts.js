@@ -372,12 +372,15 @@ function porfile_user() {
 
 function search(username) {
 	$.ajax({
-		url: "../php/porfile_result.php",
+		url: "../php/porfile_another.php",
 		type: "post",
 		data: {username:username},
 		success: function(data) {
 			console.log(data);
 			$("#data").html(data);
+			if (data == 1) {
+				window.location.replace("../html/porfile_another.php");
+			}
 		},
 		error: function(jqXhr, textStatus, error) {
 			console.log(error);
