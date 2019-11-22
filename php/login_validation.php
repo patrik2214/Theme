@@ -13,8 +13,10 @@ if($cantreg==1) {
   $reg = $rs->fetchObject();
   $_SESSION['idusuario']=$reg->idusuario;
   if($reg->idtipousuario==3){
+    $_SESSION['usertype']=$reg->idtipousuario;
     header("location: ../html/myadmin.php");
   }else{
+    $_SESSION['usertype']=$reg->idtipousuario;
     header("location: ../html/index.php");
   }
 } 

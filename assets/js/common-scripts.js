@@ -555,3 +555,17 @@ function buscar() {
 		}
 	});
 }
+
+function list_all_users() {
+	$.ajax({
+		url: "../php/all_users.php",
+		type: 'post',
+		data: { },
+		success: function (data) {
+			$("#divregistros").html(data);
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}

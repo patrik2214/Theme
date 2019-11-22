@@ -1,6 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['idusuario'])) header("location: login.php");
+// if($_SESSION['usertype']==3) header("location: ../php/close_session.php" )
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -108,12 +109,28 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper site-min-height">
-          	<h3><i class="fa fa-angle-right"></i> Blank Page</h3>
-          	<div class="row mt">
-          		<div class="col-lg-12">
-          		<p>Place your content here.</p>
-          		</div>
-          	</div>
+            <div class='col-md-12'>
+                <div class='content-panel'>
+                <table class='table table-striped table-advance table-hover'>
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Nombre</th>
+                            <th>Apellido</th>
+                            <th>User</th>
+                            <th>Email</th>
+                            <th>Fecha registro</th>
+                            <th>Tipo usuario</th>
+                            <th>Estado</th>
+                            <th>Opciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id='divregistros'>
+                    </tbody>
+                </table>
+                </div><!-- /content-panel -->
+            </div><!-- /col-md-12 -->
+            
 		</section><!-- /wrapper -->
       </section><!-- /MAIN CONTENT -->
 
@@ -145,14 +162,15 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
 
     <!--script for this page-->
     
-  <script>
-      //custom select box
-
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script>
+    <script>
+        //custom select box
+        $(function(){
+            $('select.styled').customSelect();
+        });
+    </script>
+    <script type="text/javascript">
+        window.load = list_all_users();
+    </script>
 
   </body>
 </html>
