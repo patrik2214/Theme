@@ -2,7 +2,6 @@
 
 requiere_once("conexion.php");
 
-
 $idusuario = $_POST['idusuario'];
 
 $sql="UPDATE USUARIO SET estado=false WHERE idusuario='$idusuario'";
