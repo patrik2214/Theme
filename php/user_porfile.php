@@ -11,27 +11,28 @@ while($reg = $result->fetchObject()){
 
     echo utf8_encode("
         <div class='row'>
-            <div class='col-lg-8 col-md-8 col-sm-8 mb'>
-                <p class='centered'><a href='index.php'><img src='$reg->foto' class='img-circle' width='140' heigth='140'></a></p>
+            <div class='row-lg-6 row-md-6 row-sm-6 mb'>
+                <p class='centered'><img src='$reg->foto' class='img-circle' width='140' heigth='140'></p>
             </div>
-            <div class='col-lg-8 col-md-8 col-sm-8 mb'>
-            <label class='centered'>Name : $reg->nombreusuario</label>
+            <div class='row-lg-6 row-md-6 row-sm-6 mb'>
+                <p class='centered'>$reg->nombreusuario</p>
             </div>
         </div>
-        <div class='form-group'>
-            <label>Name : $reg->nombre</label>      
-         </div>
-		 <div class='form-group'>
-			<label>Last Name: $reg->apellido</label>
+        <div class='row'>
+            <div class='form-group'>
+                <h2>Name : $reg->nombre</h2>      
+            </div>
+		    <div class='form-group'>
+			<h2>Last Name: $reg->apellido</h2>
 		 </div>
 		 <div class='form-group'>
-		    <label>Username: $reg->nombreUsuario</label>
-		 </div>
-		 <div class='form-group'>
-			<label>Email: $reg->correo</label>
+			<h2>Email: $reg->correo</h2>
         </div> 
         <div class='form-group'>
         <button  class='btn btn-success' type='submit' href='setting_user.php'>Edit</button><br>
-        </div>");
+        </div>
+        </div>
+
+        ");
 }                
 ?>
