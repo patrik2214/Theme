@@ -12,7 +12,7 @@ $cantreg = $rs->rowCount();
 if($cantreg==1) {
   $reg = $rs->fetchObject();
   $_SESSION['idusuario']=$reg->idusuario;
-  if($reg->tipousuario==3){
+  if($reg->idtipousuario==3){
     header("location: ../html/myadmin.php");
   }else{
     header("location: ../html/index.php");
