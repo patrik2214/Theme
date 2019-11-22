@@ -7,9 +7,9 @@ $user =  $_SESSION['idusuario'];
 $repo = $_POST['idrepo'];
 
 $sql="SELECT repositorio.* , desarrollador.*, usuario.nombre as usser FROM repositorio 
-    inner join desarrollador on repositorio.idREPOSITORIO = desarrollador.REPOSITORIO_idREPOSITORIO 
-    inner join usuario on desarrollador.USUARIO_idUSUARIO=usuario.idUSUARIO
-    where repositorio.idREPOSITORIO = $repo";
+    inner join desarrollador on repositorio.idREPOSITORIO = desarrollador.idrepositorio
+    inner join usuario on desarrollador.idusuario=usuario.idusuario
+    where repositorio.idrepositorio = $repo";
 $result = $cnx->query($sql);
 
 if ($reg = $result->fetchObject()){

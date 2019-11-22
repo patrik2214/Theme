@@ -2,7 +2,7 @@
 require_once("conexion.php");
 $id = $_POST['idpry'];
 
-$sql="SELECT * FROM proyecto WHERE idPROYECTO=$id";
+$sql="SELECT * FROM proyecto WHERE idproyecto=$id";
 $res = $cnx->query($sql);
 $reg = $res->fetchObject();
 

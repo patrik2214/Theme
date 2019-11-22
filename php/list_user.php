@@ -20,7 +20,7 @@ while($reg = $result->fetchObject()){
 		 </div>
 		 <div class='form-group'>
 				<label>Username</label>
-				<input type='text' class='form-control' name='txtusername' id='txtusername' placeholder='Enter here' value='$reg->nombreUsuario'>
+				<input type='text' class='form-control' name='txtusername' id='txtusername' placeholder='Enter here' value='$reg->nombreusuario'>
 		 </div>
 		 <div class='form-group'>
 			<label>Email</label>

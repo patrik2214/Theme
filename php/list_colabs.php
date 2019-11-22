@@ -3,12 +3,12 @@ require_once("conexion.php");
 
 $repo = $_POST['idrepo'];
 
-$query="SELECT * FROM desarrollador  inner join usuario on desarrollador.USUARIO_idUSUARIO=usuario.idUSUARIO
-where desarrollador.REPOSITORIO_idREPOSITORIO = $repo";
+$query="SELECT * FROM desarrollador  inner join usuario on desarrollador.idusuario=usuario.idusuario
+where desarrollador.idrepositorio= $repo";
 $rs = $cnx->query($query);
 while($re = $rs->fetchObject()){
     $tipodev = 'Invitado';
-    if ($re->TIPODESARROLLADOR_idTIPODESARROLLADOR==1){
+    if ($re->idtipodesarrollador==1){
         $tipodev = 'Propietario';
     }
     echo utf8_encode("     
@@ -16,7 +16,7 @@ while($re = $rs->fetchObject()){
             <td><a href='#'>$re->nombre</a></td>
             <td>$tipodev</td>
             <td>
-                <button onclick='delete_colab($re->idCOLABORADOR)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
+                <button onclick='delete_colab($re->idcolaborador)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
             </td>
         </tr>
     ");

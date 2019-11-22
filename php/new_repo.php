@@ -14,11 +14,11 @@ try
 {
     $cnx->beginTransaction();
 
-    $rs = $cnx->query("SELECT COALESCE(max(idREPOSITORIO),0)+1 as ultimo FROM repositorio")  or $resp=0;
+    $rs = $cnx->query("SELECT COALESCE(max(idrepositorio),0)+1 as ultimo FROM repositorio")  or $resp=0;
 	$reg = $rs->fetchObject();
     $idrepo = $reg->ultimo;
     // INSERT INSIDE REPOSITORIO
-	$a=$cnx->prepare("INSERT INTO repositorio (idREPOSITORIO,fecha_creacion, nombre,publico,colaborativo,descripcion) VALUES (:idrepo,now(),:nombre,:publico,:colab,:descrip)");
+	$a=$cnx->prepare("INSERT INTO repositorio (idrepositorio,fecha_creacion, nombre,publico,colaborativo,descripcion) VALUES (:idrepo,now(),:nombre,:publico,:colab,:descrip)");
 	$a->bindParam(":idrepo",$idrepo);
 	$a->bindParam(":nombre",$nomb);
 	$a->bindParam(":publico",$priv);
@@ -26,11 +26,11 @@ try
 	$a->bindParam(":descrip",$desc);
 	$a->execute();
     
-    $r = $cnx->query("SELECT COALESCE(max(idPROYECTO),0)+1 as ultimo FROM proyecto")  or $resp=0;
+    $r = $cnx->query("SELECT COALESCE(max(idproyecto),0)+1 as ultimo FROM proyecto")  or $resp=0;
 	$re = $r->fetchObject();
     $idpry = $re->ultimo;
     // insert inside proyecto
-    $b=$cnx->prepare("INSERT INTO proyecto (idPROYECTO, nombre, REPOSITORIO_idREPOSITORIO, GENERO_idGENERO) 
+    $b=$cnx->prepare("INSERT INTO proyecto (idproyecto, nombre, idrepositorio, idgenero) 
         VALUES(:idproy,:nombre,:repo,:gen)");
     $b->bindParam(":idproy",$idpry);
     $b->bindParam(":nombre",$nomb);
@@ -38,12 +38,12 @@ try
     $b->bindParam(":gen",$genero);
     $b->execute();
 
-    $r = $cnx->query("SELECT COALESCE(max(idCOLABORADOR),0)+1 as ultimo FROM desarrollador")  or $resp=0;
+    $r = $cnx->query("SELECT COALESCE(max(idcolaborador),0)+1 as ultimo FROM desarrollador")  or $resp=0;
 	$re = $r->fetchObject();
     $idcol = $re->ultimo;
 
     $uno = 1 ;
-	$c=$cnx->prepare("INSERT INTO desarrollador (idCOLABORADOR, USUARIO_idUSUARIO, REPOSITORIO_idREPOSITORIO, TIPODESARROLLADOR_idTIPODESARROLLADOR, estado) 
+	$c=$cnx->prepare("INSERT INTO desarrollador (idcolaborador, idusuario, idrepositorio, idtipodesarrollador, estado) 
        VALUES(:idcol,:user,:repo,:tipo, :est)");
     $c->bindParam(":idcol",$idcol);
     $c->bindParam(":user",$user);

@@ -9,15 +9,15 @@ try
 {
     $cnx->beginTransaction();
 
-    $rs = $cnx->query("SELECT nombre FROM repositorio where idREPOSITORIO=$repo")  or $resp=0;
+    $rs = $cnx->query("SELECT nombre FROM repositorio where idrepositorio=$repo")  or $resp=0;
 	$reg = $rs->fetchObject();
     $nomb = $reg->nombre;
 
-    $r = $cnx->query("SELECT COALESCE(max(idPROYECTO),0)+1 as ultimo FROM proyecto")  or $resp=0;
+    $r = $cnx->query("SELECT COALESCE(max(idproyecto),0)+1 as ultimo FROM proyecto")  or $resp=0;
 	$re = $r->fetchObject();
     $idpry = $re->ultimo;
     // insert inside proyecto
-    $b=$cnx->prepare("INSERT INTO proyecto (idPROYECTO, nombre, idREPOSITORIO, idGENERO) 
+    $b=$cnx->prepare("INSERT INTO proyecto (idproyecto, nombre, idrepositorio, idgenero) 
         VALUES(:idproy,:nombre,:repo,:gen)");
     $b->bindParam(":idproy",$idpry);
     $b->bindParam(":nombre",$nomb);

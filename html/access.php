@@ -58,7 +58,7 @@ if(!isset($_SESSION['usuario'])) header("location: login.php");
                     <input type='password' id='pass' name='pass' class='form-control' placeholder='Password' autofocus>
                     <label class='checkbox'>
                         <span class='pull - right' > 
-                            <a data - toggle='modal' href = "access.php#myModal" > Forgot Password ?</a >
+                            <a data - toggle='modal' href = "#myModal" > Forgot Password ?</a >
                             
                         </span >
                     </label>
