@@ -162,7 +162,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 
     <!--script for this page-->
     <script type="text/javascript">
-        window.load = list_all_users();
+        window.load = list_all_pistas();
     </script>
 
   </body>

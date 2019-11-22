@@ -569,3 +569,16 @@ function list_all_users() {
 		}
 	});
 }
+function list_all_pistas() {
+	$.ajax({
+		url: "../php/all_pistas.php",
+		type: 'post',
+		data: { },
+		success: function (data) {
+			$("#colum1").html(data);
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}

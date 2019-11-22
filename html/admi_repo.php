@@ -115,17 +115,15 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
                     <thead>
                         <tr>
                             <th>Codigo</th>
+                            <th>Fecha creacion</th>
                             <th>Nombre</th>
-                            <th>Apellido</th>
-                            <th>User</th>
-                            <th>Email</th>
-                            <th>Fecha registro</th>
-                            <th>Tipo usuario</th>
-                            <th>Estado</th>
+                            <th>Publico</th>
+                            <th>Colaborativo</th>
+                            <th>Descripcion</th>
                             <th>Opciones</th>
                         </tr>
                     </thead>
-                    <tbody id='divregistros'>
+                    <tbody id='colum1'>
                     </tbody>
                 </table>
                 </div><!-- /content-panel -->
@@ -159,11 +157,18 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
-
-    <!--script for this page-->
     <script type="text/javascript">
-        window.load = list_all_users();
+        window.load = listar_repos();
     </script>
+    <!--script for this page-->
+    
+    <!-- <script>
+        //custom select box
+        $(function(){
+            $('select.styled').customSelect();
+        });
+    </script> -->
+    
 
   </body>
 </html>
