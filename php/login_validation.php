@@ -12,7 +12,11 @@ $cantreg = $rs->rowCount();
 if($cantreg==1) {
   $reg = $rs->fetchObject();
   $_SESSION['idusuario']=$reg->idusuario;
-  header("location: ../html/index.php");
+  if($reg->tipousuario==3){
+    header("location: ../html/myadmin.php");
+  }else{
+    header("location: ../html/index.php");
+  }
 } 
 else header("location: ../html/access.php?mensaje=errorCredenciales");
  

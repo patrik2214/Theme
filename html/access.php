@@ -30,7 +30,18 @@ if(!isset($_SESSION['usuario'])) header("location: login.php");
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
-
+		<header class="header black-bg">
+			<a href="index.php" class="logo"><b>SHART</b></a>
+			<div class="nav pull-right top-menu ">
+				<!-- <form action="../php/close_session.php" method="post"> -->
+					<ul class=" nav pull-right top-menu" >
+						<li ><a class="logout"  href="register.php">Registrarse</a></li>
+						<!-- <li> <button type="submit" class="logout" >Logout</button> </li> -->
+					</ul>
+				<!-- </form> -->
+				
+			</div>
+		</header>
 	  <div id="login-page">
 	  	<div class="container">
 	  	
@@ -116,11 +127,7 @@ if(!isset($_SESSION['usuario'])) header("location: login.php");
         // $.backstretch("../assets/img/login-bg.jpg");
         // $.backstretch("../assets/img/back_login.jpg");
     </script>    
-	<style>
-		body { 
-			background: url("../assets/img/login-bg.jpg") fixed center no-repeat ; 
-		}
-	</style>
+	
 
   </body>
 </html>
