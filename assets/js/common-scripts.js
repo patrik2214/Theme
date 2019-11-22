@@ -640,7 +640,6 @@ function edit_user_admin(idusuario){
             console.log( error );
         }
     });
-	$('#divfrm').modal('toggle');
 }
 
 
