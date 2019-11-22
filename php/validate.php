@@ -8,9 +8,6 @@ $email1 = false;
 $password1 = false;
 $cpassword1 = false;
 
-
-
-
 if(isset($_POST['submit'])){
     $captcha=$_POST['g-recaptcha-response'];
 

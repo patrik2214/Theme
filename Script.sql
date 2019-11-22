@@ -133,7 +133,7 @@ CREATE TABLE PAGO (
 ---------------------------------------------------------------
 -- INSERT TIPOUSUARIO
 
-INSERT INTO tipousuario values(1,'NORMAL'), (2,'PREMIUM')
+INSERT INTO tipousuario values(1,'NORMAL'), (2,'PREMIUM');
 
 -- INSERT INTO USUARIO
 /* Hay que registrarlo desde la app
@@ -168,6 +168,7 @@ INSERT INTO genero (idGENERO, descripcion) VALUES (24, 'Música pragmática');
 INSERT INTO genero (idGENERO, descripcion) VALUES (25, 'Música vocal');
 INSERT INTO genero (idGENERO, descripcion) VALUES (26, 'Jazz');
 INSERT INTO genero (idGENERO, descripcion) VALUES (27, 'Música clásica');
+INSERT INTO genero (idGENERO, descripcion) VALUES (28, 'Cumbia');
 
 --INSERT INTO TIPO DESARROLLADOR
 INSERT INTO tipodesarrollador (idTIPODESARROLLADOR, descripcion) VALUES (1, 'Owner'), (2,'Colaborator');
