@@ -109,6 +109,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper site-min-height">
+        <div class="modal fade" id="newrama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
             <div class='col-md-12'>
                 <div class='content-panel'>
                 <table class='table table-striped table-advance table-hover'>

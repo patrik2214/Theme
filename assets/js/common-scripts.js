@@ -182,6 +182,29 @@ function new_repositorio() {
 	}
 }
 
+function delete_repositorio(idrepositorio) {
+	$.ajax({
+		url: "../php/delete_repo.php",
+		type: "post",
+		data: {idrepositorio:idrespositorio},
+		success: function(data) {
+			if (data == 1) {
+				$("#newrama").modal("toggle");
+				Swal.fire("DELETE!", "Repositorio is Delete!", "success");
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Some problem!"
+				});
+			}
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+		});
+}
+
 function porfile(){
 	listar_repos();
 	porfile_user();
