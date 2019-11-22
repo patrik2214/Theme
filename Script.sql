@@ -17,7 +17,7 @@ CREATE TABLE USUARIO(
   fecha_registro DATE NOT NULL,
   password VARCHAR(41) NOT NULL,
   idTIPOUSUARIO INT NOT NULL REFERENCES TIPOUSUARIO,
-  foto varchar(45) NOT NULL,
+  foto varchar(45) NULL,
   estado BOOLEAN NOT NULL);
 
 -- -----------------------------------------------------
@@ -131,6 +131,9 @@ CREATE TABLE PAGO (
 ---------------------------------------------------------------
 -- INSERT SCRIPTS
 ---------------------------------------------------------------
+-- INSERT TIPOUSUARIO
+
+INSERT INTO tipousuario values(1,'NORMAL'), (2,'PREMIUM')
 
 -- INSERT INTO USUARIO
 /* Hay que registrarlo desde la app
