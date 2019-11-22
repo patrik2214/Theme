@@ -251,6 +251,7 @@ function editar_repo(id) {
 function new_pry(rep) {
 	let gnr = $("#gnrmusical").val();
 	let idpry = $("#idpry").val();
+	console.log(idpry);
 	if (idpry > 0) {
 		// Editar
 		$.ajax({
@@ -482,8 +483,8 @@ function editar_pry(idpry) {
 		data: { idpry: idpry },
 		success: function(data) {
 			var datos = JSON.parse(data);
-			$("#gnrmusical").val(datos.GENERO_idGENERO);
-			$("#idpry").val(datos.idPROYECTO);
+			$("#gnrmusical").val(datos.idgenero);
+			$("#idpry").val(datos.idproyecto);
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
@@ -621,7 +622,7 @@ function edit_user_admin(idusuario){
 
 
 function save (){
-	var idsuario = document.getElementById("txtidusuario").value;
+	var idusuario = document.getElementById("txtidusuario").value;
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
 	var username = document.getElementById("txtusername").value;
@@ -641,8 +642,6 @@ function save (){
 					showConfirmButton: false,
 					timer: 1500
 				});
-				$("#home-tab").trigger('click');
-
 			} else {
 				Swal.fire({
 					position: 'top-end',
