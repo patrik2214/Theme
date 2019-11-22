@@ -226,9 +226,7 @@ if(isset($_POST['submit'])){
         }
     </script>
     <style>
-		body { 
-			background: url("../assets/img/login-bg.jpg") fixed center no-repeat ; 
-		}
+	
 	</style>
 
   </body>

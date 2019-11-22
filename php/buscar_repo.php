@@ -11,8 +11,8 @@ $caracteres_buenos = array("& lt;", "& gt;", "& quot;", "& #x27;", "& #x2F;", "&
 $consultaBusqueda = str_replace($caracteres_malos, $caracteres_buenos, $buscar);
 
 if (isset($consultaBusqueda)) {
-    $sql="SELECT * FROM repositorio inner join desarrollador on repositorio.idREPOSITORIO = desarrollador.REPOSITORIO_idREPOSITORIO 
-    WHERE repositorio.nombre LIKE '%$consultaBusqueda%' and desarrollador.USUARIO_idUSUARIO = $user and desarrollador.TIPODESARROLLADOR_idTIPODESARROLLADOR=1 ";
+    $sql="SELECT * FROM repositorio inner join desarrollador on repositorio.idREPOSITORIO = desarrollador.idREPOSITORIO 
+    WHERE repositorio.nombre LIKE '%$consultaBusqueda%' and desarrollador.idUSUARIO = $user and desarrollador.idTIPODESARROLLADOR=1 ";
     $result = $cnx->query($sql) or die($sql);
     while ($reg = $result->fetchObject() ){
         echo ("<div class='showback'>

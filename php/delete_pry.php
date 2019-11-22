@@ -7,10 +7,10 @@ try
 {
     $cnx->beginTransaction();
 
-	$a=$cnx->prepare("DELETE FROM pistas where PROYECTO_idPROYECTO=$idpry")  or $resp=0;
+	$a=$cnx->prepare("DELETE FROM pistas where idPROYECTO=$idpry")  or $resp=0;
 	$a->execute();
     
-    $b=$cnx->prepare("DELETE FROM partituras where PROYECTO_idPROYECTO=$idpry")  or $resp=0;
+    $b=$cnx->prepare("DELETE FROM partituras where idPROYECTO=$idpry")  or $resp=0;
     $b->execute();
 
 	$c=$cnx->prepare("DELETE FROM proyecto where idPROYECTO=$idpry")  or $resp=0;

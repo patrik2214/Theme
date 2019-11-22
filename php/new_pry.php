@@ -17,7 +17,7 @@ try
 	$re = $r->fetchObject();
     $idpry = $re->ultimo;
     // insert inside proyecto
-    $b=$cnx->prepare("INSERT INTO proyecto (idPROYECTO, nombre, REPOSITORIO_idREPOSITORIO, GENERO_idGENERO) 
+    $b=$cnx->prepare("INSERT INTO proyecto (idPROYECTO, nombre, idREPOSITORIO, idGENERO) 
         VALUES(:idproy,:nombre,:repo,:gen)");
     $b->bindParam(":idproy",$idpry);
     $b->bindParam(":nombre",$nomb);
