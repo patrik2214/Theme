@@ -1,6 +1,6 @@
 <?php
 
-requiere_once("conexion.php");
+require_once("conexion.php");
 
 $idusuario = $_POST['idusuario'];
 $name = $_POST['name'];
