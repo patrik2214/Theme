@@ -182,6 +182,11 @@ function new_repositorio() {
 	}
 }
 
+function porfile(){
+	listar_repos();
+	porfile_user();
+}
+
 function listar_repos() {
 	$.ajax({
 		url: "../php/list_repo.php",

@@ -236,11 +236,8 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">   
-            <div class="showback" id="info">
-                
-                
-      		</div><!--/ row -->
-                  
+            <div class="col-lg-6 col-md-6 col-sm-6 mbshowback" id="info"></div><!--/ row -->
+            <div class="col-lg-6 col-md-6 col-sm-6 mbshowback" id="column1"></div>      
                   
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
@@ -276,7 +273,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
     <script type="text/javascript">
-		window.load = porfile_user();
+		window.load = porfile();
 	</script>
     <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>

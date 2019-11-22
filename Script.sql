@@ -133,7 +133,7 @@ CREATE TABLE PAGO (
 ---------------------------------------------------------------
 -- INSERT TIPOUSUARIO
 
-INSERT INTO tipousuario values(1,'NORMAL'), (2,'PREMIUM');
+INSERT INTO tipousuario values(1,'NORMAL'), (2,'PREMIUM') (3,'ADMIN');
 
 -- INSERT INTO USUARIO
 /* Hay que registrarlo desde la app

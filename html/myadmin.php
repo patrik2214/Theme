@@ -109,6 +109,59 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper site-min-height">
+        <div id="divmsg" class="p-3 mb-2 bg-warning text-dark" style="display: none;"> </div>
+        <div>
+		<div class="modal fade" id="divfrm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">User</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+					<div class="form-group">
+						<label for="txtname">Name</label>
+						<input type="text" class="form-control" name="txtname" id="txtname">
+					</div>
+					<div class="form-group">
+						<label for="txtlastname">Lastname</label>
+						<input type="text" class="form-control" name="txtlastname" id="txtlastname">
+					</div>
+					<div class="form-group">
+						<label for="txtusername">Username</label>
+						<input type="text" class="form-control" name="txtusername" id="txtusername">
+                    </div>
+                    <div class="form-group">
+						<label for="txtemail">Email</label>
+						<input type="text" class="form-control" name="txtemail" id="txtemail">
+                    </div>
+                    <div class="form-group">
+						<label for="txtdate">Date of Registered</label>
+						<input type="date" class="form-control" name="txtdate" id="txtdate">
+                    </div>
+                    <div class="form-group">
+						<label for="txtstate">State</label>
+						<input type="text" class="form-control" name="txtstate" id="txtstate">
+                    </div>
+                    <div class="form-group">
+                        <select name="cbotype" id="cbotype">Type of user</select>
+                            <option value="1">Normal</option>
+                            <option value="2">Premium</option>
+                            <option value="3">Admim</option>
+					</div>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		        <button type="button" class="btn btn-primary" onclick="save()">Save</button>
+		      </div>
+		    </div>
+		  </div>
+		</div>
+	</div>
             <div class='col-md-12'>
                 <div class='content-panel'>
                 <table class='table table-striped table-advance table-hover'>
