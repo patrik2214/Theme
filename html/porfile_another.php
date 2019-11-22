@@ -339,8 +339,5 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             });
         });
     </script>
-    
-    
-
   </body>
 </html>

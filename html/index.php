@@ -25,8 +25,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <link href="../assets/css/style.css" rel="stylesheet">
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
-    <script src="../assets/js/chart-master/Chart.js"></script>
-    
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https..//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -208,8 +206,8 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
                     </button>
                     <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="#">Be premium</a></li>
-                    <li><a href="#">Editar mi perfil</a></li>
+                    <li><a href="premium.php">Be premium</a></li>
+                    <li><a href="config.php">Editar mi perfil</a></li>
                     <li class="divider"></li>
                     <li><a href="../php/close_session.php">Logout</a></li>
                     </ul>
@@ -406,7 +404,9 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <script src="../assets/js/jquery.scrollTo.min.js"></script>
     <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.sparkline.js"></script>
-
+    
+    <script src="../assets/js/chart-master/Chart.js"></script>
+    
 
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
