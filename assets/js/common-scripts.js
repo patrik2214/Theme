@@ -494,7 +494,6 @@ function userlike() {
 
 
 function modify_user(idusuario) {
-	
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
 	var username = document.getElementById("txtusername").value;
@@ -861,4 +860,42 @@ function save_pistas(){
             console.log( error );
         }
     });
+}
+
+function new_record(idproyecto) {
+	var msc = document.getElementById("uploadedfile").files[0];
+	var formData = new FormData();
+	formData.append("idproyecto", idproyecto);
+	formData.append("uploadedfile", msc);
+	$.ajax({
+		url: "../php/upload_music.php",
+		dataType: "text",
+		type: "post",
+		data: formData,
+		contentType: false,
+		processData: false,
+		success: function (data) {
+			console.log(data);
+			if (data == 1) {
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Your work has been saved',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+		},
+		error: function (jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
 }
