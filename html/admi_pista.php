@@ -109,6 +109,72 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
       <!--main content start-->
       <section id="main-content">
         <section class="wrapper site-min-height">
+
+        <div class="modal fade" id="newrama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
+        <div>
+		<div class="modal fade" id="divfrm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">User</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+                    <div class="form-group">
+						<label for="txtpista">Code</label>
+						<label class="form-control" name="txtpista" id="txtpista"></label>
+                    </div>
+                    <div class="form-group">
+						<label for="txtidusuario">User Code</label>
+						<label type="text" class="form-control" name="txtidusuario" id="txtidusuario"></label>
+                    </div>
+                    <div class="form-group">
+						<label for="txtusername">Username</label>
+						<label type="text" class="form-control" name="txtusername" id="txtusername"></label>
+                    </div>
+					<div class="form-group">
+						<label for="txturl">URL</label>
+						<input type="file" class="form-control" name="txturl" id="txturl">
+					</div>
+					<div class="form-group">
+						<label for="txtcodp">Proyect Code</label>
+						<input type="text" class="form-control" name="txtcodp" id="txtcodp">
+					</div>
+					<div class="form-group">
+						<label for="txtusername">Name</label>
+						<input type="text" class="form-control" name="txtname" id="txtname">
+                    </div>
+                    <div class="form-group">
+						<label for="txtemail">Repositorie Code</label>
+						<input type="text" class="form-control" name="txtcoder" id="txtcoder">
+                    </div>
+                    <div class="form-group">
+                        <label for="txtpublic">Public</label>
+                        <select name="txtpublic" id="txtpublic">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+					</div>
+					<div class="form-group">
+                        <label for="txtcol">Colaborator</label>
+                        <select name="txtcol" id="txtcol">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
+                    </div>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		        <button type="button" class="btn btn-primary" onclick="save()">Save</button>
+		      </div>
+		    </div>
+		  </div>
+        </div>
+	</div>
             <div class='col-md-12'>
                 <div class='content-panel'>
                 <table class='table table-striped table-advance table-hover'>
