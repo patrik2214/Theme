@@ -2,12 +2,12 @@
 require_once("conexion.php");
 
 $idpistas = $_POST['idpistas'];
-$idusuario = $_POST['idusuario'];
-$username = $_POST['username'];
+//$idusuario = $_POST['idusuario'];
+//$username = $_POST['username'];
 $url = $_POST['url'];
-$codp = $_POST['codp'];
+//$codp = $_POST['codp'];
 $name = $_POST['name'];
-$coder = $_POST['coder'];
+//$coder = $_POST['coder'];
 $public = $_POST['public'];
 $col = $_POST['col'];
 
