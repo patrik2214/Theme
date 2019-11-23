@@ -293,10 +293,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             <div id="myrepository" class="table">
             </div>
 
-
-
-
-
             <div class="modal fade" id="new_rama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                 <div class="modal-content">
