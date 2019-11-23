@@ -144,7 +144,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 						<input type="text" class="form-control" name="txtcodp" id="txtcodp">
 					</div>
 					<div class="form-group">
-						<label for="txtusername">Name</label>
+						<label for="txtname">Name</label>
 						<input type="text" class="form-control" name="txtname" id="txtname">
                     </div>
                     <div class="form-group">

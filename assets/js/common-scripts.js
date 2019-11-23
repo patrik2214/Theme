@@ -764,3 +764,101 @@ function limpiar_datos_user() {
 	$('#txtemail').val("");
 }
 
+function delete_pistas(idpistas){
+	$.ajax({
+		url: "../php/delete_pist.php",
+		type: "post",
+		data: { "idpistas": idpistas },
+		success: function(data) {
+			console.log(data);
+			if (data == 1) {
+				$("#new_rama").modal("toggle");
+				Swal.fire(
+					"Good job!",
+					"Delete",
+					"success"
+				);
+			} else {
+				Swal.fire({
+					icon: "Error",
+					title: "Oops...",
+					text: "Some Problems!"
+				});
+			}
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+
+}
+
+
+function edit_pistas_admin(idpistas){
+	$.ajax({
+        url: '../php/edit_pistas_admin.php',
+        type: 'post',
+        data: {"idpistas":idpistas},
+        success: function( data ){
+			var datos = JSON.parse(data);
+			$("#txtpista").html(idpistas);
+			$("#txtidusuario").val(datos.idusuario);
+        	$("#txtusername").val(datos.nombreusuario);
+        	$("#txturl").val(datos.url);
+			$("#txtcodp").val(datos.idproyecto);
+			$("#txtname").val(datos.nombre);
+			$("#txtcoder").val(datos.idrepositorio);
+			$("#txtpublic").val(datos.publico);
+			$("#txtcol").val(datos.colaborativo);
+        },
+        error: function( jqXhr, textStatus, error ){
+            console.log( error );
+        }
+    });
+}
+
+
+function save_pistas(){
+	var idpistas = document.getElementById('txtpista').value;
+	var idusuario = document.getElementById('txtidusuario').value;
+	var username = document.getElementById('txtusername').value;
+	var url = document.getElementById('txturl').value;
+	var codp = document.getElementById('txtcodp').value;
+	var name = document.getElementById('txtname').value;
+	var coder = document.getElementById('txtcoder').value;
+	var public = document.getElementById('txtpublic').value;
+	var col = document.getElementById('txtcol').value;
+
+	console.log(idusuario);
+	$.ajax({
+        url: '../php/actualizar_pistas_admin.php',
+        type: 'post',
+        data: {idpistas:idpistas,idusuario:idusuario , username:username,url:url,codp:codp,name:name ,coder:coder,public:public,col:col},
+        success: function( data ){
+			console.log(data);
+			if (data == 1) {
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Your updates has been saved',
+					showConfirmButton: false,
+					timer: 1500
+				});
+				list_all_users();
+				$("#divfrm").modal("toggle");
+				limpiar_datos_user();
+			} else {
+				Swal.fire({
+					position: 'top-end',
+					icon: 'error',
+					title: 'Something is Wrong ',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+        },
+        error: function( jqXhr, textStatus, error ){
+            console.log( error );
+        }
+    });
+}
