@@ -553,12 +553,12 @@ function delete_user(idusuario) {
 		success: function(data) {
 			console.log(data);
 			if (data == 0) {
-				$("#new_rama").modal("toggle");
 				Swal.fire(
 					"Good job!",
 					"Save All Changes",
 					"success"
 				);
+				list_all_users();
 			} else {
 				Swal.fire({
 					icon: "Error",
@@ -582,13 +582,14 @@ function hab_user(idusuario) {
 		data: { "idusuario": idusuario },
 		success: function(data) {
 			console.log(data);
-			if (data == 0) {
-				$("#new_rama").modal("toggle");
-				Swal.fire(
-					"Good job!",
-					"Save All Changes",
-					"success"
-				);
+			if (data == 1) {
+				Swal.fire({
+					icon: 'success',
+					title: 'Se realizaron los cambios',
+					showConfirmButton: false,
+					timer: 1500
+				});
+				list_all_users();
 			} else {
 				Swal.fire({
 					icon: "Error",
@@ -803,12 +804,12 @@ function delete_pistas(idpistas){
 		success: function(data) {
 			console.log(data);
 			if (data == 1) {
-				$("#new_rama").modal("toggle");
 				Swal.fire(
 					"Good job!",
 					"Delete",
 					"success"
 				);
+				list_all_pistas();
 			} else {
 				Swal.fire({
 					icon: "Error",

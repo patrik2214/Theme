@@ -303,9 +303,9 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             <h3>Tus pistas</h3>
             <div id="myproyect">
                 <div class='showback'>
-                    <h4 class="card-title">Card title</h4>
-                    <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>                         
-                    <audio src="" controls></audio>
+                    <h4 class="card-title">Este campo falta en la BD</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Este campo falta en la BD</h6>                         
+                    <audio id='tracks' controls></audio>
                 </div>
                
             </div>
