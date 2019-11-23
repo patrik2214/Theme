@@ -156,7 +156,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		      </div>
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-		        <button type="button" class="btn btn-primary" onclick="editar_repo_admin()">Save</button>
+		        <button type="button" class="btn btn-primary" onclick="edit_repo_admin()">Save</button>
 		      </div>
 		    </div>
 		  </div>
