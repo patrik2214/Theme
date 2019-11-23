@@ -153,16 +153,16 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
                     </div>
                     <div class="form-group">
                         <label for="txtpublic">Public</label>
-                        <select name="txtpublic" id="txtpublic">
+                        <select name="txtpublic" class="form-control" id="txtpublic">
                             <option value="1">Si</option>
-                            <option value="2">No</option>
+                            <option value="0">No</option>
                         </select>
 					</div>
 					<div class="form-group">
                         <label for="txtcol">Colaborator</label>
-                        <select name="txtcol" id="txtcol">
+                        <select name="txtcol" class="form-control" id="txtcol">
                             <option value="1">Si</option>
-                            <option value="2">No</option>
+                            <option value="0">No</option>
                         </select>
                     </div>
 				</form>

@@ -18,8 +18,8 @@ if ($tipo_user == 3){
                             <td>$reg->descripcion</td>
                             <td>
                                 <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-                                <button onclick='update_repo_admin($reg->idrepositorio)' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#new_rama'><i class='fa fa-pencil'></i></button>
-                                <button onclick='' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
+                                <button onclick='update_repo_admin($reg->idrepositorio)' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#divfrm'><i class='fa fa-pencil'></i></button>
+                                <button onclick='delete_repositorio($reg->idrepositorio)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
                             </td>
                         </tr>");
         
