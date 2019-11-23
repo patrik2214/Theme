@@ -14,7 +14,7 @@ while($reg = $result->fetchObject()){
         echo utf8_encode("
         <div class='row'>
             <div class='row-lg-6 row-md-6 row-sm-6 mb'>
-                <p class='centered'><img src='../assets/img/music.png' class='img-circle' width='300' heigth='140'></p>
+                <p class='centered'><img src='../assets/img/music.png' class='rounded' width='300' heigth='300'></p>
             </div>
             <div class='row-lg-6 row-md-6 row-sm-6 mb'>
                 <h3><p class='centered'>$reg->nombreusuario</p></h3>

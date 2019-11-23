@@ -299,7 +299,7 @@ function update_repo_admin(idrepositorio) {
         data: {"idrepositorio":idrepositorio},
         success: function( data ){
 			var datos = JSON.parse(data);
-			$("#txtrepositorio").val(datos.idrespositorio);
+			$("#txtrepositorio").val(idrepositorio);
         	$("#txtname").val(datos.nombre);
         	$("#txtdate").val(datos.fecha_creacion);
         	$("#txtpublic").val(datos.publico);
