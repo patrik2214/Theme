@@ -124,7 +124,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		        <form>
                     <div class="form-group">
 						<label for="txtrepositorio">Cod</label>
-						<input class="form-control" name="txtrepositorio" id="txtrepositorio">
+						<input class="form-control" name="txtrepositorio" id="txtrepositorio" disabled>
 					</div>
 					<div class="form-group">
 						<label for="txtname">Name</label>
@@ -132,7 +132,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
                     </div>
                     <div class="form-group">
 						<label for="txtdate">Date of Creation</label>
-						<input type="date" class="form-control" name="txtdate" id="txtdate">
+						<input type="date" class="form-control" name="txtdate" id="txtdate" disabled>
                     </div>
 					<div class="form-group">
                         <label for="txtpublic">Public</label>

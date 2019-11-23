@@ -277,25 +277,25 @@ function edit_repo_admin() {
 	var date =document.getElementById('txtdate').value;
 	var public = document.getElementById('txtpublic').value;
 	var cola = document.getElementById('txtcol').value;
-	var des =document.getElementById('txtdes').value;
+	var des = document.getElementById('txtdes').value;
 	$.ajax({
 		url: "../php/actualizar_repo_admin.php",
 		dataType: "text",
 		type: "post",
-		data: {idrespositorio:idrepositorio,name:name,date:date, public:public,cola:cola,des:des},
-		success: function(data) {
+		data: { idrepositorio : idrepositorio , name: name, date: date, public: public, cola: cola, des: des},
+		success: function (data) {
 			console.log(data);
 			if (data == 1) {
-				$("#newrama").modal("toggle");
-				Swal.fire("ALL is Update!", "Repositorio is Update!", "success");
+				$("#exampleModalLabel").modal("toggle");
+				Swal.fire("Good job!", "Repositorio listo para usar!", "success");
+				
 			} else {
 				Swal.fire({
 					icon: "error",
 					title: "Oops...",
-					text: "Some problem!"
+					text: "Ocurrio un problema!"
 				});
 			}
-
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
@@ -749,3 +749,4 @@ function save (){
         }
     });
 }
+
