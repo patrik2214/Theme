@@ -203,6 +203,9 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
     <script src="../assets/js/jquery.scrollTo.min.js"></script>
     <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
+    <!-- sweet alert for alerts -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
