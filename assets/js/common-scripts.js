@@ -284,7 +284,18 @@ function edit_repo_admin() {
 		type: "post",
 		data: {idrespositorio:idrepositorio,name:name,date:date, public:public,cola:cola,des:des},
 		success: function(data) {
-			var datos = JSON.parse(data);
+			console.log(data);
+			if (data == 1) {
+				$("#newrama").modal("toggle");
+				Swal.fire("ALL is Update!", "Repositorio is Update!", "success");
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Some problem!"
+				});
+			}
+
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
