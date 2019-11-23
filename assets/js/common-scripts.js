@@ -310,7 +310,6 @@ function update_repo_admin(idrepositorio) {
             console.log( error );
         }
     });
-	$('#divfrm').modal('toggle');
 }
 
 function new_pry(rep) {

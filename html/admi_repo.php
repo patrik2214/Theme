@@ -135,12 +135,18 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 						<input type="date" class="form-control" name="txtdate" id="txtdate">
                     </div>
 					<div class="form-group">
-						<label for="txtpublic">Public</label>
-						<input type="text" class="form-control" name="txtpublic" id="txtpublic">
+                        <label for="txtpublic">Public</label>
+                        <select name="txtpublic" id="txtpublic">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
 					</div>
 					<div class="form-group">
-						<label for="txtcol">Colaborator</label>
-						<input type="text" class="form-control" name="txtcol" id="txtcol">
+                        <label for="txtcol">Colaborator</label>
+                        <select name="txtcol" id="txtcol">
+                            <option value="1">Si</option>
+                            <option value="2">No</option>
+                        </select>
                     </div>
                     <div class="form-group">
 						<label for="txtemail">Description</label>
