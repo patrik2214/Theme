@@ -14,7 +14,7 @@ try
     $n->execute();
 
     // DELETE PARTITURAS
-    $m=$cnx->prepare("DELETE FROM partitura WHERE idproyecto = (SELECT idproyecto FROM proyecto WHERE idrepositorio=:idrepo)");
+    $m=$cnx->prepare("DELETE FROM partituras WHERE idproyecto = (SELECT idproyecto FROM proyecto WHERE idrepositorio=:idrepo)");
     $m->bindParam(":idrepo",$idrepositorio);
     $m->execute();
 

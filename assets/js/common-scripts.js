@@ -191,6 +191,7 @@ function delete_repositorio(idrepositorio) {
 			if (data == 1) {
 				$("#newrama").modal("toggle");
 				Swal.fire("DELETE!", "Repositorio is Delete!", "success");
+				listar_repos();
 			} else {
 				Swal.fire({
 					icon: "error",
@@ -720,10 +721,8 @@ function save(){
 	var lastname = document.getElementById('txtlastname').value;
 	var username = document.getElementById('txtusername').value;
 	var email = document.getElementById('txtemail').value;
-<<<<<<< HEAD
-=======
+
 	console.log(idusuario);
->>>>>>> 02675f91e1ed0e04e27f8add8d345a49dbe6f0ab
 	$.ajax({
         url: '../php/actualizar_admin.php',
         type: 'post',
