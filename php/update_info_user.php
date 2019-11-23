@@ -108,13 +108,8 @@ if($_FILES['img']['name']==null){
 
         }
     }
-
-    if($resp==1){
-        echo "ALL IS UPDATE!" ;
-    }else{
-        echo "ERROR";
-    }
-
+    echo $resp ;
+   
 }
 
 

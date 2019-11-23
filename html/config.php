@@ -181,22 +181,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 <!--  notification end -->
             </div>
             <div class="nav pull-right top-menu notify-row">
-                <!-- <div >
-                    <a class="btn btn-secondary dropdown-toggle" href="myperfil.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        top-menu n
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" onclick="close_sesion()" href="#">Logout</a>
-                    </div>
-                </div> -->
-                <!-- <form action="../php/close_session.php" method="post"> -->
-            	    <!-- <ul class="dropdown nav pull-right top-menu" >
-                        <li><a href="myperfil.php"></a></li>
-                        <li> <button type="submit" class="logout" >Logout</button> </li>
-            	    </ul> -->
-                <!-- </form> -->
                 <div class="btn-group pull-right">
                     <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
                     <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
@@ -308,9 +292,46 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             <section class="wrapper site-min-height">   
                 <div class="row mt">
           		    <div class="col-lg-12">
-                        <div class="form-panel">  			
+                        <div class='text-center'>
+                           <img id='userpic' class='img-circle' width='100'>
+                        </div>
+                        <!-- <div class='row'>
+                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                <br>
+                                <br>
+                                <input type='file' class='form-control-file' name='img' id='img' >
+                            </div>
+                        </div> -->
+                        <div class="text-center">
+                            <p class='h3' id="username"></p>
+                        </div>
+                        <div class="form-panel">
                             <form id="user_data" action="" method="post">
-
+                                <div class='form-group'>
+                                    <input type="hidden" name="idusuario" id="idusuario" value="">
+                                    <p>Name</p>
+                                    <input type='text' class='form-control' name='txtname' id='txtname'  >
+                                </div>
+                                <div class='form-group'>
+                                    <p>Last Name</p>
+                                    <input type='text' class='form-control' name='txtlastname' id='txtlastname' >
+                                </div>
+                                <div class='form-group'>
+                                    <p>Email</p>
+                                    <input type='email' class='form-control' name='txtemail' id='txtemail'  >
+                                </div>
+                                
+                                <div class='row'>
+                                    <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                        <button  class='btn btn-success' type='submit' onclick='modify_user()'>Save All Changes</button><br>
+                                    </div>
+                                    <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                        <button  class='btn btn-danger' type='submit' >Cambiar Contrsena</button><br>
+                                    </div>
+                                    <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                        <button  class='btn btn-danger' type='submit' onclick='delete_user()'>Inactive Account</button><br>
+                                    </div>
+                                </div>
                             </form>
                         </div>
                     </div>

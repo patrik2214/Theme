@@ -416,8 +416,13 @@ function list_user_info() {
 		type: "post",
 		data: {},
 		success: function(data) {
-			console.log(data);
-			$("#user_data").html(data);
+			var datos = JSON.parse(data);
+			$("#username").html(datos.nombreusuario);
+			$("#idusuario").val(datos.idusuario);
+			$("#txtname").val(datos.nombre);
+			$("#txtlastname").val(datos.apellido);
+			$("#txtemail").val(datos.correo);
+			$("#userpic").attr('src', datos.foto);
 		},
 		error: function(jqXhr, textStatus, error) {
 			console.log(error);
@@ -502,8 +507,25 @@ function modify_user(idusuario) {
 		data: formData,
 		contentType: false,
 		processData: false,
-		success: function(data) {
+		success: function (data) {
 			console.log(data);
+			if (data == 1) {
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Your work has been saved',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
