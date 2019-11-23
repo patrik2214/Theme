@@ -687,7 +687,7 @@ function edit_user_admin(idusuario){
         data: {"idusuario":idusuario},
         success: function( data ){
 			var datos = JSON.parse(data);
-			$("#txtidusuario").val(datos.idusuario);
+			$("#txtidusuario").html(idusuario);
         	$("#txtname").val(datos.nombre);
         	$("#txtlastname").val(datos.apellido);
         	$("#txtusername").val(datos.nombreusuario);
