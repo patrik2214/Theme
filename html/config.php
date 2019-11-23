@@ -12,11 +12,11 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <!-- <script
+    <script
       src="https://kit.fontawesome.com/fa723842a6.js"
       crossorigin="anonymous"
-    ></script> -->
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    ></script>
+    <!-- <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" /> -->
     <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
@@ -291,21 +291,34 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
         <section id="main-content">
             <section class="wrapper site-min-height">   
                 <div class="row mt">
-          		    <div class="col-lg-12">
-                        <div class='text-center'>
-                           <img id='userpic' class='img-circle' width='100'>
+                
+          		    <div class="col-lg-6  col-md-6">
+                        <div class="form-group mt-3">
+                            <label class=" position-relative" for="btnSubirFoto">
+                                <img class="rounded-circle" id='userpic' alt="">
+                                <div id="editar-hover">
+                                    <i class="far fa-edit"></i>
+                                </div>
+                            </label>
+                            <input type="file" name="foto" id="btnSubirFoto">
                         </div>
+                        <!-- <div class='text-center'>
+                           <img id='userpic' class='img-circle' width='100'>
+                        </div> -->
+                        <div class="text-center">
+                            <p class='h3' id="username"></p>
+                        </div>
+                        
                         <div class='row'>
-                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
-                                <button  class='btn btn-success' type='submit' onclick='modify_user()'>Save All Changes</button><br>
-                            </div>
-                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
                                 <button  class='btn btn-info' type='submit' >Cambiar Contrsena</button><br>
                             </div>
-                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
                                 <button  class='btn btn-danger' type='submit' onclick='delete_user()'>Inactive Account</button><br>
                             </div>
                         </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
                         <!-- <div class='row'>
                             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
                                 <br>
@@ -313,8 +326,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 <input type='file' class='form-control-file' name='img' id='img' >
                             </div>
                         </div> -->
-                        <div class="text-center">
-                            <p class='h3' id="username"></p>
+                        <div class='row'>
+                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                <button  class='btn btn-success' type='submit' onclick='modify_user()'>Save All Changes</button><br>
+                            </div>
                         </div>
                         <div class="form-panel">
                             <form id="user_data" action="" method="post">
@@ -331,8 +346,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                     <p>Email</p>
                                     <input type='email' class='form-control' name='txtemail' id='txtemail'  >
                                 </div>
-                                
-                                
                             </form>
                         </div>
                     </div>
@@ -350,7 +363,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <script src="../assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.sparkline.js"></script>
     
     <script src="../assets/js/chart-master/Chart.js"></script>
@@ -408,10 +420,12 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
         }
     </script>
     <style>
-        .text-center img{
-            width: 120px;
-            height: 120px;
-        }
+        /* #userpic{
+            width: 280px;
+            height: 280px;
+            vertical-align: center;
+            display: flex;
+        } */
     </style>
     </body>
 </html>
