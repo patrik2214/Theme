@@ -9,12 +9,12 @@ try
     $cnx->beginTransaction();
 
     // DELETE PISTAS
-    $n=$cnx->prepare("DELETE FROM pistas WHERE idproyecto = (SELECT idproyecto WHERE idrepositorio:idrepo)");
+    $n=$cnx->prepare("DELETE FROM pistas WHERE idproyecto = (SELECT idproyecto FROM proyecto WHERE idrepositorio:idrepo)");
     $n->bindParam(":idrepo",$idrepositorio);
     $n->execute();
 
     // DELETE PARTITURAS
-    $m=$cnx->prepare("DELETE FROM partitura WHERE idproyecto = (SELECT idproyecto WHERE idrepositorio:idrepo)");
+    $m=$cnx->prepare("DELETE FROM partitura WHERE idproyecto = (SELECT idproyecto FROM proyecto WHERE idrepositorio:idrepo)");
     $m->bindParam(":idrepo",$idrepositorio);
     $m->execute();
 

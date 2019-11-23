@@ -186,7 +186,7 @@ function delete_repositorio(idrepositorio) {
 	$.ajax({
 		url: "../php/delete_repo.php",
 		type: "post",
-		data: {idrepositorio:idrespositorio},
+		data: {idrepositorio:idrepositorio},
 		success: function(data) {
 			if (data == 1) {
 				$("#newrama").modal("toggle");
@@ -702,16 +702,16 @@ function edit_user_admin(idusuario){
 
 
 function save (){
-	var idusuario = document.getElementById("txtidusuario").value;
-	var name = document.getElementById("txtname").value;
-	var lastname = document.getElementById("txtlastname").value;
-	var username = document.getElementById("txtusername").value;
-	var email = document.getElementById("txtemail").value;
+	var idusuario = document.getElementById('txtidusuario').value;
+	var name = document.getElementById('txtname').value;
+	var lastname = document.getElementById('txtlastname').value;
+	var username = document.getElementById('txtusername').value;
+	var email = document.getElementById('txtemail').value;
 
 	$.ajax({
         url: '../php/actualizar_admin.php',
         type: 'post',
-        data: {"idusuario":idusuario,"name":name,"lastname":lastname,"username":username, "email":email},
+        data: {idusuario:idusuario,name:name,lastname:lastname,username:username, email:email},
         success: function( data ){
 			console.log(data);
 			if (data == 1) {
