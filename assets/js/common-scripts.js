@@ -700,6 +700,7 @@ function edit_user_admin(idusuario){
         success: function( data ){
 			var datos = JSON.parse(data);
 			$("#txtidusuario").html(idusuario);
+			$("#txtidusuario").val(idusuario);
         	$("#txtname").val(datos.nombre);
         	$("#txtlastname").val(datos.apellido);
         	$("#txtusername").val(datos.nombreusuario);
@@ -713,17 +714,17 @@ function edit_user_admin(idusuario){
 }
 
 
-function save (){
+function save(){
 	var idusuario = document.getElementById('txtidusuario').value;
 	var name = document.getElementById('txtname').value;
 	var lastname = document.getElementById('txtlastname').value;
 	var username = document.getElementById('txtusername').value;
 	var email = document.getElementById('txtemail').value;
-
+	console.log(idusuario);
 	$.ajax({
         url: '../php/actualizar_admin.php',
         type: 'post',
-        data: {idusuario:idusuario,name:name,lastname:lastname,username:username, email:email},
+        data: {idusuario:idusuario , name:name , lastname:lastname , username:username , email:email},
         success: function( data ){
 			console.log(data);
 			if (data == 1) {
