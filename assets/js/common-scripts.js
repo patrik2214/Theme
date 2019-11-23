@@ -735,6 +735,9 @@ function save(){
 					showConfirmButton: false,
 					timer: 1500
 				});
+				list_all_users();
+				$("#divfrm").modal("toggle");
+				limpiar_datos_user();
 			} else {
 				Swal.fire({
 					position: 'top-end',
@@ -749,5 +752,13 @@ function save(){
             console.log( error );
         }
     });
+}
+
+function limpiar_datos_user() {
+	$('#txtidusuario').val("");
+	$('#txtname').val("");
+	$('#txtlastname').val("");
+	$('#txtusername').val("");
+	$('#txtemail').val("");
 }
 
