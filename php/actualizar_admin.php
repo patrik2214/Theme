@@ -9,6 +9,6 @@ $email = $_POST['email'];
 
 $sql="UPDATE usuario SET nombre='$name', apellido='$lastname',nombreusuario='$username', correo='$email' WHERE idusuario=$id";
 $resp=1;
-$cnx->query($sql) or $resp=0;
+$cnx->query($sql) or die($sql);
 echo $resp;
 ?>

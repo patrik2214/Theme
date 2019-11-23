@@ -700,6 +700,7 @@ function edit_user_admin(idusuario){
         success: function( data ){
 			var datos = JSON.parse(data);
 			$("#txtidusuario").html(idusuario);
+			$("#txtidusuario").val(idusuario);
         	$("#txtname").val(datos.nombre);
         	$("#txtlastname").val(datos.apellido);
         	$("#txtusername").val(datos.nombreusuario);
@@ -713,16 +714,20 @@ function edit_user_admin(idusuario){
 }
 
 
-function save (){
+function save(){
 	var idusuario = document.getElementById('txtidusuario').value;
 	var name = document.getElementById('txtname').value;
 	var lastname = document.getElementById('txtlastname').value;
 	var username = document.getElementById('txtusername').value;
 	var email = document.getElementById('txtemail').value;
+<<<<<<< HEAD
+=======
+	console.log(idusuario);
+>>>>>>> 02675f91e1ed0e04e27f8add8d345a49dbe6f0ab
 	$.ajax({
         url: '../php/actualizar_admin.php',
         type: 'post',
-        data: {idusuario:idusuario,name:name,lastname:lastname,username:username, email:email},
+        data: {idusuario:idusuario , name:name , lastname:lastname , username:username , email:email},
         success: function( data ){
 			console.log(data);
 			if (data == 1) {
@@ -733,6 +738,9 @@ function save (){
 					showConfirmButton: false,
 					timer: 1500
 				});
+				list_all_users();
+				$("#divfrm").modal("toggle");
+				limpiar_datos_user();
 			} else {
 				Swal.fire({
 					position: 'top-end',
@@ -747,5 +755,13 @@ function save (){
             console.log( error );
         }
     });
+}
+
+function limpiar_datos_user() {
+	$('#txtidusuario').val("");
+	$('#txtname').val("");
+	$('#txtlastname').val("");
+	$('#txtusername').val("");
+	$('#txtemail').val("");
 }
 
