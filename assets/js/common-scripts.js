@@ -271,6 +271,48 @@ function editar_repo(id) {
 	});
 }
 
+function edit_repo_admin() {
+	var idrepositorio = document.getElementById('txtrepositorio').value;
+	var name = document.getElementById('txtname').value;
+	var date =document.getElementById('txtdate').value;
+	var public = document.getElementById('txtpublic').value;
+	var cola = document.getElementById('txtcol').value;
+	var des =document.getElementById('txtdes').value;
+	$.ajax({
+		url: "../php/actualizar_repo_admin.php",
+		dataType: "text",
+		type: "post",
+		data: {idrespositorio:idrepositorio,name:name,date:date, public:public,cola:cola,des:des},
+		success: function(data) {
+			var datos = JSON.parse(data);
+		},
+		error: function(jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
+}
+
+function update_repo_admin(idrepositorio) {
+	$.ajax({
+        url: '../php/edit_repositorio_admin.php',
+        type: 'post',
+        data: {"idrepositorio":idrepositorio},
+        success: function( data ){
+			var datos = JSON.parse(data);
+			$("#txtrepositorio").val(datos.idrespositorio);
+        	$("#txtname").val(datos.nombre);
+        	$("#txtdate").val(datos.fecha_creacion);
+        	$("#txtpublic").val(datos.publico);
+			$("#txtcol").val(datos.colaborativo);
+			$("#txtdes").val(datos.descripcion);
+        },
+        error: function( jqXhr, textStatus, error ){
+            console.log( error );
+        }
+    });
+	$('#divfrm').modal('toggle');
+}
+
 function new_pry(rep) {
 	let gnr = $("#gnrmusical").val();
 	let idpry = $("#idpry").val();

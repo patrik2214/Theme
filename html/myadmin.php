@@ -123,8 +123,8 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		      <div class="modal-body">
 		        <form>
                     <div class="form-group">
-						<label for="txtname">Cod</label>
-						<input type="text" class="form-control" name="txtidusuario" id="txtidusuario">
+						<label for="txtidusuario">Cod</label>
+						<label class="form-control" name="txtidusuario" id="txtidusuario"></label>
 					</div>
 					<div class="form-group">
 						<label for="txtname">Name</label>

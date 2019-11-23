@@ -8,6 +8,16 @@ try
 {
     $cnx->beginTransaction();
 
+    // DELETE PISTAS
+    $n=$cnx->prepare("DELETE FROM pistas WHERE idproyecto = (SELECT idproyecto WHERE idrepositorio:idrepo)");
+    $n->bindParam(":idrepo",$idrepositorio);
+    $n->execute();
+
+    // DELETE PARTITURAS
+    $m=$cnx->prepare("DELETE FROM partitura WHERE idproyecto = (SELECT idproyecto WHERE idrepositorio:idrepo)");
+    $m->bindParam(":idrepo",$idrepositorio);
+    $m->execute();
+
     // DELETE DESARROLLADOR
     $c=$cnx->prepare("DELETE FROM desarrollador WHERE idrepositorio:idrepo");
     $c->bindParam(":idrepo",$idrepositorio);
