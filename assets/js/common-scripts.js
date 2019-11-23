@@ -493,6 +493,7 @@ function userlike() {
 
 
 function modify_user(idusuario) {
+	
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
 	var username = document.getElementById("txtusername").value;
