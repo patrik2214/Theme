@@ -719,7 +719,6 @@ function save (){
 	var lastname = document.getElementById('txtlastname').value;
 	var username = document.getElementById('txtusername').value;
 	var email = document.getElementById('txtemail').value;
-
 	$.ajax({
         url: '../php/actualizar_admin.php',
         type: 'post',
