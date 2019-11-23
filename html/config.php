@@ -295,6 +295,17 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                         <div class='text-center'>
                            <img id='userpic' class='img-circle' width='100'>
                         </div>
+                        <div class='row'>
+                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                <button  class='btn btn-success' type='submit' onclick='modify_user()'>Save All Changes</button><br>
+                            </div>
+                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                <button  class='btn btn-info' type='submit' >Cambiar Contrsena</button><br>
+                            </div>
+                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                <button  class='btn btn-danger' type='submit' onclick='delete_user()'>Inactive Account</button><br>
+                            </div>
+                        </div>
                         <!-- <div class='row'>
                             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
                                 <br>
@@ -321,17 +332,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                     <input type='email' class='form-control' name='txtemail' id='txtemail'  >
                                 </div>
                                 
-                                <div class='row'>
-                                    <div class='col-lg-2 col-md-2 col-sm-2 mb'>
-                                        <button  class='btn btn-success' type='submit' onclick='modify_user()'>Save All Changes</button><br>
-                                    </div>
-                                    <div class='col-lg-2 col-md-2 col-sm-2 mb'>
-                                        <button  class='btn btn-danger' type='submit' >Cambiar Contrsena</button><br>
-                                    </div>
-                                    <div class='col-lg-2 col-md-2 col-sm-2 mb'>
-                                        <button  class='btn btn-danger' type='submit' onclick='delete_user()'>Inactive Account</button><br>
-                                    </div>
-                                </div>
+                                
                             </form>
                         </div>
                     </div>
