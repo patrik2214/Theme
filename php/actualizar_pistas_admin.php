@@ -7,11 +7,11 @@ $idpistas = $_POST['idpistas'];
 $url = $_POST['url'];
 //$codp = $_POST['codp'];
 $name = $_POST['name'];
-//$coder = $_POST['coder'];
+$coder = $_POST['coder'];
 $public = $_POST['public'];
 $col = $_POST['col'];
 
-$sql="UPDATE pistas SET url='$url' nombre='$name', publico=$public,colaborativo=$col WHERE idpistas=$idpistas;
+$sql="UPDATE pistas SET url='$url' nombre='$name', publico=$public,colaborativo=$col WHERE idpistas=$idpistas";
 $resp=1;
 $cnx->query($sql) or die($sql);
 echo $resp;
