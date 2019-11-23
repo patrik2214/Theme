@@ -156,7 +156,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		  </div>
         </div>
 	</div>
-            <div class='col-md-12'>
+            <div class='col-md-12 mt-4'>
                 <div class='content-panel'>
                 <table class='table table-striped table-advance table-hover'>
                     <thead>

@@ -552,7 +552,7 @@ function delete_user(idusuario) {
 		data: { "idusuario": idusuario },
 		success: function(data) {
 			console.log(data);
-			if (data == 1) {
+			if (data == 0) {
 				$("#new_rama").modal("toggle");
 				Swal.fire(
 					"Good job!",
@@ -563,7 +563,39 @@ function delete_user(idusuario) {
 				Swal.fire({
 					icon: "Error",
 					title: "Oops...",
-					text: "Some Problems!"
+					text: "Some Problems!",
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
+function hab_user(idusuario) {
+	$.ajax({
+		url: "../php/hab.php",
+		type: "post",
+		data: { "idusuario": idusuario },
+		success: function(data) {
+			console.log(data);
+			if (data == 0) {
+				$("#new_rama").modal("toggle");
+				Swal.fire(
+					"Good job!",
+					"Save All Changes",
+					"success"
+				);
+			} else {
+				Swal.fire({
+					icon: "Error",
+					title: "Oops...",
+					text: "Some Problems!",
+					showConfirmButton: false,
+					timer: 1500
 				});
 			}
 		},
