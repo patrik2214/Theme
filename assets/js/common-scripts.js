@@ -184,26 +184,26 @@ function new_repositorio() {
 
 function delete_repositorio(idrepositorio) {
 	$.ajax({
-		url: "../php/delete_repo.php",
-		type: "post",
-		data: {idrepositorio:idrepositorio},
-		success: function(data) {
-			if (data == 1) {
-				$("#newrama").modal("toggle");
-				Swal.fire("DELETE!", "Repositorio is Delete!", "success");
-				listar_repos();
-			} else {
-				Swal.fire({
-					icon: "error",
-					title: "Oops...",
-					text: "Some problem!"
-				});
-			}
-		},
-		error: function(jqXhr, textStatus, error) {
-			console.log(error);
+	url: "../php/delete_repo.php",
+	type: "post",
+	data: {idrepositorio:idrepositorio},
+	success: function(data) {
+		if (data == 1) {
+			$("#newrama").modal("toggle");
+			Swal.fire("DELETE!", "Repositorio is Delete!", "success");
+			listar_repos();
+		} else {
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Some problem!"
+			});
 		}
-		});
+	},
+	error: function(jqXhr, textStatus, error) {
+		console.log(error);
+	}
+	});
 }
 
 function porfile(){
@@ -327,7 +327,6 @@ function update_repo_admin(idrepositorio) {
 function new_pry(rep) {
 	let gnr = $("#gnrmusical").val();
 	let idpry = $("#idpry").val();
-	console.log(idpry);
 	if (idpry > 0) {
 		// Editar
 		$.ajax({
@@ -338,7 +337,8 @@ function new_pry(rep) {
 				idgnr: gnr,
 				idpry: idpry
 			},
-			success: function(data) {
+			success: function (data) {
+				console.log(data);
 				if (data == 1) {
 					$("#new_rama").modal("toggle");
 					Swal.fire("Good job!", "Actualizacion realizada!", "success");
@@ -929,6 +929,81 @@ function new_record(idproyecto) {
 		},
 		error: function (jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
+		}
+	});
+}
+
+
+function valcampos() {
+	$('#txtname').val("");
+	$('#txtlastname').val("");
+	$('#txtusername').val("");
+	$('#txtemail').val("");
+	$('#txtpass').val("");
+	$('#txtcpass').val("");
+}
+
+function delete_repo(repo) {
+	Swal.fire({
+		title: 'Are you sure?',
+		text: "You won't be able to revert this!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yes, delete it!'
+	}).then((result) => {
+		if (result.value) {
+			$.ajax({
+				url: "../php/delete_repo.php",
+				type: "post",
+				data: { idrepositorio: repo },
+				success: function (data) {
+					console.log(data);
+					if (data == 1) {
+						window.location.replace("http://localhost/theme/html/index.php");
+					} else {
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Some problem!"
+						});
+					}
+				},
+				error: function (jqXhr, textStatus, error) {
+					console.log(error);
+				}
+			});
+		}
+	})
+}
+
+function update_repo(repo) {
+	let name = $("#nombre_repo").val();
+	let des = $("#about_repo").val();
+	let priv = 1;
+	if ($("#privado:checked").val() == 0) {
+		priv = 0;
+	}
+	$.ajax({
+		url: "../php/update_repo.php",
+		type: "post",
+		data: { idrepositorio: repo, name: name, public: priv, des:des },
+		success: function (data) {
+			console.log(data);
+			if (data == 1) {
+				var URLactual = window.location;
+				window.location.replace(URLactual);
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Some problem!"
+				});
+			}
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
 		}
 	});
 }

@@ -134,11 +134,11 @@ if(isset($_POST['submit'])){
 
                             <div class="g-recaptcha" data-sitekey="6LfpPboUAAAAAC2yEYpndy3nwCo3k44NmhIkGeJP"></div><br>
                             <div class="row">
-                                <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
+                                <div class="col-lg-2 col-md-2 col-sm-1 mb form-group">
                                     <button  class="btn btn-success" type="submit" name="submit">Save</button><br>
                                 </div>
-                                <div class="col-lg-1 col-md-1 col-sm-1 mb form-group">
-                                    <button  class="btn btn-success" type="reset" name="reset">Reset</button><br>
+                                <div class="col-lg-1 col-md-1 col-sm-2 mb form-group">
+                                    <button  class="btn btn-success" type="reset" onclick="valcampos()" name="reset">Reset</button><br>
                                 </div>
                             </div>
                             <?php
@@ -178,6 +178,9 @@ if(isset($_POST['submit'])){
 
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
+     <script type="text/javascript">
+		window.load = valcampos();
+	</script>
     
     <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>
