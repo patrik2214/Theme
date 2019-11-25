@@ -477,19 +477,25 @@ function search(username) {
 
 
 function userlike() {
-	var username= document.getElementById("search").value;
-	$.ajax({
-		url: "../php/user_result.php",
-		type: "post",
-		data: {"username":username},
-		success: function(data) {
-			console.log(data);
-			$("#searchuser").html(data);
-		},
-		error: function(jqXhr, textStatus, error) {
-			console.log(error);
-		}
-	});
+	var username = document.getElementById("search").value;
+	if (username.length == 0) {
+		document.getElementById('searchuser').style.display = 'none';
+	} else {
+		$.ajax({
+			url: "../php/user_result.php",
+			type: "post",
+			data: { "username": username },
+			success: function (data) {
+				console.log(data);
+				$("#searchuser").html(data);
+				
+			},
+			error: function (jqXhr, textStatus, error) {
+				console.log(error);
+			}
+		});
+	}
+	
 }
 
 

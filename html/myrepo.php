@@ -325,27 +325,12 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                     <div class="modal-body">
                         <form >
-                            <input type="search" name="busqueda" class="form-control" id="busqueda" placeholder="Busque a su colaborador" />
+                            <input type="search" name="busqueda" onkeyup="userlike()" class="form-control" id="search" placeholder="Busque a su colaborador" />
                         </form>
                         <div class="content-panel">
-                            <table class="table table-hover">
-                            <h3>Colaboradores a agregar</h3>
-                            <hr>
-                                <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th>First Name</th>
-                                    <th>Last Name</th>
-                                    <th>Username</th>
-                                </tr>
-                                </thead>
-                                <tbody>
-                                <tr>
-                                    <td>1</td>
-                                    <td>Mark</td>
-                                    <td>Otto</td>
-                                    <td>@mdo</td>
-                                </tr>
+                            <table class="table table-hover">                              
+                                <tbody id="searchuser">
+                                
                                 </tbody>
                             </table>
                         </div><!--/content-panel -->

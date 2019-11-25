@@ -13,7 +13,7 @@ while($re = $rs->fetchObject()){
     }
     echo utf8_encode("     
          <tr>
-            <td><a href='#'>$re->nombre</a></td>
+            <td><a href='myporfile?user=$re->idusuario'>$re->nombre</a></td>
             <td>$tipodev</td>
             <td>
                 <button onclick='delete_colab($re->idcolaborador)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
