@@ -488,7 +488,7 @@ function userlike() {
 			success: function (data) {
 				console.log(data);
 				$("#searchuser").html(data);
-				
+				document.getElementById('searchuser').style.display = 'block';
 			},
 			error: function (jqXhr, textStatus, error) {
 				console.log(error);

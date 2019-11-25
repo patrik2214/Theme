@@ -336,8 +336,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                         </div><!--/content-panel -->
                     </div>
                     <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="new_colab(<?php echo $_GET['repo']; ?>)" class="btn btn-primary">Agregar</button>
                     </div>
                 </div>
                 </div>
