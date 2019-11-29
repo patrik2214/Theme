@@ -41,6 +41,15 @@
             <!--logo start-->
             <a class="logo"><b>SHART</b></a>
             <!--logo end-->
+                <ul class="nav top-menu">
+                    <li><a class="text-ligth" href="about.php.php">About</a></li>
+                </ul>
+                <ul class="nav top-menu">
+                    <li><a class="text-ligth" href="galery.php.php">Gallery</a></li>
+                </ul>
+                <ul class="nav top-menu">
+                    <li><a class="text-ligth" href="register.php.php">Register</a></li>
+            	</ul>
             	<ul class="nav pull-right top-menu">
                     <li><a class="logout" href="login.html">Login</a></li>
             	</ul>

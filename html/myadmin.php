@@ -80,21 +80,27 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
                     <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
                     
               	  	
-                  <li class="mt">
+                    <li class="mt">
                       <a href="myadmin.php">
-                          <span>Mantenimiento usuario</span>
+                          <span>Mantenimiento de Usuario</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
                      <a href="admi_repo.php">
-                          <span>Mantenimiento repositorios</span>
+                          <span>Mantenimiento de Repositorios</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
                       <a href="admi_pista.php">
-                          <span>Mantenimiento pistas</span>
+                          <span>Mantenimiento de Pistas</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="admi_partituras.php">
+                          <span>Mantenimiento Partituras</span>
                       </a>
                   </li>
                   

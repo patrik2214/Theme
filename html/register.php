@@ -80,10 +80,19 @@ if(isset($_POST['submit'])){
             <a href="index.php" class="logo"><b>SHART</b></a>
             <div class="nav pull-right top-menu ">
                 <!-- <form action="../php/close_session.php" method="post"> -->
-            	    <ul class=" nav pull-right top-menu" >
-                        <li ><a class="logout"  href="login.php">Iniciar sesion</a></li>
-                        <!-- <li> <button type="submit" class="logout" >Logout</button> </li> -->
-            	    </ul>
+                <ul class="nav top-menu">
+                    <li><a class="text-ligth" href="about.php.php">About</a></li>
+                </ul>
+                <ul class="nav top-menu">
+                    <li><a class="text-ligth" href="galery.php.php">Gallery</a></li>
+                </ul>
+                <ul class="nav top-menu">
+                    <li><a class="text-ligth" href="register.php.php">Register</a></li>
+            	</ul>
+            	<ul class=" nav pull-right top-menu" >
+                    <li ><a class="logout"  href="login.php">Iniciar sesion</a></li>
+                    <!-- <li> <button type="submit" class="logout" >Logout</button> </li> -->
+            	</ul>
                 <!-- </form> -->
                 
             </div>

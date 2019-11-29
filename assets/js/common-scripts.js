@@ -206,10 +206,6 @@ function delete_repositorio(idrepositorio) {
 	});
 }
 
-function porfile(){
-	listar_repos();
-	porfile_user();
-}
 
 function listar_repos() {
 	$.ajax({
@@ -446,21 +442,6 @@ function list_user_info() {
 	});
 }
 
-function porfile_user() {
-	$.ajax({
-		url: "../php/user_porfile.php",
-		type: "post",
-		data: {},
-		success: function(data) {
-			console.log(data);
-			$("#info").html(data);
-		},
-		error: function(jqXhr, textStatus, error) {
-			console.log(error);
-		}
-	});
-}
-
 function search(username) {
 	$.ajax({
 		url: "../php/porfile_another.php",
@@ -489,6 +470,28 @@ function userlike(repo) {
 			url: "../php/user_result.php",
 			type: "post",
 			data: { "username": username, idrepo: repo },
+			success: function (data) {
+				console.log(data);
+				$("#searchuser").html(data);
+				document.getElementById('searchuser').style.display = 'block';
+			},
+			error: function (jqXhr, textStatus, error) {
+				console.log(error);
+			}
+		});
+	}
+	
+}
+
+function userlikethat(username) {
+	var buscar = document.getElementById("txtbuscar").value;
+	if (username.length == 0) {
+		document.getElementById('searchuser').style.display = 'none';
+	} else {
+		$.ajax({
+			url: "../php/user_search.php",
+			type: "post",
+			data: { username: username,"buscar":buscar },
 			success: function (data) {
 				console.log(data);
 				$("#searchuser").html(data);

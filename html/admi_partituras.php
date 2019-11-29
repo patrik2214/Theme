@@ -82,19 +82,25 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
               	  	
                   <li class="mt">
                       <a href="myadmin.php">
-                          <span>Mantenimiento usuario</span>
+                          <span>Mantenimiento de Usuario</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
                      <a href="admi_repo.php">
-                          <span>Mantenimiento repositorios</span>
+                          <span>Mantenimiento de Repositorios</span>
                       </a>
                   </li>
 
                   <li class="sub-menu">
                       <a href="admi_pista.php">
-                          <span>Mantenimiento pistas</span>
+                          <span>Mantenimiento de Pistas</span>
+                      </a>
+                  </li>
+
+                  <li class="sub-menu">
+                      <a href="admi_partituras.php">
+                          <span>Mantenimiento Partituras</span>
                       </a>
                   </li>
                   
