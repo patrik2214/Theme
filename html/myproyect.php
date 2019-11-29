@@ -251,18 +251,14 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             <h2>Sube tu cancion o una pista </h2>
             <form enctype="multipart/form-data">
                 <div class="form-group mx-sm-3 mb-2">
-                    <label for="name_pista">Nombre de la pista</label>
-                    <input type="text" class="form-control col-lg-6" name="name_pista" id="name_pista" placeholder="Nombre">
+                    <label for="des_pista"> <h4><b>Descripcion</b> *Opcional</h4> </label>
+                    <textarea type="text" class="form-control col-lg-6" rows="3" name="des_pista" id="des_pista" placeholder="Describe tu pista para que los demas se enteren"></textarea>
                 </div>
-                <br> <br>   
-                <div class="form-group mx-sm-3 mb-2">
-                    <label for="des_pista">Descripcion</label>
-                    <input type="text" class="form-control col-lg-6" name="des_pista" id="des_pista" placeholder="Describe tu pista para que los demas se enteren">
-                </div>
-                <br> <br>   
-                <div >
-                    <input type="file" name="uploadedfile" id="uploadedfile" />
-                </div>
+                <br> 
+                
+                <br>
+                <input type="file" name="uploadedfile" id="uploadedfile" />
+                
                 
                 <br>
                 <!-- <input class="btn btn-primary btn-lg btn-block" onclick='new_record()' type="submit" name="uploadBtn" value="Upload" /> -->

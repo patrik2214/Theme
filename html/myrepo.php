@@ -273,7 +273,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                     <div class="modal-footer">
                     <button type="button" class="btn btn-default" onclick="clean_gnr()" data-dismiss="modal">Cancelar</button>
-                    <button type="button" onclick="new_pry(<?php echo $_GET['repo']; ?>)" class="btn btn-primary">Crear</button>
+                    <button type="button" onclick="new_pry(<?php echo $_GET['repo']; ?>)" class="btn btn-primary">Guardar</button>
                     </div>
                 </div>
                 </div>

@@ -927,9 +927,8 @@ function listar_partituras() {
 
 function new_record(idproyecto) {
 	var msc = document.getElementById("uploadedfile").files[0];
-	var name = $("#name_pista").val();
 	var des = $("#des_pista").val();
-	if (msc.length == 0 || name.length==0) {
+	if (msc == undefined) {
 		Swal.fire({
 			icon: 'error',
 			title: 'Oops...',
@@ -941,7 +940,6 @@ function new_record(idproyecto) {
 		var formData = new FormData(); 
 		formData.append("idproyecto", idproyecto);
 		formData.append("uploadedfile", msc);
-		formData.append("name_pista", name);
 		formData.append("des_pista", des);
 		$.ajax({
 			url: "../php/upload_music.php",
