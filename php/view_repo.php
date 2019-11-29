@@ -55,6 +55,7 @@ echo utf8_encode("
                     <hr>
                 <thead>
                     <tr>
+                        <th><i class='fa fa-bullhorn'></i> Nombre</th>
                         <th><i class='fa fa-bullhorn'></i> Genero musical</th>
                         <th>Opciones</th>
                     </tr>

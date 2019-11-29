@@ -327,6 +327,7 @@ function update_repo_admin(idrepositorio) {
 function new_pry(rep) {
 	let gnr = $("#gnrmusical").val();
 	let idpry = $("#idpry").val();
+	let name_pry = $("#name_pry").val();
 	if (idpry > 0) {
 		// Editar
 		$.ajax({
@@ -335,7 +336,8 @@ function new_pry(rep) {
 			type: "post",
 			data: {
 				idgnr: gnr,
-				idpry: idpry
+				idpry: idpry,
+				name: name_pry
 			},
 			success: function (data) {
 				console.log(data);
@@ -344,6 +346,7 @@ function new_pry(rep) {
 					Swal.fire("Good job!", "Actualizacion realizada!", "success");
 					listar_prys(rep);
 					$("#gnrmusical").val(-1);
+					$("#name_pry").val("");
 				} else {
 					Swal.fire({
 						icon: "error",
@@ -367,7 +370,7 @@ function new_pry(rep) {
 			$.ajax({
 				url: "../php/new_pry.php",
 				type: "post",
-				data: { idrepo: rep, idgnr: gnr },
+				data: { idrepo: rep, idgnr: gnr, name: name_pry },
 				success: function(data) {
 					if (data == 1) {
 						$("#new_rama").modal("toggle");
@@ -378,6 +381,7 @@ function new_pry(rep) {
 						);
 						listar_prys(rep);
 						$("#gnrmusical").val(-1);
+						$("#name_pry").val("");
 					} else {
 						Swal.fire({
 							icon: "error",
@@ -476,7 +480,7 @@ function search(username) {
 }
 
 
-function userlike() {
+function userlike(repo) {
 	var username = document.getElementById("search").value;
 	if (username.length == 0) {
 		document.getElementById('searchuser').style.display = 'none';
@@ -484,7 +488,7 @@ function userlike() {
 		$.ajax({
 			url: "../php/user_result.php",
 			type: "post",
-			data: { "username": username },
+			data: { "username": username, idrepo: repo },
 			success: function (data) {
 				console.log(data);
 				$("#searchuser").html(data);
@@ -622,6 +626,7 @@ function editar_pry(idpry) {
 			var datos = JSON.parse(data);
 			$("#gnrmusical").val(datos.idgenero);
 			$("#idpry").val(datos.idproyecto);
+			$("#name_pry").val(datos.nombre);
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
@@ -632,6 +637,7 @@ function editar_pry(idpry) {
 function clean_gnr() {
 	$("#gnrmusical").val(-1);
 	$("#idpry").val("");
+	$("#name_pry").val("");
 }
 
 function delete_pry(idpry) {
@@ -1000,6 +1006,13 @@ function update_repo(repo) {
 			if (data == 1) {
 				var URLactual = window.location;
 				window.location.replace(URLactual);
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Colaborador agregado',
+					showConfirmButton: false,
+					timer: 1500
+				});
 			} else {
 				Swal.fire({
 					icon: "error",
@@ -1013,3 +1026,31 @@ function update_repo(repo) {
 		}
 	});
 }
+
+function new_colab(idcolab, repo) {
+	$.ajax({
+		url: "../php/new_colab.php",
+		type: "post",
+		data: { idrepositorio: repo, idcolab : idcolab },
+		success: function (data) {
+			console.log(data);
+			if (data == 1) {
+				var URLactual = window.location;
+				window.location.replace(URLactual);
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Some problem!"
+				});
+			}
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});	
+}
+
+// zalvarado
+// 741369
+// 746913

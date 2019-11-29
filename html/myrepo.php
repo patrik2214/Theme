@@ -302,6 +302,8 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <h4>Nombre del proyecto:</h4>
+                            <input type="text" name="name_pry" class="form-control" id="name_pry" >
                             <h4>Genero musical</h4>
                             <input type="hidden" name="idpry" id="idpry" value="">
                             <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
@@ -325,12 +327,12 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                     <div class="modal-body">
                         <form >
-                            <input type="search" name="busqueda" onkeyup="userlike()" class="form-control" id="search" placeholder="Busque a su colaborador" />
+                            <input type="search" name="busqueda" onkeyup="userlike(<?php echo $_GET['repo']; ?>)" class="form-control" id="search" placeholder="Busque a su colaborador" />
                         </form>
                         <div class="content-panel">
                             <table class="table table-hover">                              
                                 <tbody id="searchuser">
-                                
+
                                 </tbody>
                             </table>
                         </div><!--/content-panel -->

@@ -1,6 +1,7 @@
 <?php
 require_once("conexion.php");
 $username = $_POST['username'];
+$repo = $_POST['idrepo'];
 
 $sql="SELECT * FROM USUARIO WHERE nombreusuario LIKE '%$username%' ";
 $result = $cnx->query($sql) or die($sql);
@@ -9,7 +10,7 @@ while($reg = $result->fetchObject()){
 			<td>$reg->nombreusuario</td>
 			<td>$reg->nombre , $reg->apellido</td>
 			<td>
-				<button type='button' class='btn btn-info' onclick='search($reg->idusuario)'>Agregar</button>
+				<button type='button' class='btn btn-info' onclick='new_colab($reg->idusuario,$repo)'>Agregar</button>
 			</td>
 		</tr>";
 }
