@@ -1,4 +1,4 @@
-?php
+<?php
 session_start();
 if(!isset($_SESSION['idusuario'])) header("location: login.php");
 if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )

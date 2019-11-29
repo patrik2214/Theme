@@ -115,7 +115,7 @@ if(isset($_POST['submit'])){
                 if($password==$cpassword){
 
                     $a=$cnx->query("INSERT INTO USUARIO(idusuario,nombre,apellido,nombreusuario,correo,fecha_registro,password,idTIPOUSUARIO,foto,estado) 
-                    VALUES($idusuario,'$name','$lastname','$username','$email',current_date,'$password',1,null,true)")  or $resp=0;
+                    VALUES($idusuario,'$name','$lastname','$username','$email',current_date,'$password',1,'../assets/img/user.png',true)")  or $resp=0;
                     #echo "Registrado Correctamente";
                 
                 }
