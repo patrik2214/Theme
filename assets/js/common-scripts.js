@@ -909,40 +909,57 @@ function save_pistas(){
 
 function new_record(idproyecto) {
 	var msc = document.getElementById("uploadedfile").files[0];
-	var formData = new FormData();
-	formData.append("idproyecto", idproyecto);
-	formData.append("uploadedfile", msc);
-	$.ajax({
-		url: "../php/upload_music.php",
-		dataType: "text",
-		type: "post",
-		data: formData,
-		contentType: false,
-		processData: false,
-		success: function (data) {
-			console.log(data);
-			if (data == 1) {
-				Swal.fire({
-					position: 'top-end',
-					icon: 'success',
-					title: 'Your work has been saved',
-					showConfirmButton: false,
-					timer: 1500
-				});
-			} else {
-				Swal.fire({
-					icon: 'error',
-					title: 'Oops...',
-					text: 'Something went wrong!',
-					showConfirmButton: false,
-					timer: 1500
-				});
+	var name = $("#name_pista").val();
+	var des = $("#des_pista").val();
+	if (msc.length == 0 || name.length==0) {
+		Swal.fire({
+			icon: 'error',
+			title: 'Oops...',
+			text: 'Rellene todos los campos',
+			showConfirmButton: false,
+			timer: 1500
+		});
+	} else {
+		var formData = new FormData(); 
+		formData.append("idproyecto", idproyecto);
+		formData.append("uploadedfile", msc);
+		formData.append("name_pista", name);
+		formData.append("des_pista", des);
+		$.ajax({
+			url: "../php/upload_music.php",
+			dataType: "text",
+			type: "post",
+			data: formData,
+			contentType: false,
+			processData: false,
+			success: function (data) {
+				console.log(data);
+				if (data == 1) {
+					var URLactual = window.location;
+					window.location.replace(URLactual);
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: 'Your work has been saved',
+						showConfirmButton: false,
+						timer: 1500
+					});
+	
+				} else {
+					Swal.fire({
+						icon: 'error',
+						title: 'Oops...',
+						text: 'Something went wrong!',
+						showConfirmButton: false,
+						timer: 1500
+					});
+				}
+			},
+			error: function (jqXhr, textStatus, errorThrown) {
+				console.log(errorThrown);
 			}
-		},
-		error: function (jqXhr, textStatus, errorThrown) {
-			console.log(errorThrown);
-		}
-	});
+		});
+	}
 }
 
 
@@ -1054,3 +1071,17 @@ function new_colab(idcolab, repo) {
 // zalvarado
 // 741369
 // 746913
+
+function list_pistas(pry) {
+	$.ajax({
+		url: "../php/list_records.php",
+		type: "post",
+		data: { idpry: pry},
+		success: function (data) {
+			$("#myproyect").html(data);
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});	
+}
