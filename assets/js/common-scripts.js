@@ -65,26 +65,26 @@ var Script = (function() {
 	});
 
 	// custom scrollbar
-	$("#sidebar").niceScroll({
-		styler: "fb",
-		cursorcolor: "#4ECDC4",
-		cursorwidth: "3",
-		cursorborderradius: "10px",
-		background: "#404040",
-		spacebarenabled: false,
-		cursorborder: ""
-	});
+	// $("#sidebar").niceScroll({
+	// 	styler: "fb",
+	// 	cursorcolor: "#4ECDC4",
+	// 	cursorwidth: "3",
+	// 	cursorborderradius: "10px",
+	// 	background: "#404040",
+	// 	spacebarenabled: false,
+	// 	cursorborder: ""
+	// });
 
-	$("html").niceScroll({
-		styler: "fb",
-		cursorcolor: "#4ECDC4",
-		cursorwidth: "6",
-		cursorborderradius: "10px",
-		background: "#404040",
-		spacebarenabled: false,
-		cursorborder: "",
-		zindex: "1000"
-	});
+	// $("html").niceScroll({
+	// 	styler: "fb",
+	// 	cursorcolor: "#4ECDC4",
+	// 	cursorwidth: "6",
+	// 	cursorborderradius: "10px",
+	// 	background: "#404040",
+	// 	spacebarenabled: false,
+	// 	cursorborder: "",
+	// 	zindex: "1000"
+	// });
 
 	// widget tools
 
@@ -184,26 +184,26 @@ function new_repositorio() {
 
 function delete_repositorio(idrepositorio) {
 	$.ajax({
-		url: "../php/delete_repo.php",
-		type: "post",
-		data: {idrepositorio:idrepositorio},
-		success: function(data) {
-			if (data == 1) {
-				$("#newrama").modal("toggle");
-				Swal.fire("DELETE!", "Repositorio is Delete!", "success");
-				listar_repos();
-			} else {
-				Swal.fire({
-					icon: "error",
-					title: "Oops...",
-					text: "Some problem!"
-				});
-			}
-		},
-		error: function(jqXhr, textStatus, error) {
-			console.log(error);
+	url: "../php/delete_repo.php",
+	type: "post",
+	data: {idrepositorio:idrepositorio},
+	success: function(data) {
+		if (data == 1) {
+			$("#newrama").modal("toggle");
+			Swal.fire("DELETE!", "Repositorio is Delete!", "success");
+			listar_repos();
+		} else {
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Some problem!"
+			});
 		}
-		});
+	},
+	error: function(jqXhr, textStatus, error) {
+		console.log(error);
+	}
+	});
 }
 
 function porfile(){
@@ -327,7 +327,7 @@ function update_repo_admin(idrepositorio) {
 function new_pry(rep) {
 	let gnr = $("#gnrmusical").val();
 	let idpry = $("#idpry").val();
-	console.log(idpry);
+	let name_pry = $("#name_pry").val();
 	if (idpry > 0) {
 		// Editar
 		$.ajax({
@@ -336,14 +336,17 @@ function new_pry(rep) {
 			type: "post",
 			data: {
 				idgnr: gnr,
-				idpry: idpry
+				idpry: idpry,
+				name: name_pry
 			},
-			success: function(data) {
+			success: function (data) {
+				console.log(data);
 				if (data == 1) {
 					$("#new_rama").modal("toggle");
 					Swal.fire("Good job!", "Actualizacion realizada!", "success");
 					listar_prys(rep);
 					$("#gnrmusical").val(-1);
+					$("#name_pry").val("");
 				} else {
 					Swal.fire({
 						icon: "error",
@@ -367,7 +370,7 @@ function new_pry(rep) {
 			$.ajax({
 				url: "../php/new_pry.php",
 				type: "post",
-				data: { idrepo: rep, idgnr: gnr },
+				data: { idrepo: rep, idgnr: gnr, name: name_pry },
 				success: function(data) {
 					if (data == 1) {
 						$("#new_rama").modal("toggle");
@@ -378,6 +381,7 @@ function new_pry(rep) {
 						);
 						listar_prys(rep);
 						$("#gnrmusical").val(-1);
+						$("#name_pry").val("");
 					} else {
 						Swal.fire({
 							icon: "error",
@@ -476,25 +480,30 @@ function search(username) {
 }
 
 
-function userlike() {
-	var username= document.getElementById("search").value;
-	$.ajax({
-		url: "../php/user_result.php",
-		type: "post",
-		data: {"username":username},
-		success: function(data) {
-			console.log(data);
-			$("#searchuser").html(data);
-		},
-		error: function(jqXhr, textStatus, error) {
-			console.log(error);
-		}
-	});
+function userlike(repo) {
+	var username = document.getElementById("search").value;
+	if (username.length == 0) {
+		document.getElementById('searchuser').style.display = 'none';
+	} else {
+		$.ajax({
+			url: "../php/user_result.php",
+			type: "post",
+			data: { "username": username, idrepo: repo },
+			success: function (data) {
+				console.log(data);
+				$("#searchuser").html(data);
+				document.getElementById('searchuser').style.display = 'block';
+			},
+			error: function (jqXhr, textStatus, error) {
+				console.log(error);
+			}
+		});
+	}
+	
 }
 
 
 function modify_user(idusuario) {
-	
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
 	var username = document.getElementById("txtusername").value;
@@ -553,18 +562,51 @@ function delete_user(idusuario) {
 		data: { "idusuario": idusuario },
 		success: function(data) {
 			console.log(data);
-			if (data == 1) {
-				$("#new_rama").modal("toggle");
+			if (data == 0) {
 				Swal.fire(
 					"Good job!",
 					"Save All Changes",
 					"success"
 				);
+				list_all_users();
 			} else {
 				Swal.fire({
 					icon: "Error",
 					title: "Oops...",
-					text: "Some Problems!"
+					text: "Some Problems!",
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
+function hab_user(idusuario) {
+	$.ajax({
+		url: "../php/hab.php",
+		type: "post",
+		data: { "idusuario": idusuario },
+		success: function(data) {
+			console.log(data);
+			if (data == 1) {
+				Swal.fire({
+					icon: 'success',
+					title: 'Se realizaron los cambios',
+					showConfirmButton: false,
+					timer: 1500
+				});
+				list_all_users();
+			} else {
+				Swal.fire({
+					icon: "Error",
+					title: "Oops...",
+					text: "Some Problems!",
+					showConfirmButton: false,
+					timer: 1500
 				});
 			}
 		},
@@ -584,6 +626,7 @@ function editar_pry(idpry) {
 			var datos = JSON.parse(data);
 			$("#gnrmusical").val(datos.idgenero);
 			$("#idpry").val(datos.idproyecto);
+			$("#name_pry").val(datos.nombre);
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
@@ -594,6 +637,7 @@ function editar_pry(idpry) {
 function clean_gnr() {
 	$("#gnrmusical").val(-1);
 	$("#idpry").val("");
+	$("#name_pry").val("");
 }
 
 function delete_pry(idpry) {
@@ -772,12 +816,12 @@ function delete_pistas(idpistas){
 		success: function(data) {
 			console.log(data);
 			if (data == 1) {
-				$("#new_rama").modal("toggle");
 				Swal.fire(
 					"Good job!",
 					"Delete",
 					"success"
 				);
+				list_all_pistas();
 			} else {
 				Swal.fire({
 					icon: "Error",
@@ -874,8 +918,48 @@ function listar_partituras() {
 		error: function(jqXhr, textStatus, error) {
 			console.log(error);
 		}
+		});
+	}
+
+
+function new_record(idproyecto) {
+	var msc = document.getElementById("uploadedfile").files[0];
+	var formData = new FormData();
+	formData.append("idproyecto", idproyecto);
+	formData.append("uploadedfile", msc);
+	$.ajax({
+		url: "../php/upload_music.php",
+		dataType: "text",
+		type: "post",
+		data: formData,
+		contentType: false,
+		processData: false,
+		success: function (data) {
+			console.log(data);
+			if (data == 1) {
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Your work has been saved',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			} else {
+				Swal.fire({
+					icon: 'error',
+					title: 'Oops...',
+					text: 'Something went wrong!',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+		},
+		error: function (jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
 	});
 }
+
 
 function delete_partituras(idpartituras) {
 	$.ajax({
@@ -887,6 +971,83 @@ function delete_partituras(idpartituras) {
 				$("#newrama").modal("toggle");
 				Swal.fire("DELETE!", "Partitura is Delete!", "success");
 				listar_partituras();
+			}
+		},
+			error: function (jqXhr, textStatus, error) {
+					console.log(error);
+				}
+			
+			});
+		}
+
+
+function valcampos() {
+	$('#txtname').val("");
+	$('#txtlastname').val("");
+	$('#txtusername').val("");
+	$('#txtemail').val("");
+	$('#txtpass').val("");
+	$('#txtcpass').val("");
+}
+
+function delete_repo(repo) {
+	Swal.fire({
+		title: 'Are you sure?',
+		text: "You won't be able to revert this!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yes, delete it!'
+	}).then((result) => {
+		if (result.value) {
+			$.ajax({
+				url: "../php/delete_repo.php",
+				type: "post",
+				data: { idrepositorio: repo },
+				success: function (data) {
+					console.log(data);
+					if (data == 1) {
+						window.location.replace("http://localhost/theme/html/index.php");
+					} else {
+						Swal.fire({
+							icon: "error",
+							title: "Oops...",
+							text: "Some problem!"
+						});
+					}
+				},
+				error: function (jqXhr, textStatus, error) {
+					console.log(error);
+				}
+			});
+		}
+	})
+}
+
+function update_repo(repo) {
+	let name = $("#nombre_repo").val();
+	let des = $("#about_repo").val();
+	let priv = 1;
+	if ($("#privado:checked").val() == 0) {
+		priv = 0;
+	}
+	$.ajax({
+		url: "../php/update_repo.php",
+		type: "post",
+		data: { idrepositorio: repo, name: name, public: priv, des:des },
+		success: function (data) {
+			console.log(data);
+			if (data == 1) {
+				var URLactual = window.location;
+				window.location.replace(URLactual);
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Colaborador agregado',
+					showConfirmButton: false,
+					timer: 1500
+				});
 			} else {
 				Swal.fire({
 					icon: "error",
@@ -895,6 +1056,7 @@ function delete_partituras(idpartituras) {
 				});
 			}
 		},
+
 		error: function(jqXhr, textStatus, error) {
 			console.log(error);
 		}
@@ -902,5 +1064,26 @@ function delete_partituras(idpartituras) {
 }
 
 
-
-
+function new_colab(idcolab, repo) {
+	$.ajax({
+		url: "../php/new_colab.php",
+		type: "post",
+		data: { idrepositorio: repo, idcolab : idcolab },
+		success: function (data) {
+			console.log(data);
+			if (data == 1) {
+				var URLactual = window.location;
+				window.location.replace(URLactual);
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Some problem!"
+				});
+			}
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});	
+}

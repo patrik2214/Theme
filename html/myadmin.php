@@ -156,7 +156,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		  </div>
         </div>
 	</div>
-            <div class='col-md-12'>
+            <div class='col-md-12 mt-4'>
                 <div class='content-panel'>
                 <table class='table table-striped table-advance table-hover'>
                     <thead>
@@ -201,7 +201,6 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
     <script src="../assets/js/jquery.ui.touch-punch.min.js"></script>
     <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
 
     <!-- sweet alert for alerts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>

@@ -287,10 +287,27 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-      <section id="main-content">
+      <section id="main-content" >
         <div class="wrapper" >
-            
-            <div id="myrepository" class="table">
+            <form enctype="multipart/form-data">
+                <h2>Sube tu cancion o una pista </h2>
+                <div >
+                    <input type="file" name="uploadedfile" id="uploadedfile" />
+                </div>
+                
+                <br>
+                <!-- <input class="btn btn-primary btn-lg btn-block" onclick='new_record()' type="submit" name="uploadBtn" value="Upload" /> -->
+                <button type="button" onclick="new_record(<?php echo $_GET['pry']; ?>)" class="btn btn-primary btn-lg btn-block">Subir</button>
+            </form>
+            <hr>
+            <h3>Tus pistas</h3>
+            <div id="myproyect">
+                <div class='showback'>
+                    <h4 class="card-title">Este campo falta en la BD</h4>
+                    <h6 class="card-subtitle mb-2 text-muted">Este campo falta en la BD</h6>                         
+                    <audio id='tracks' controls></audio>
+                </div>
+               
             </div>
 
             <div class="modal fade" id="new_rama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -302,8 +319,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
-                            <h4>Nombre del proyecto:</h4>
-                            <input type="text" name="name_pry" class="form-control" id="name_pry" >
                             <h4>Genero musical</h4>
                             <input type="hidden" name="idpry" id="idpry" value="">
                             <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
@@ -318,30 +333,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 </div>
                 </div>
             </div>    
-            <div class="modal fade" id="new_colab" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                    <h4 class="modal-title" id="myModalLabel">Agregar colaboradores a tu trabajo</h4>
-                    </div>
-                    <div class="modal-body">
-                        <form >
-                            <input type="search" name="busqueda" onkeyup="userlike(<?php echo $_GET['repo']; ?>)" class="form-control" id="search" placeholder="Busque a su colaborador" />
-                        </form>
-                        <div class="content-panel">
-                            <table class="table table-hover">                              
-                                <tbody id="searchuser">
-
-                                </tbody>
-                            </table>
-                        </div><!--/content-panel -->
-                    </div>
-                    <div class="modal-footer">
-                    </div>
-                </div>
-                </div>
-            </div>    
+             
 
         </div><!-- wrapper end --> 
       </section><!-- /MAIN CONTENT -->
@@ -371,40 +363,17 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
     <script type="text/javascript">
-		window.load = view_repo(<?php
-                    echo $_GET['repo'];
-              ?>);
+		// window.load = list_pistas(<?php
+        //             echo $_GET['pry'];
+        //       ?>);
     </script>
     
     <!-- sweet alert for alerts -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="https://cdn.jsdelivr.net/npm/promise-polyfill"></script>
 
-    <!--script for this page-->
-    
-  <!-- <script>
-      //custom select box
+    <script type="text/javascript">
 
-      $(function(){
-          $('select.styled').customSelect();
-      });
-
-  </script> -->
-  <script type="text/javascript">
-    	 $(document).ready(function (){
-            $.ajax({
-                url: "../php/listar_generos.php",
-                type: "post",
-                data: {},
-                success: function(data) {
-                    $("#gnrmusical").html(data);
-                    $("#home-tab").trigger('click');
-                },
-                error: function(jqXhr, textStatus, error) {
-                    console.log(error);
-                }
-            });
-        });
     </script>
 
   </body>

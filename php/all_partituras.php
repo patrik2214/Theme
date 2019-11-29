@@ -13,7 +13,6 @@ while ($re = $rs->fetchObject()){
                             <td>$re->idpartituras</td>
                             <td>$re->url</td>
                             <td>$re->idproyecto</td>
-                            <td>$re->nombre</td>
                             <td>$re->idrepositorio</td>
                             <td>$re->publico</td>
                             <td>$re->colaborativo</td>

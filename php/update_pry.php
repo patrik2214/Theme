@@ -3,8 +3,9 @@ require_once("conexion.php");
 
 $gnr = $_POST['idgnr'];
 $pry = $_POST['idpry'];
+$name = $_POST['name'];
 
-$sql="UPDATE proyecto SET proyecto.idgenero = $gnr  WHERE idproyecto=$pry";
+$sql="UPDATE proyecto SET idgenero=$gnr, nombre='$name'  WHERE idproyecto=$pry";
 $resp=1;
-$cnx->query($sql) or $resp=0;
+$cnx->query($sql) or die($sql);
 echo $resp;

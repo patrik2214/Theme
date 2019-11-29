@@ -110,66 +110,14 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
       <section id="main-content">
         <section class="wrapper site-min-height">
         <div class="modal fade" id="newrama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true"></div>
-        <div>
-		<div class="modal fade" id="divfrm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-		  <div class="modal-dialog" role="document">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <h5 class="modal-title" id="exampleModalLabel">User</h5>
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-		          <span aria-hidden="true">&times;</span>
-		        </button>
-		      </div>
-		      <div class="modal-body">
-		        <form>
-                    <div class="form-group">
-						<label for="txtrepositorio">Cod</label>
-						<input class="form-control" name="txtrepositorio" id="txtrepositorio" disabled>
-					</div>
-					<div class="form-group">
-						<label for="txtname">Name</label>
-						<input type="text" class="form-control" name="txtname" id="txtname">
-                    </div>
-                    <div class="form-group">
-						<label for="txtdate">Date of Creation</label>
-						<input type="date" class="form-control" name="txtdate" id="txtdate" disabled>
-                    </div>
-					<div class="form-group">
-                        <label for="txtpublic">Public</label>
-                        <select name="txtpublic" class="form-control" id="txtpublic">
-                            <option value="1">Si</option>
-                            <option value="0">No</option>
-                        </select>
-					</div>
-					<div class="form-group">
-                        <label for="txtcol">Colaborator</label>
-                        <select name="txtcol" class="form-control" id="txtcol">
-                            <option value="1">Si</option>
-                            <option value="0">No</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-						<label for="txtemail">Description</label>
-						<input type="text" class="form-control" name="txtdes" id="txtdes">
-                    </div>
-				</form>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-		        <button type="button" class="btn btn-primary" onclick="edit_repo_admin()">Save</button>
-		      </div>
-		    </div>
-		  </div>
-        </div>
-	</div>
             <div class='col-md-12'>
                 <div class='content-panel'>
                 <table class='table table-striped table-advance table-hover'>
                     <thead>
                         <tr>
-                            <th>Codigo</th>
-                            <th>Fecha creacion</th>
-                            <th>Nombre</th>
+                            <th>Codigo Partituras</th>
+                            <th>URL</th>
+                            <th>Codigo Proyecto</th>
                             <th>Publico</th>
                             <th>Colaborativo</th>
                             <th>Descripcion</th>

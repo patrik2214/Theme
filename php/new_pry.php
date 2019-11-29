@@ -5,8 +5,7 @@ $repo = $_POST['idrepo'];
 $genero = $_POST['idgnr'];
 
 $resp=1;
-try
-{
+try{
     $cnx->beginTransaction();
 
     $rs = $cnx->query("SELECT nombre FROM repositorio where idrepositorio=$repo")  or $resp=0;
@@ -16,6 +15,10 @@ try
     $r = $cnx->query("SELECT COALESCE(max(idproyecto),0)+1 as ultimo FROM proyecto")  or $resp=0;
 	$re = $r->fetchObject();
     $idpry = $re->ultimo;
+    
+    if(isset($_POST['name'])){
+        $nomb = $_POST['name'];
+    } 
     // insert inside proyecto
     $b=$cnx->prepare("INSERT INTO proyecto (idproyecto, nombre, idrepositorio, idgenero) 
         VALUES(:idproy,:nombre,:repo,:gen)");

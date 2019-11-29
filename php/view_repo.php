@@ -55,6 +55,7 @@ echo utf8_encode("
                     <hr>
                 <thead>
                     <tr>
+                        <th><i class='fa fa-bullhorn'></i> Nombre</th>
                         <th><i class='fa fa-bullhorn'></i> Genero musical</th>
                         <th>Opciones</th>
                     </tr>
@@ -135,6 +136,7 @@ echo utf8_encode("
 
 $result = $cnx->query($sql);
 if ($reg = $result->fetchObject()){
+    if ($reg->publico==0){ $pub= 'checked'; } else {$pub='' ;}
 echo utf8_encode("
     <div class='form-group'>
         <label for='nombre_repo'>Nombre del repositorio:</label>
@@ -146,12 +148,13 @@ echo utf8_encode("
     </div>
     
     <div class='form-check'>
-        <input class='form-check-input' type='checkbox' value='0' id='privado'>
+        <input class='form-check-input' type='checkbox' value='0' $pub id='privado'>
         <label class='form-check-label' >
-            Hacer privado
+            Privado
         </label>
     </div>
-    <button type='button' onclick='update_repo()' class='btn btn-primary'>Save changes</button>
+    <button type='button' onclick='update_repo($repo)' class='btn btn-primary'>Save changes</button>
+    <button type='button' onclick='delete_repo($repo)' class='btn btn-danger'>Delete repository</button>
     </form>
     </div>
 </div>
