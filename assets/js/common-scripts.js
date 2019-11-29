@@ -907,6 +907,21 @@ function save_pistas(){
     });
 }
 
+function listar_partituras() {
+	$.ajax({
+		url: "../php/all_partituras.php",
+		type: "post",
+		data: {},
+		success: function(data) {
+			$("#colum1").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+		});
+	}
+
+
 function new_record(idproyecto) {
 	var msc = document.getElementById("uploadedfile").files[0];
 	var name = $("#name_pista").val();
@@ -961,6 +976,26 @@ function new_record(idproyecto) {
 		});
 	}
 }
+
+
+function delete_partituras(idpartituras) {
+	$.ajax({
+		url: "../php/delete_partituras.php",
+		type: "post",
+		data: {idpartituras:idpartituras},
+		success: function(data) {
+			if (data == 1) {
+				$("#newrama").modal("toggle");
+				Swal.fire("DELETE!", "Partitura is Delete!", "success");
+				listar_partituras();
+			}
+		},
+			error: function (jqXhr, textStatus, error) {
+					console.log(error);
+				}
+			
+			});
+		}
 
 
 function valcampos() {
@@ -1038,11 +1073,13 @@ function update_repo(repo) {
 				});
 			}
 		},
-		error: function (jqXhr, textStatus, error) {
+
+		error: function(jqXhr, textStatus, error) {
 			console.log(error);
 		}
-	});
+		});
 }
+
 
 function new_colab(idcolab, repo) {
 	$.ajax({
