@@ -862,3 +862,45 @@ function save_pistas(){
         }
     });
 }
+
+function listar_partituras() {
+	$.ajax({
+		url: "../php/all_partituras.php",
+		type: "post",
+		data: {},
+		success: function(data) {
+			$("#colum1").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
+function delete_partituras(idpartituras) {
+	$.ajax({
+		url: "../php/delete_partituras.php",
+		type: "post",
+		data: {idpartituras:idpartituras},
+		success: function(data) {
+			if (data == 1) {
+				$("#newrama").modal("toggle");
+				Swal.fire("DELETE!", "Partitura is Delete!", "success");
+				listar_partituras();
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Oops...",
+					text: "Some problem!"
+				});
+			}
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+		});
+}
+
+
+
+
