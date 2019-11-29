@@ -248,8 +248,18 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--main content start-->
       <section id="main-content" >
         <div class="wrapper" >
+            <h2>Sube tu cancion o una pista </h2>
             <form enctype="multipart/form-data">
-                <h2>Sube tu cancion o una pista </h2>
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="name_pista">Nombre de la pista</label>
+                    <input type="text" class="form-control col-lg-6" name="name_pista" id="name_pista" placeholder="Nombre">
+                </div>
+                <br> <br>   
+                <div class="form-group mx-sm-3 mb-2">
+                    <label for="des_pista">Descripcion</label>
+                    <input type="text" class="form-control col-lg-6" name="des_pista" id="des_pista" placeholder="Describe tu pista para que los demas se enteren">
+                </div>
+                <br> <br>   
                 <div >
                     <input type="file" name="uploadedfile" id="uploadedfile" />
                 </div>
@@ -261,12 +271,11 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             <hr>
             <h3>Tus pistas</h3>
             <div id="myproyect">
-                <div class='showback'>
+                <!-- <div class='showback'>
                     <h4 class="card-title">Este campo falta en la BD</h4>
                     <h6 class="card-subtitle mb-2 text-muted">Este campo falta en la BD</h6>                         
                     <audio id='tracks' controls></audio>
-                </div>
-               
+                </div> -->
             </div>
 
             <div class="modal fade" id="new_rama" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -301,7 +310,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              2014 - Shart.com
+              2019 - Shart.com
               <a href="blank.html#" class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -322,9 +331,9 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
     <script type="text/javascript">
-		// window.load = list_pistas(<?php
-        //             echo $_GET['pry'];
-        //       ?>);
+		window.load = list_pistas(<?php
+                    echo $_GET['pry'];
+              ?>);
     </script>
     
     <!-- sweet alert for alerts -->

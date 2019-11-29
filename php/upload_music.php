@@ -2,6 +2,8 @@
 require_once("conexion.php");
 
 $pry = $_POST['idproyecto'];
+$name = $_POST['name_pista'];
+$des = $_POST['des_pista'];
 
 $resp=1;
 // && $_FILES['uploadedfile']['error'] === UPLOAD_ERR_OK
@@ -25,8 +27,8 @@ if (isset($_FILES['uploadedfile']) ) {
             $reg = $rs->fetchObject();
             $idrecord = $reg->ultimo;
 
-            $query ="INSERT INTO pistas (idpistas, url, idproyecto) 
-                VALUES($idrecord,'$fileName',$pry)";
+            $query ="INSERT INTO pistas (idpistas, url, idproyecto, title, description) 
+                VALUES($idrecord,'$fileName',$pry, '$name', '$des')";
             $b=$cnx->query($query) or die($sql);
         } else {
             $resp=0;
