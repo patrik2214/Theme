@@ -324,6 +324,8 @@ function new_pry(rep) {
 	let gnr = $("#gnrmusical").val();
 	let idpry = $("#idpry").val();
 	let name_pry = $("#name_pry").val();
+	let bpm_pry = $("#bpm_pry").val();
+	let format_pry = $("#format_pry").val();
 	if (idpry > 0) {
 		// Editar
 		$.ajax({
@@ -333,7 +335,9 @@ function new_pry(rep) {
 			data: {
 				idgnr: gnr,
 				idpry: idpry,
-				name: name_pry
+				name: name_pry,
+				bpm: bpm_pry,
+				format: format_pry
 			},
 			success: function (data) {
 				console.log(data);
@@ -343,6 +347,8 @@ function new_pry(rep) {
 					listar_prys(rep);
 					$("#gnrmusical").val(-1);
 					$("#name_pry").val("");
+					$("#format_pry").val("");
+					$("#bpm_pry").val("");
 				} else {
 					Swal.fire({
 						icon: "error",
@@ -366,7 +372,9 @@ function new_pry(rep) {
 			$.ajax({
 				url: "../php/new_pry.php",
 				type: "post",
-				data: { idrepo: rep, idgnr: gnr, name: name_pry },
+				data: {
+					idrepo: rep, idgnr: gnr, name: name_pry, bpm: bpm_pry,
+					format: format_pry },
 				success: function(data) {
 					if (data == 1) {
 						$("#new_rama").modal("toggle");
@@ -378,6 +386,8 @@ function new_pry(rep) {
 						listar_prys(rep);
 						$("#gnrmusical").val(-1);
 						$("#name_pry").val("");
+						$("#format_pry").val("");
+						$("#bpm_pry").val("");
 					} else {
 						Swal.fire({
 							icon: "error",
@@ -630,6 +640,8 @@ function editar_pry(idpry) {
 			$("#gnrmusical").val(datos.idgenero);
 			$("#idpry").val(datos.idproyecto);
 			$("#name_pry").val(datos.nombre);
+			$("#bpm_pry").val(datos.bpm);
+			$("#format_pry").val(datos.formato);
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
@@ -641,6 +653,8 @@ function clean_gnr() {
 	$("#gnrmusical").val(-1);
 	$("#idpry").val("");
 	$("#name_pry").val("");
+	$("#format_pry").val("");
+	$("#bpm_pry").val("");
 }
 
 function delete_pry(idpry) {
@@ -926,7 +940,7 @@ function listar_partituras() {
 
 
 function new_record(idproyecto) {
-	var msc = document.getElementById("uploadedfile").files[0];
+	var msc = document.getElementById("uploadedfile[]").files[0];
 	var des = $("#des_pista").val();
 	if (msc == undefined) {
 		Swal.fire({

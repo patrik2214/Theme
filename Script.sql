@@ -79,7 +79,8 @@ CREATE TABLE PROYECTO(
   nombre VARCHAR(45) NOT NULL,
   idREPOSITORIO INT NOT NULL,
   idGENERO INT REFERENCES GENERO,
-  bpm varchar(5) not null);
+  bpm varchar(5) NOT NULL,
+  formato varchar(4) NOT NULL);
 
 -- -----------------------------------------------------
 -- Table PISTAS

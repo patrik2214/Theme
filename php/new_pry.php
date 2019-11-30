@@ -3,6 +3,8 @@ require_once("conexion.php");
 
 $repo = $_POST['idrepo'];
 $genero = $_POST['idgnr'];
+$bpm = $_POST['bpm'];
+$format = $_POST['format'];
 
 $resp=1;
 try{
@@ -20,12 +22,14 @@ try{
         $nomb = $_POST['name'];
     } 
     // insert inside proyecto
-    $b=$cnx->prepare("INSERT INTO proyecto (idproyecto, nombre, idrepositorio, idgenero) 
-        VALUES(:idproy,:nombre,:repo,:gen)");
+    $b=$cnx->prepare("INSERT INTO proyecto (idproyecto, nombre, idrepositorio, idgenero, bpm, formato) 
+        VALUES(:idproy,:nombre,:repo,:gen, :bpm, :formato)");
     $b->bindParam(":idproy",$idpry);
     $b->bindParam(":nombre",$nomb);
     $b->bindParam(":repo",$repo);
     $b->bindParam(":gen",$genero);
+    $b->bindParam(":bpm",$bpm);
+    $b->bindParam(":formato",$format);
     $b->execute();
     $cnx->commit();
     

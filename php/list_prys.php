@@ -12,6 +12,7 @@ while ($re = $rs->fetchObject()){
                 <td><a href='http://localhost/theme/html/myproyect.php?pry=$re->idproyecto'>$re->nombre</a></td>
                 <td>$re->descripcion</td>
                 <td>$re->bpm</td>
+                <td>$re->formato</td>
                 <td>
                     <button onclick='editar_pry($re->idproyecto)' class='btn btn-primary btn-xs' data-toggle='modal' data-target='#new_rama'><i class='fa fa-pencil'></i></button>
                     <button onclick='delete_pry($re->idproyecto)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>

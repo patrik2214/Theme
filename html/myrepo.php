@@ -262,13 +262,17 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                     <div class="modal-body">
                         <div class="form-group">
+                            <input type="hidden" name="idpry" id="idpry" value="">
                             <h4>Nombre del proyecto:</h4>
                             <input type="text" name="name_pry" class="form-control" id="name_pry" >
                             <h4>Genero musical</h4>
-                            <input type="hidden" name="idpry" id="idpry" value="">
                             <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
-                                
                             </select>
+                            <h4>BPM del proyecto:</h4>
+                            <input type="text" name="bpm_pry" class="form-control" id="bpm_pry" >
+                            <h4>Formato del proyecto:</h4>
+                            <input type="text" name="format_pry" class="form-control" id="format_pry" >
+
                         </div>
                     </div>
                     <div class="modal-footer">
