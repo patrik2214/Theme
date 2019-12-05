@@ -13,6 +13,8 @@ while ($re = $rs->fetchObject()){
                         <source src='../music/$re->url' />
                         <p>Your user agent does not support the HTML5 Audio element.</p>
                     </audio>
+                    <hr>
+                    <button type='button'  onclick='delete_pistas($re->idpistas)' class='btn btn-round btn-danger'>Eliminar pista</button>
                 </div>   
             ");
 };

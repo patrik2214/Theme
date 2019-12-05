@@ -825,30 +825,45 @@ function limpiar_datos_user() {
 	$('#txtemail').val("");
 }
 
-function delete_pistas(idpistas){
-	$.ajax({
-		url: "../php/delete_pist.php",
-		type: "post",
-		data: { "idpistas": idpistas },
-		success: function(data) {
-			console.log(data);
-			if (data == 1) {
-				Swal.fire(
-					"Good job!",
-					"Delete",
-					"success"
-				);
-				list_all_pistas();
-			} else {
-				Swal.fire({
-					icon: "Error",
-					title: "Oops...",
-					text: "Some Problems!"
-				});
-			}
-		},
-		error: function(jqXhr, textStatus, error) {
-			console.log(error);
+function delete_pistas(idpistas) {
+	Swal.fire({
+		title: 'Are you sure?',
+		text: "You won't be able to revert this!",
+		icon: 'warning',
+		showCancelButton: true,
+		confirmButtonColor: '#3085d6',
+		cancelButtonColor: '#d33',
+		confirmButtonText: 'Yes, delete it!'
+	}).then((result) => {
+		if (result.value) {
+			$.ajax({
+				url: "../php/delete_pist.php",
+				type: "post",
+				data: { "idpistas": idpistas },
+				success: function (data) {
+					console.log(data);
+					if (data == 1) {
+						var URLactual = window.location;
+						window.location.replace(URLactual);
+						Swal.fire(
+							"Good job!",
+							"Delete",
+							"success"
+						);
+						// list_all_pistas();
+						
+					} else {
+						Swal.fire({
+							icon: "Error",
+							title: "Oops...",
+							text: "Some Problems!"
+						});
+					}
+				},
+				error: function (jqXhr, textStatus, error) {
+					console.log(error);
+				}
+			});
 		}
 	});
 
@@ -940,7 +955,7 @@ function listar_partituras() {
 
 
 function new_record(idproyecto) {
-	var msc = document.getElementById("uploadedfile[]").files[0];
+	var msc = document.getElementById("uploadedfile").files[0];
 	var des = $("#des_pista").val();
 	if (msc == undefined) {
 		Swal.fire({
@@ -975,11 +990,19 @@ function new_record(idproyecto) {
 						timer: 1500
 					});
 	
+				} else if(data==5) {
+					Swal.fire({
+						icon: 'error',
+						title: 'Formato no permitido',
+						text: 'El formato no conincide con el formato del proyecto al que pertenece esta pista!',
+						showConfirmButton: false,
+						timer: 1500
+					});
 				} else {
 					Swal.fire({
 						icon: 'error',
-						title: 'Oops...',
-						text: 'Something went wrong!',
+						title: 'Oops',
+						text: 'Algo fallado',
 						showConfirmButton: false,
 						timer: 1500
 					});
@@ -1131,6 +1154,21 @@ function list_pistas(pry) {
 		data: { idpry: pry},
 		success: function (data) {
 			$("#myproyect").html(data);
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});	
+}
+
+function list_info_pry(pry){
+	$.ajax({
+		url: "../php/list_info_pry.php",
+		type: "post",
+		data: { idpry: pry },
+		success: function (data) {
+			console.log(data);
+			$("#infopry").html(data);
 		},
 		error: function (jqXhr, textStatus, error) {
 			console.log(error);
