@@ -12,11 +12,11 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
     <!--external css-->
-    <!-- <script
+    <script
       src="https://kit.fontawesome.com/fa723842a6.js"
       crossorigin="anonymous"
-    ></script> -->
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    ></script>
+    <!-- <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" /> -->
     <link rel="stylesheet" type="text/css" href="../assets/css/zabuto_calendar.css">
     <link rel="stylesheet" type="text/css" href="../assets/js/gritter/css/jquery.gritter.css" />
     <link rel="stylesheet" type="text/css" href="../assets/lineicons/style.css">    
@@ -39,231 +39,14 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
-      <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-            <a href="index.php" class="logo"><b>SHART</b></a>
-            <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
-                <!--  notification start -->
-                <ul class="nav top-menu">
-                    <!-- settings start -->
-                    <li class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.php#">
-                            <i class="fa fa-tasks"></i>
-                            <span class="badge bg-theme">4</span>
-                        </a>
-                        <ul class="dropdown-menu extended tasks-bar">
-                            <div class="notify-arrow notify-arrow-green"></div>
-                            <li>
-                                <p class="green">You have 4 pending tasks</p>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <div class="task-info">
-                                        <div class="desc">SHART Admin Panel</div>
-                                        <div class="percent">40%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-                                            <span class="sr-only">40% Complete (success)</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <div class="task-info">
-                                        <div class="desc">Database Update</div>
-                                        <div class="percent">60%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-                                            <span class="sr-only">60% Complete (warning)</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <div class="task-info">
-                                        <div class="desc">Product Development</div>
-                                        <div class="percent">80%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-                                            <span class="sr-only">80% Complete</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <div class="task-info">
-                                        <div class="desc">Payments Sent</div>
-                                        <div class="percent">70%</div>
-                                    </div>
-                                    <div class="progress progress-striped">
-                                        <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%">
-                                            <span class="sr-only">70% Complete (Important)</span>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="external">
-                                <a href="#">See All Tasks</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- settings end -->
-                    <!-- inbox dropdown start-->
-                    <li id="header_inbox_bar" class="dropdown">
-                        <a data-toggle="dropdown" class="dropdown-toggle" href="index.php#">
-                            <i class="fa fa-envelope-o"></i>
-                            <span class="badge bg-theme">5</span>
-                        </a>
-                        <ul class="dropdown-menu extended inbox">
-                            <div class="notify-arrow notify-arrow-green"></div>
-                            <li>
-                                <p class="green">You have 5 new messages</p>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Zac Snider</span>
-                                    <span class="time">Just now</span>
-                                    </span>
-                                    <span class="message">
-                                        Hi mate, how is everything?
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Divya Manian</span>
-                                    <span class="time">40 mins.</span>
-                                    </span>
-                                    <span class="message">
-                                     Hi, I need your help with this.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dan Rogers</span>
-                                    <span class="time">2 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Love your new Dashboard.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php#">
-                                    <span class="photo"><img alt="avatar" src="../assets/img/ui-sam.jpg"></span>
-                                    <span class="subject">
-                                    <span class="from">Dj Sherman</span>
-                                    <span class="time">4 hrs.</span>
-                                    </span>
-                                    <span class="message">
-                                        Please, answer asap.
-                                    </span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="index.php#">See all messages</a>
-                            </li>
-                        </ul>
-                    </li>
-                    <!-- inbox dropdown end -->
-                </ul>
-                <!--  notification end -->
-            </div>
-            <div class="nav pull-right top-menu notify-row">
-                <!-- <div >
-                    <a class="btn btn-secondary dropdown-toggle" href="myperfil.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        top-menu n
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" onclick="close_sesion()" href="#">Logout</a>
-                    </div>
-                </div> -->
-                <!-- <form action="../php/close_session.php" method="post"> -->
-            	    <!-- <ul class="dropdown nav pull-right top-menu" >
-                        <li><a href="myperfil.php"></a></li>
-                        <li> <button type="submit" class="logout" >Logout</button> </li>
-            	    </ul> -->
-                <!-- </form> -->
-                <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
-                    <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="#">Be premium</a></li>
-                    <li><a href="#">Editar mi perfil</a></li>
-                    <li class="divider"></li>
-                    <li><a href="../php/close_session.php">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
+      <?php include_once("nav.php") ?>
       <!--header end-->
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-       <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-                    <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    
-              	  	
-                    <li class="mt">
-                      <a href="index.php">
-                          <span>My Repositories</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Search</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="search_user.php">User</a></li>
-                          <li><a  href="buttons.html">Repositorie</a></li>
-                      </ul>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="settings_user.php" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Settings</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="premium.php" >
-                          <i class="fa fa-book"></i>
-                          <span>Be Premium</span>
-                      </a>
-                  </li>
-
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+      <?php include_once("aside.php") ?>
       <!--sidebar end-->
       
       <!-- **********************************************************************************************************************************************************
@@ -271,41 +54,56 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
-          <section class="wrapper site-min-height">  
-              <form action="../php/premiun_user.php">
-                <div class="showback alert alert-warning col-md-8" role="alert">
-                  <table>
-                      <tr>
-                          <td>
-                              <H5 class="centered">
-                                  DO YOU WANT TO BE FAMOUS?
-                              </H5>
-                              <p class="centered">
-                                Choose our premium plan, this way your profile will be more public, you will also get more space for your repositories
-                                What are you waiting to show your talent?
-                              </p>
-                          </td>
-                          <td>
-                              <img src="../assets/img/trumpets.jpg" class="img-rectangular" width="120" alt="">
-                          </td>
-                      </tr>
-                      <tr>
-                          <div class="form-control">
-                            <p class="centered"> 
-                                <button class="btn btn-ligth" type="submit">BE PREMIUM</button>
-                            </p>
-                          </div>
-                          
-                      </tr>
-                  </table>
-              </div>
+        <section class="wrapper site-min-height">  
+            <div class="showback">
+                <h1 class="text-center"><b>Descubre los beneficios de ser PREMIUM</b></h1>
+                <h3 class="text-center"> Se un usuario premium y disfruta de todos los beneficios que Shart te puede ofrecer para una mejor administracion de 
+                tus proyectos musicales. Conectate con el mundo a traves de tu musica y haste famoso con ella</h3>
+            </div>
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <h4><b>Repositorios privados</b></h4>
+                    <h6>Comparte tus repositorios privados con mas de tres personas</h6>
+                </div>
+            </div> 
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <h4><b>Repositorios privados</b></h4>
+                    <h6>Comparte tus repositorios privados con mas de tres personas</h6>
+                </div>
+            </div> 
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <h4><b>Repositorios privados</b></h4>
+                    <h6>Comparte tus repositorios privados con mas de tres personas</h6>
+                </div>
+            </div> 
+            <div class="col-md-12 ">
+                <div class='showback'>
+                    <h3 class="text-center"><b>VIVE LA EXPERIENCIA PREMIUM</b></h3>
+                    <h3 class="text-center">Aumenta tu productividad con las opciones premium. </h3>
+                    <button id="buyButton" class="btn btn-block btn-primary">Ser premium</button>
+                </div>
+            </div>
+            
+
+            <form action="../php/premiun_user.php">
             </form> 
-              
+
                   
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
-            </section>
+        </section>
       </section>
 
       <!--main content end-->
@@ -400,7 +198,26 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
         });
     </script>
     
-    
+    <!-- Incluye Culqi Checkout en tu sitio web-->
+    <script src="https://checkout.culqi.com/js/v3"></script>
+    <script>
+        // Configura tu llave pública
+        Culqi.publicKey = 'pk_test_b074d0UkWinAlXXq';
+        // Configura tu Culqi Checkout
+        Culqi.settings({
+            title: 'Shart',
+            currency: 'PEN',
+            description: 'Subscripcion premium',
+            amount: 30*100
+        });
+        // Usa la funcion Culqi.open() en el evento que desees
+        $('#buyButton').on('click', function(e) {
+            // Abre el formulario con las opciones de Culqi.settings
+            Culqi.open();
+            e.preventDefault();
+        });
+    </script>
+
 
   </body>
 </html>

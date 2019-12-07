@@ -843,14 +843,12 @@ function delete_pistas(idpistas) {
 				success: function (data) {
 					console.log(data);
 					if (data == 1) {
-						var URLactual = window.location;
-						window.location.replace(URLactual);
 						Swal.fire(
 							"Good job!",
 							"Delete",
 							"success"
 						);
-						// list_all_pistas();
+						list_all_pistas();
 						
 					} else {
 						Swal.fire({
@@ -1143,10 +1141,6 @@ function new_colab(idcolab, repo) {
 	});	
 }
 
-// zalvarado
-// 741369
-// 746913
-
 function list_pistas(pry) {
 	$.ajax({
 		url: "../php/list_records.php",
@@ -1175,3 +1169,26 @@ function list_info_pry(pry){
 		}
 	});	
 }
+
+function culqi() {
+	if (Culqi.token) { // ¡Objeto Token creado exitosamente!
+		var token = Culqi.token.id;
+		alert('Se ha creado un token:' + token);
+		$.ajax({
+			url: "../php/premium_user.php",
+			type: "post",
+			data: { token: token },
+			success: function (data) {
+				alert(data);
+			},
+			error: function (jqXhr, textStatus, error) {
+				console.log(error);
+			}
+		});	
+	} else { // ¡Hubo algún problema!
+		// Mostramos JSON de objeto error en consola
+		console.log(Culqi.error);
+		alert('you fool');
+		alert(Culqi.error.user_message);
+	}
+};

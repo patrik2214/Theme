@@ -1,0 +1,6 @@
+{
+    "require": {
+        "php-ffmpeg/php-ffmpeg": "^0.14.0",
+        "culqi/culqi-php": "^1.3"
+    }
+}

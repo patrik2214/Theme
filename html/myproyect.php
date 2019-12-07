@@ -35,77 +35,14 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
-      <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-            <a href="index.php" class="logo"><b>SHART</b></a>
-            <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
-                
-            </div>
-            <div class="nav pull-right top-menu notify-row">
-                <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
-                        <?php echo $_SESSION['usuario']; ?>  <span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="premium.php">Be premium</a></li>
-                    <li><a href="config.php">Editar mi perfil</a></li>
-                    <li class="divider"></li>
-                    <li><a href="../php/close_session.php">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
+      <?php include_once("nav.php") ?>
       <!--header end-->
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-                    <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    
-              	  	
-                <li class="mt">
-                    <a href="index.php">
-                        <i class="fas fa-compact-disc"></i>
-                        <span>Mis repositorios</span>
-                    </a>
-                </li>
-
-                <li class="sub-menu">
-                    <a href="javascript:;" >
-                        <i class="fa fa-desktop"></i>
-                        <span>Search</span>
-                    </a>
-                    <ul class="sub">
-                        <li><a  href="">User</a></li>
-                        <li><a  href="">Repositorie</a></li>
-                    </ul>
-                </li>
-                <li class="sub-menu">
-                    <a href="config.php" >
-                        <i class="fa fa-cogs"></i>
-                        <span>Settings</span>
-                    </a>
-                </li>
-                <li class="sub-menu">
-                    <a href="premium.php" >
-                        <i class="fa fa-book"></i>
-                        <span>Be Premium</span>
-                    </a>
-                </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+     <?php include_once("aside.php") ?>
       <!--sidebar end-->
       
       <!-- **********************************************************************************************************************************************************

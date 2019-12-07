@@ -12,8 +12,12 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 
     <!-- Bootstrap core CSS -->
     <link href="../assets/css/bootstrap.css" rel="stylesheet">
+    <script
+      src="https://kit.fontawesome.com/fa723842a6.js"
+      crossorigin="anonymous"
+    ></script>
     <!--external css-->
-    <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" />
+    <!-- <link href="../assets/font-awesome/css/font-awesome.css" rel="stylesheet" /> -->
         
     <!-- Custom styles for this template -->
     <link href="../assets/css/style.css" rel="stylesheet">
@@ -72,43 +76,7 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
             </div>
         </header>
       <!--sidebar end-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-                    <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    
-              	  	
-                    <li class="mt">
-                      <a href="myadmin.php">
-                          <span>Mantenimiento de Usuario</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                     <a href="admi_repo.php">
-                          <span>Mantenimiento de Repositorios</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="admi_pista.php">
-                          <span>Mantenimiento de Pistas</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="admi_partituras.php">
-                          <span>Mantenimiento Partituras</span>
-                      </a>
-                  </li>
-                  
-
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+      <?php include_once("aside.php") ?>
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
@@ -161,10 +129,18 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
 		    </div>
 		  </div>
         </div>
-	</div>
+  </div>
+        <div class="col-lg-12">
+            <div class="showback">
+                <!-- Barra de busqueda -->
+                <form >
+                    <input type="search" name="busqueda" class="form-control" id="busqueda" onkeyup="buscar()" placeholder="Ingrese repositorio a buscar" />
+                </form>
+            </div><!-- /showback -->
+        </div>
             <div class='col-md-12 mt-4'>
-                <div class='content-panel'>
-                <table class='table table-striped table-advance table-hover'>
+                
+                <!-- <table class='table table-striped table-advance table-hover'>
                     <thead>
                         <tr>
                             <th>Codigo</th>
@@ -180,8 +156,10 @@ if($_SESSION['usertype']!=3) header("location: ../php/close_session.php" )
                     </thead>
                     <tbody id='divregistros'>
                     </tbody>
-                </table>
-                </div><!-- /content-panel -->
+                </table> -->
+                <div id='divregistros'>
+                </div>
+                
             </div><!-- /col-md-12 -->
             
 		</section><!-- /wrapper -->

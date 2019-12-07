@@ -1,6 +1,7 @@
 <?php
 session_start();
 if(!isset($_SESSION['idusuario'])) header("location: login.php");
+if($_SESSION['usertype']==3) header("location: myadmin.php" )
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -37,94 +38,14 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start-->
-      <header class="header black-bg">
-              <div class="sidebar-toggle-box">
-                  <div class="fa fa-bars tooltips" data-placement="right" data-original-title="Toggle Navigation"></div>
-              </div>
-            <!--logo start-->
-            <a href="index.php" class="logo"><b>SHART</b></a>
-            <!--logo end-->
-            <div class="nav notify-row" id="top_menu">
-                
-            </div>
-            <div class="nav pull-right top-menu notify-row">
-                <!-- <div >
-                    <a class="btn btn-secondary dropdown-toggle" href="myperfil.php" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        top-menu n
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                        <a class="dropdown-item" href="#">Action</a>
-                        <a class="dropdown-item" href="#">Another action</a>
-                        <a class="dropdown-item" onclick="close_sesion()" href="#">Logout</a>
-                    </div>
-                </div> -->
-                <!-- <form action="../php/close_session.php" method="post"> -->
-            	    <!-- <ul class="dropdown nav pull-right top-menu" >
-                        <li><a href="myperfil.php"></a></li>
-                        <li> <button type="submit" class="logout" >Logout</button> </li>
-            	    </ul> -->
-                <!-- </form> -->
-                <div class="btn-group pull-right">
-                    <button type="button" class="btn btn-theme04 dropdown-toggle" data-toggle="dropdown">
-                    <?php echo $_SESSION['usuario']; ?><span class="caret"></span>
-                    </button>
-                    <ul class="dropdown-menu pull-right" role="menu">
-                    <li><a href="premium.php">Be premium</a></li>
-                    <li><a href="config.php">Editar mi perfil</a></li>
-                    <li class="divider"></li>
-                    <li><a href="../php/close_session.php">Logout</a></li>
-                    </ul>
-                </div>
-            </div>
-        </header>
+      <?php include_once("nav.php") ?>
       <!--header end-->
       
       <!-- **********************************************************************************************************************************************************
       MAIN SIDEBAR MENU
       *********************************************************************************************************************************************************** -->
       <!--sidebar start-->
-       <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-                    <p class="centered"><a href="profile.html"><img src="../assets/img/ui-sam.jpg" class="img-circle" width="60"></a></p>
-                    
-              	  <li class="mt">
-                      <a href="index.php">
-                        <i class="fas fa-compact-disc"></i>
-                        <span>Mis repositorios</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="javascript:;" >
-                          <i class="fa fa-desktop"></i>
-                          <span>Explorar</span>
-                      </a>
-                      <ul class="sub">
-                          <li><a  href="search_user.php">User</a></li>
-                          <li><a  href="buttons.html">Repositorios populares</a></li>
-                      </ul>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="config.php" >
-                          <i class="fa fa-cogs"></i>
-                          <span>Settings</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="premium.php" >
-                          <i class="fa fa-book"></i>
-                          <span>Be Premium</span>
-                      </a>
-                  </li>
-
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
+       <?php include_once("aside.php") ?>
       <!--sidebar end-->
       
       <!-- **********************************************************************************************************************************************************
