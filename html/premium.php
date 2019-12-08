@@ -98,35 +98,71 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             <div class="modal fade" id="buyButton"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
                 <div class="modal-dialog">
                     <div class="modal-content">
-                        <form>
-                            <div>
-                                <label>
-                                <span>Correo Electrónico</span>
-                                <input type="text" size="50" data-culqi="card[email]" id="card[email]">
-                                </label>
-                            </div>
-                            <div>
-                                <label>
-                                <span>Número de tarjeta</span>
-                                <input type="text" size="20" data-culqi="card[number]" id="card[number]">
-                                </label>
-                            </div>
-                            <div>
-                                <label>
-                                <span>CVV</span>
-                                <input type="text" size="4" data-culqi="card[cvv]" id="card[cvv]">
-                                </label>
-                            </div>
-                            <div>
-                                <label>
-                                <span>Fecha expiración (MM/YYYY)</span>
-                                <input size="2" data-culqi="card[exp_month]" id="card[exp_month]">
-                                <span>/</span>
-                                <input size="4" data-culqi="card[exp_year]" id="card[exp_year]">
-                                </label>
-                            </div>
-                            <button class="btn btn-primary" id="bePremium">Ser premium</button>
-                        </form>
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Agrega una tarjeta</h4>
+                        </div>
+                        <div class="modal-body">
+                            <form>
+                                <div>
+                                    <label>
+                                    <span>Nombre</span>
+                                    <input type="text" size="20" data-culqi="customer[first_name]" id="first_name">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>Apellido</span>
+                                    <input type="text" size="20" data-culqi="customer[last_name]" id="last_name">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>Direccion</span>
+                                    <input type="text" size="30" data-culqi="customer[address]" id="address">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>Ciudad</span>
+                                    <input type="text" size="30" data-culqi="customer[address_city]" id="address_city">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>Celular</span>
+                                    <input type="text" size="20" data-culqi="customer[phone_number]" id="phone_number">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>Correo Electrónico</span>
+                                    <input type="text" size="50" data-culqi="card[email]" id="card[email]">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>Número de tarjeta</span>
+                                    <input type="text" size="20" data-culqi="card[number]" id="card[number]">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>CVV</span>
+                                    <input type="text" size="4" data-culqi="card[cvv]" id="card[cvv]">
+                                    </label>
+                                </div>
+                                <div>
+                                    <label>
+                                    <span>Fecha expiración (MM/YYYY)</span>
+                                    <input size="2" data-culqi="card[exp_month]" id="card[exp_month]">
+                                    <span>/</span>
+                                    <input size="4" data-culqi="card[exp_year]" id="card[exp_year]">
+                                    </label>
+                                </div>
+                                <button class="btn btn-primary" id="bePremium">Ser premium</button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div> 
