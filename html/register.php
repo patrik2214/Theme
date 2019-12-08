@@ -1,5 +1,4 @@
 <?php
-
 if(isset($_POST['submit'])){
     $name = $_POST['txtname'];
     $lastname = $_POST['txtlastname'];
@@ -76,26 +75,21 @@ if(isset($_POST['submit'])){
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start -->
-       <header class="header black-bg">
+       <header class="header black-bg text-center">
             <a href="index.php" class="logo"><b>SHART</b></a>
-            <div class="nav pull-right top-menu ">
-                <!-- <form action="../php/close_session.php" method="post"> -->
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="about.php.php">About</a></li>
-                </ul>
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="galery.php.php">Gallery</a></li>
-                </ul>
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="register.php.php">Register</a></li>
-            	</ul>
-            	<ul class=" nav pull-right top-menu" >
-                    <li ><a class="logout"  href="login.php">Iniciar sesion</a></li>
-                    <!-- <li> <button type="submit" class="logout" >Logout</button> </li> -->
-            	</ul>
-                <!-- </form> -->
-                
-            </div>
+
+            <div class="col-sm-3"></div>
+            <a href="home.php" class="logo"><h5>Home</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="about.php" class="logo"><h5>About</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="galery.php" class="logo"><h5>Gallery</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="register.php" class="logo"><h5>Register</h5></a>
+
+            <ul class=" nav pull-right top-menu" >
+                <li ><a class="logout"  href="login.php">Iniciar sesion</a></li>
+            </ul>
         </header>
       <!--header end-->
       <!-- **********************************************************************************************************************************************************
@@ -104,7 +98,9 @@ if(isset($_POST['submit'])){
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-                <div class="col-lg-6 col-md-6 col-sm-6 mb">
+          <div class="col-lg-1 col-md-1 col-sm-1 mb">
+          </div>
+                <div class="showback col-lg-8 col-md-8 col-sm-8 mb center-centered">
                 <h1 class="text-center">Registrate </h1>
                     <form  action="" method="POST" enctype="multipart/form-data">
                         <div class="login-wrap">

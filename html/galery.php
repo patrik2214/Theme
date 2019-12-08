@@ -22,6 +22,7 @@
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="../assets/js/chart-master/Chart.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,76 +37,32 @@
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <header class="header black-bg">
-            <!--logo start-->
-            <a class="logo"><b>SHART</b></a>
-			<!--logo end-->
-				<ul class="nav top-menu">
-                    <li><a class="text-ligth" href="about.php.php">About</a></li>
-                </ul>
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="galery.php.php">Gallery</a></li>
-                </ul>
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="register.php.php">Register</a></li>
-            	</ul>
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.php">Login</a></li>
-            	</ul>
-            </div>
+      <!--header start -->
+       <header class="header black-bg text-center">
+            <a href="index.php" class="logo"><b>SHART</b></a>
+
+            <div class="col-sm-3"></div>
+            <a href="home.php" class="logo"><h5>Home</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="about.php" class="logo"><h5>About</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="galery.php" class="logo"><h5>Gallery</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="register.php" class="logo"><h5>Register</h5></a>
+
+            <ul class=" nav pull-right top-menu" >
+                <li ><a class="logout"  href="login.php">Iniciar sesion</a></li>
+            </ul>
         </header>
       <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="profile.html"><img src="../assets/img/logo.png" class="img-circle" width="60"></a></p>
-              	  
-              	  <li class="sub-menu">
-                      <a href="home.php">
-                      <i class="fa fa-tasks"></i>
-                          <span>Home</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a  href="about.php" >
-                      <i class="fa fa-th"></i>
-                          <span>About As</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="register.php" >
-                      <i class="fa fa-cogs"></i>
-                          <span>Register</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="galery.php" >
-                      <i class="fa fa-book"></i>
-                          <span>Galery</span>
-                      </a>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
-      
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
+          <div class="col-lg-1 col-md-1 col-sm-1 mb"></div>
+          <div class="showback col-lg-9 col-md-9 col-sm-9 mb center-centered">
           <h3><i class="fa fa-angle-right"></i> Discover Some People That love the Music like you</h3>
           	<div class="row mt">
           		<div class="col-lg-12">
@@ -268,9 +225,9 @@
           		</div>
           	</div>
 			
+          </div>
 
-                  
-                  
+            
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
@@ -281,7 +238,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              @DerechosReservadosSHART-2019
+              @2019 - Shart.com
               <a class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -296,7 +253,6 @@
     <script src="../assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.sparkline.js"></script>
 
 
@@ -344,7 +300,11 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+    <style>
+	
+	</style>
 
   </body>
 </html>
+
+

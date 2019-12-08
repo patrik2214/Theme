@@ -22,6 +22,7 @@
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="../assets/js/chart-master/Chart.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js"></script>
     
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -36,84 +37,98 @@
       <!-- **********************************************************************************************************************************************************
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
-      <!--header start-->
-      <header class="header black-bg">
-            <!--logo start-->
-            <a class="logo"><b>SHART</b></a>
-            <!--logo end-->
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="about.php.php">About</a></li>
-                </ul>
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="galery.php.php">Gallery</a></li>
-                </ul>
-                <ul class="nav top-menu">
-                    <li><a class="text-ligth" href="register.php.php">Register</a></li>
-            	</ul>
-            	<ul class="nav pull-right top-menu">
-                    <li><a class="logout" href="login.html">Login</a></li>
-            	</ul>
-            </div>
+      <!--header start -->
+       <header class="header black-bg text-center">
+            <a href="index.php" class="logo"><b>SHART</b></a>
+
+            <div class="col-sm-3"></div>
+            <a href="home.php" class="logo"><h5>Home</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="about.php" class="logo"><h5>About</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="galery.php" class="logo"><h5>Gallery</h5></a>
+            <div class="col-sm-1"></div>
+            <a href="register.php" class="logo"><h5>Register</h5></a>
+
+            <ul class=" nav pull-right top-menu" >
+                <li ><a class="logout"  href="login.php">Iniciar sesion</a></li>
+            </ul>
         </header>
       <!--header end-->
-      
-      <!-- **********************************************************************************************************************************************************
-      MAIN SIDEBAR MENU
-      *********************************************************************************************************************************************************** -->
-      <!--sidebar start-->
-      <aside>
-          <div id="sidebar"  class="nav-collapse ">
-              <!-- sidebar menu start-->
-              <ul class="sidebar-menu" id="nav-accordion">
-              
-              	  <p class="centered"><a href="profile.html"><img src="../assets/img/logo.png" class="img-circle" width="60"></a></p>
-              	  
-              	  	
-                    <li class="sub-menu">
-                      <a href="home.php">
-                      <i class="fa fa-tasks"></i>
-                          <span>Home</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a  href="about.php" >
-                      <i class="fa fa-th"></i>
-                          <span>About As</span>
-                      </a>
-                  </li>
-
-                  <li class="sub-menu">
-                      <a href="register.php" >
-                      <i class="fa fa-cogs"></i>
-                          <span>Register</span>
-                      </a>
-                  </li>
-                  <li class="sub-menu">
-                      <a href="galery.php" >
-                      <i class="fa fa-book"></i>
-                          <span>Galery</span>
-                      </a>
-                  </li>
-              </ul>
-              <!-- sidebar menu end-->
-          </div>
-      </aside>
-      <!--sidebar end-->
-      
       <!-- **********************************************************************************************************************************************************
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper">
-              <div class="">
+          <div class="col-lg-1 col-md-1 col-sm-1 mb"></div>
+          <div class="showback col-lg-8 col-md-8 col-sm-8 mb">
+            <h1 class="text-center"><b>Descubre más Acerca de nuestra Familia</b></h1>
+            <h3 class="text-center">Crea y Comparte tu música y con tus Amigos</h3>
+        
+            <div class="row">
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1470225620780-dba8ba36b745?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <h4><b>Repositorios privados</b></h4>
+                    <h6>Hazlos colaborativos o personales</h6>
+                </div>
+            </div> 
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1513829596324-4bb2800c5efb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <br>
+                    <h4><b>Repositorios publicos</b></h4>
+                    <h6>Comparte tus repositorios con otros usuarios</h6>
+                </div>
+            </div> 
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <br>
+                    <h4><b>Se premium</b></h4>
+                    <h6>Obtén más beneficios</h6>
+                </div>
+            </div> 
+          </div>
 
-              </div>
-            
-
-                  
-                  
+          <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1507838153414-b4b713384a76?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80" width="260" alt="" srcset="">
+                    <h4><b>Repositorios Colaborativos</b></h4>
+                    <h6>Trabaja con Amigos</h6>
+                </div>
+            </div> 
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1514320291840-2e0a9bf2a9ae?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <br>
+                    <h4><b>Repositorios No Colaborativos</b></h4>
+                    <h6>Hazlo con tus ideas</h6>
+                </div>
+            </div> 
+            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+                <!-- WHITE PANEL - TOP USER -->
+                <div class='white-panel pn'>
+                <br>
+                    <img class="text-center" src="https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80" width="260" alt="" srcset="">
+                    <br>
+                    <h4><b>Encuentra más Repositorios</b></h4>
+                    <h6>Busca repositorios de otros Usuarios</h6>
+                </div>
+            </div> 
+          </div>   
+        </div>
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
@@ -124,7 +139,7 @@
       <!--footer start-->
       <footer class="site-footer">
           <div class="text-center">
-              @DerechosReservadosSHART-2019
+              @2019 - Shart.com
               <a class="go-top">
                   <i class="fa fa-angle-up"></i>
               </a>
@@ -139,7 +154,6 @@
     <script src="../assets/js/bootstrap.min.js"></script>
     <script class="include" type="text/javascript" src="../assets/js/jquery.dcjqaccordion.2.7.js"></script>
     <script src="../assets/js/jquery.scrollTo.min.js"></script>
-    <script src="../assets/js/jquery.nicescroll.js" type="text/javascript"></script>
     <script src="../assets/js/jquery.sparkline.js"></script>
 
 
@@ -152,7 +166,6 @@
     <!--script for this page-->
     <script src="../assets/js/sparkline-chart.js"></script>    
 	<script src="../assets/js/zabuto_calendar.js"></script>	
-	
 	
 	<script type="application/javascript">
         $(document).ready(function () {
@@ -188,7 +201,11 @@
             console.log('nav ' + nav + ' to: ' + to.month + '/' + to.year);
         }
     </script>
-  
+    <style>
+	
+	</style>
 
   </body>
 </html>
+
+
