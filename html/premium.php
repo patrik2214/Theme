@@ -91,13 +91,46 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 <div class='showback'>
                     <h3 class="text-center"><b>VIVE LA EXPERIENCIA PREMIUM</b></h3>
                     <h3 class="text-center">Aumenta tu productividad con las opciones premium. </h3>
-                    <button id="buyButton" class="btn btn-block btn-primary">Ser premium</button>
+                    <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#buyButton">Ser premium</button>
                 </div>
             </div>
-            
 
-            <form action="../php/premiun_user.php">
-            </form> 
+            <div class="modal fade" id="buyButton"  tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <form>
+                            <div>
+                                <label>
+                                <span>Correo Electrónico</span>
+                                <input type="text" size="50" data-culqi="card[email]" id="card[email]">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                <span>Número de tarjeta</span>
+                                <input type="text" size="20" data-culqi="card[number]" id="card[number]">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                <span>CVV</span>
+                                <input type="text" size="4" data-culqi="card[cvv]" id="card[cvv]">
+                                </label>
+                            </div>
+                            <div>
+                                <label>
+                                <span>Fecha expiración (MM/YYYY)</span>
+                                <input size="2" data-culqi="card[exp_month]" id="card[exp_month]">
+                                <span>/</span>
+                                <input size="4" data-culqi="card[exp_year]" id="card[exp_year]">
+                                </label>
+                            </div>
+                            <button class="btn btn-primary" id="bePremium">Ser premium</button>
+                        </form>
+                    </div>
+                </div>
+            </div> 
+            <!-- modal-end -->
 
                   
       <!-- **********************************************************************************************************************************************************
@@ -199,21 +232,24 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     </script>
     
     <!-- Incluye Culqi Checkout en tu sitio web-->
-    <script src="https://checkout.culqi.com/js/v3"></script>
+    <!-- <script src="https://checkout.culqi.com/js/v3"></script> -->
+    <!-- Incluyendo .js de Culqi JS -->
+    <script src="https://checkout.culqi.com/v2"></script>
     <script>
         // Configura tu llave pública
         Culqi.publicKey = 'pk_test_b074d0UkWinAlXXq';
+        Culqi.init();
         // Configura tu Culqi Checkout
-        Culqi.settings({
-            title: 'Shart',
-            currency: 'PEN',
-            description: 'Subscripcion premium',
-            amount: 30*100
-        });
+        // Culqi.settings({
+        //     title: 'Shart',
+        //     currency: 'PEN',
+        //     description: 'Subscripcion premium',
+        //     amount: 30*100
+        // });
         // Usa la funcion Culqi.open() en el evento que desees
-        $('#buyButton').on('click', function(e) {
+        $('#bePremium').on('click', function(e) {
             // Abre el formulario con las opciones de Culqi.settings
-            Culqi.open();
+            Culqi.createToken();
             e.preventDefault();
         });
     </script>

@@ -52,78 +52,76 @@ if($_SESSION['usertype']==3) header("location: myadmin.php" )
       MAIN CONTENT
       *********************************************************************************************************************************************************** -->
       <!--main content start-->
-      <section id="main-content">
-          <section class="wrapper site-min-height">   
-              <div class="row mt ">
-                <!-- Button trigger modal -->
-                <div class="col-lg-12">
-                    <button class="btn btn-success " data-toggle="modal" data-target="#myModal">
-                        Agregar nuevo repositorio
-                    </button>        
-                </div>
-                <br>
-                <br>
-                <br>
-                <div class="col-lg-12">
-                    <div class="showback">
-                        <!-- Barra de busqueda -->
-                        <form >
-                            <input type="search" name="busqueda" class="form-control" id="busqueda" onkeyup="buscar()" placeholder="Ingrese repositorio a buscar" />
-                        </form>
-                    </div><!-- /showback -->
-                </div>
-                <! -- MODALS -->
-                <!-- Modal -->
-                <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                        <h4 class="modal-title" id="myModalLabel">Nuevo repositorio de musica</h4>
+        <section id="main-content">
+            <section class="wrapper site-min-height">   
+                <div class="row mt ">
+                    <!-- Button trigger modal -->
+                    <div class="col-lg-12">
+                        <button class="btn btn-success " data-toggle="modal" data-target="#myModal">
+                            Agregar nuevo repositorio
+                        </button>        
+                    </div>
+                    <br>
+                    <br>
+                    <br>
+                    <div class="col-lg-12">
+                        <div class="showback">
+                            <!-- Barra de busqueda -->
+                            <form >
+                                <input type="search" name="busqueda" class="form-control" id="busqueda" onkeyup="buscar()" placeholder="Ingrese repositorio a buscar" />
+                            </form>
+                        </div><!-- /showback -->
+                    </div>
+                    <! -- MODALS -->
+                    <!-- Modal -->
+                    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                            <h4 class="modal-title" id="myModalLabel">Nuevo repositorio de musica</h4>
+                            </div>
+                            <div class="modal-body">
+                                <div class="form-group">
+                                    <h4 for="nombre_repo">Nombre del repositorio:</h4>
+                                    <input type="text" class="form-control" id="nombre_repo" name="nombre_repo" placeholder="Ingresa el nombre de tu proyecto musical" autofocus>
+                                </div>
+                                <div class="form-group">
+                                    <h4 >Describe tu nuevo proyecto</h4>
+                                    <textarea class="form-control" id="about_repo" name="about_repo"  placeholder="Help people interested in this repository understand your project" rows="3"></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <h4>Genero musical</h4>
+                                    <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
+                                        
+                                    </select>
+                                </div>
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" value="0" id="privado">
+                                    <label class="form-check-label" >
+                                        Hacer privado
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            <button type="button" onclick="new_repositorio()" class="btn btn-primary">Save changes</button>
+                            </div>
                         </div>
-                        <div class="modal-body">
-                            <div class="form-group">
-                                <h4 for="nombre_repo">Nombre del repositorio:</h4>
-                                <input type="text" class="form-control" id="nombre_repo" name="nombre_repo" placeholder="Ingresa el nombre de tu proyecto musical" autofocus>
-                            </div>
-                            <div class="form-group">
-                                <h4 >Describe tu nuevo proyecto</h4>
-                                <textarea class="form-control" id="about_repo" name="about_repo"  placeholder="Help people interested in this repository understand your project" rows="3"></textarea>
-                            </div>
-                            
-                            <div class="form-group">
-                                <h4>Genero musical</h4>
-                                <select class="cbx form-control form-control-lg" name="gnrmusical" id="gnrmusical"> 
+                        </div>
+                    </div> 
+                    <!-- modal-end -->
+                    <div class="col-lg-12 col-md-12 " id="colum1" >      			
+                        
+                    </div><!-- /col-lg-6 -->      			
                                     
-                                </select>
-                            </div>
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="0" id="privado">
-                                <label class="form-check-label" >
-                                    Hacer privado
-                                </label>
-                            </div>
-                        </div>
-                        <div class="modal-footer">
-                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                        <button type="button" onclick="new_repositorio()" class="btn btn-primary">Save changes</button>
-                        </div>
-                    </div>
-                    </div>
-                </div> 
-                <!-- modal-end -->
-      			<div class="col-lg-12 col-md-12 " id="colum1" >      			
-      				
-      			</div><!-- /col-lg-6 -->      			
-      			      			
-      		</div><!--/ row -->
-                  
-                  
+                </div><!--/ row -->   
       <!-- **********************************************************************************************************************************************************
       RIGHT SIDEBAR CONTENT
       *********************************************************************************************************************************************************** -->                  
             </section>
-      </section>
+        </section>
 
       <!--main content end-->
       <!--footer start-->
@@ -137,8 +135,6 @@ if($_SESSION['usertype']==3) header("location: myadmin.php" )
       </footer>
       <!--footer end-->
   </section>
-    <!-- script de la casa -->
-    <!-- <script src="../assets/user.js"></script> -->
 
     <!-- js placed at the end of the document so the pages load faster -->
     <script src="../assets/js/jquery.js"></script>
@@ -239,8 +235,5 @@ if($_SESSION['usertype']==3) header("location: myadmin.php" )
             });
         });
     </script>
-    
-    
-
   </body>
 </html>
