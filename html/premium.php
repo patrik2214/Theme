@@ -26,12 +26,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <link href="../assets/css/style-responsive.css" rel="stylesheet">
 
     <script src="../assets/js/chart-master/Chart.js"></script>
-    
-    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!--[if lt IE 9]>
-      <script src="https..//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-      <script src="https..//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->    
+  
   </head>
   <body>
   <section id="container" >
@@ -274,6 +269,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <script>
         // Configura tu llave pública
         Culqi.publicKey = 'pk_test_b074d0UkWinAlXXq';
+        
         Culqi.init();
         // Configura tu Culqi Checkout
         // Culqi.settings({
@@ -289,7 +285,5 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
             e.preventDefault();
         });
     </script>
-
-
   </body>
 </html>

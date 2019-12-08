@@ -31,8 +31,8 @@ if (isset($_FILES['uploadedfile']) ) {
         // $dest_path = $uploadFileDir .$fileName;
 
         if(move_uploaded_file($fileTmpPath, $uploadFileDir)) {
-            $bpm_detect = new bpm_detect($wavfile);  
-            $test = $bpm_detect->detectBPM();
+            // $bpm_detect = new bpm_detect($wavfile);  
+            // $test = $bpm_detect->detectBPM();
 
             $sql ="SELECT COALESCE(max(idpistas),0)+1 as ultimo FROM pistas";
             $rs = $cnx->query($sql)  or die($sql);
