@@ -843,11 +843,15 @@ function delete_pistas(idpistas) {
 				success: function (data) {
 					console.log(data);
 					if (data == 1) {
-						Swal.fire(
-							"Good job!",
-							"Delete",
-							"success"
-						);
+						var URLactual = window.location;
+						window.location.replace(URLactual);
+						Swal.fire({
+							position: 'top-end',
+							icon: 'success',
+							title: 'Your work has been saved',
+							showConfirmButton: false,
+							timer: 1500
+						});
 						list_all_pistas();
 						
 					} else {
@@ -1127,12 +1131,28 @@ function new_colab(idcolab, repo) {
 			if (data == 1) {
 				var URLactual = window.location;
 				window.location.replace(URLactual);
+				
 			} else {
-				Swal.fire({
-					icon: "error",
-					title: "Oops...",
-					text: "Some problem!"
-				});
+				if (data == 3) {
+					Swal.fire({
+						icon: "info",
+						title: "Limite de colaboradores",
+						text: "Para agregar a mas personas a su repositorio conviertase en usuario premium",
+						confirmButtonColor: '#3085d6',
+						confirmButtonText: 'Convertirme en premium'
+					}).then((result) => {
+						if (result.value) {
+							window.location.replace("http://localhost/theme/html/premium.php");
+						}
+					});
+				} else {
+					Swal.fire({
+						icon: "error",
+						title: "Oops...",
+						text: "Some problem!"
+					});
+				}
+				
 			}
 		},
 		error: function (jqXhr, textStatus, error) {
@@ -1173,13 +1193,41 @@ function list_info_pry(pry){
 function culqi() {
 	if (Culqi.token) { // ¡Objeto Token creado exitosamente!
 		var token = Culqi.token.id;
+		let email = Culqi.token.email;
+		let phone_number = $("#phone_number").val();
+		let last_name 	 = $("#last_name").val();
+		let first_name 	 = $("#first_name").val();
+		let address 	 = $("#address").val();
+		let address_city = $("#address_city").val();
 		alert('Se ha creado un token:' + token);
+		alert('Se ha creado' + last_name);
+		alert('Se ha creado' + first_name);
+		alert('Se ha creado' + phone_number);
 		$.ajax({
 			url: "../php/premium_user.php",
 			type: "post",
-			data: { token: token },
+			data: { token: token, email: email, phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city },
+			dataType: 'JSON',
 			success: function (data) {
-				alert(data);
+				console.log(data);
+				if (data == 1) {
+					window.location.replace('http://localhost/theme/html/suscripcion.php');
+					Swal.fire({
+						position: 'top-end',
+						icon: 'success',
+						title: 'FELICIDADES ERES PREMIUM',
+						showConfirmButton: false,
+						timer: 1500
+					});
+				} 
+				else {
+					Swal.fire({
+						icon: "error",
+						title: "Errores en el pago",
+						text: "Se cometerieron algunos errores en el pago"
+					});
+					
+				}
 			},
 			error: function (jqXhr, textStatus, error) {
 				console.log(error);
@@ -1191,4 +1239,20 @@ function culqi() {
 		alert('you fool');
 		alert(Culqi.error.user_message);
 	}
-};
+}
+
+function sharewithme() {
+	$.ajax({
+		url: "../php/list_shared.php",
+		type: "post",
+		data: {},
+		success: function (data) {
+			console.log(data);
+			$("#colum1").html(data);
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+

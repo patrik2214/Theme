@@ -8,7 +8,6 @@ $user =  $_SESSION['idusuario'];
 
 $SECRET_KEY = "sk_test_x8Iv6w19yqoFn4J3";
 try {
-    
     $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
     $customer = $culqi->Customers->create(
         array(

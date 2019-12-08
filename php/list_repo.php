@@ -30,7 +30,7 @@ if ($tipo_user == 3){
     $result = $cnx->query($sql);
     while($reg = $result->fetchObject()){
         echo ("<div class='showback'>
-                            <h4><i class='fa fa-angle-right'></i>$reg->nombre</h4>
+                            <h4><i class='fas fa-record-vinyl'></i>  $reg->nombre</h4>
                             <p>$reg->descripcion</p>                          
                             <button type='button' class='btn btn-default'>
                                 <a href='http://localhost/theme/html/myrepo.php?repo=$reg->idrepositorio' >Entrar</a>
