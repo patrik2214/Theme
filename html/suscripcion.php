@@ -57,17 +57,20 @@ if($_SESSION['usertype']==1) header("location: premium.php" )
                 <div class="showback">
                     <h1 class="text-center"><b>Mi subscripcion</b></h1>
                 </div>
-                <div class="showback">
-                    <div class="col-lg-6 col-md-6 " id="colum2">      			
+                <div class="col-lg-6 col-md-6 " id="colum2">      			
+                    <div class="showback">
                         <h4>Fecha de inicio:</h4>
                         <h4>Monto mensual:</h4>
                     </div>
-                    <div class="col-lg-6 col-md-6 " id="colum2">      			
+                </div>
+                <div class="col-lg-6 col-md-6 " id="colum2">      			
+                    <div class="showback">
                         <h4>Proxima fecha a cobrar:</h4>    
                         <h4>Num tarjeta:</h4>    
                     </div>
                 </div>
                     
+            <button class="btn btn-danger btn-block">Cancelar suscripcion</button>
             </section>
         </section>
 
