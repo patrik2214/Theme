@@ -21,6 +21,9 @@
                 <ul class="sub">
                     <li><a  href="repoexplorer.php">Repositorios populares</a></li>
                 </ul>
+                <ul class="sub">
+                    <li><a  href="search_user.php">Buscar Usuarios</a></li>
+                </ul>
             </li>
             <li class="sub-menu">
                 <a href="sharewithme.php" >

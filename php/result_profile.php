@@ -10,14 +10,12 @@ $result = $cnx->query($sql);
 while($reg = $result->fetchObject()){
 
     echo utf8_encode("
-        
-    
     <div class='row'>
             <div class='col-lg-8 col-md-8 col-sm-8 mb'>
                 <p class='centered'><a href='index.php'><img src='$reg->foto' class='img-circle' width='140' heigth='140'></a></p>
             </div>
             <div class='col-lg-8 col-md-8 col-sm-8 mb'>
-            <label class='centered'>Name : $user</label>
+            <label class='centered'>UserName : $user</label>
             </div>
         </div>
         <div class='form-group'>

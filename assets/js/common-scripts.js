@@ -439,7 +439,7 @@ function list_user_info() {
 		data: {},
 		success: function(data) {
 			var datos = JSON.parse(data);
-			$("#username").html(datos.nombreusuario);
+			$("#username").val(datos.nombreusuario);
 			$("#idusuario").val(datos.idusuario);
 			$("#txtname").val(datos.nombre);
 			$("#txtlastname").val(datos.apellido);
@@ -493,15 +493,16 @@ function userlike(repo) {
 	
 }
 
-function userlikethat(username) {
+function userlikethat() {
 	var buscar = document.getElementById("txtbuscar").value;
 	if (username.length == 0) {
-		document.getElementById('searchuser').style.display = 'none';
+		//document.getElementById('searchuser').style.display = 'none';
+		list_all_U();
 	} else {
 		$.ajax({
 			url: "../php/user_search.php",
 			type: "post",
-			data: { username: username,"buscar":buscar },
+			data: {"buscar":buscar},
 			success: function (data) {
 				console.log(data);
 				$("#searchuser").html(data);
@@ -516,22 +517,20 @@ function userlikethat(username) {
 }
 
 
-function modify_user(idusuario) {
+function modify_user() {
+	var idusuario = document.getElementById("idusuario").value;
 	var name = document.getElementById("txtname").value;
 	var lastname = document.getElementById("txtlastname").value;
-	var username = document.getElementById("txtusername").value;
+	var username = document.getElementById("username").value;
 	var email = document.getElementById("txtemail").value;
-	var password = document.getElementById("txtpass").value;
-	var cpassword = document.getElementById("txtcpass").value;
-	var img = document.getElementById("img").files[0];
+	var img = document.getElementById("userpic").files[0];
 
 	var formData = new FormData();
+	formData.append("idusuario",idusuario);
 	formData.append("name", name);
 	formData.append("lastname", lastname);
 	formData.append("username", username);
 	formData.append("email", email);
-	formData.append("pass", password);
-	formData.append("cpass", cpassword);
 	formData.append("img", img);
 	formData.append("idusuario", idusuario);
 
@@ -564,6 +563,70 @@ function modify_user(idusuario) {
 		},
 		error: function(jqXhr, textStatus, errorThrown) {
 			console.log(errorThrown);
+		}
+	});
+}
+
+function change_pass() {
+	var idusuario = document.getElementById("idusuario").value;
+	var pass = document.getElementById("pass").value;
+	var con = document.getElementById("conidusuario").value;
+	$.ajax({
+		url: "../php/changepass.php",
+		type: "post",
+		data: { "idusuario": idusuario, "pass":pass, "con":con },
+		success: function(data) {
+			console.log(data);
+			if (data == 1) {
+				Swal.fire(
+					"Good job!",
+					"Save All Changes",
+					"success"
+				);
+				list_all_users();
+			} else {
+				Swal.fire({
+					icon: "Error",
+					title: "Oops...",
+					text: "Some Problems!",
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
+function delete_us() {
+	var idusuario = document.getElementById("idusuario").value;
+	$.ajax({
+		url: "../php/delete_user.php",
+		type: "post",
+		data: { "idusuario": idusuario },
+		success: function(data) {
+			console.log(data);
+			if (data == 1) {
+				Swal.fire(
+					"Good job!",
+					"Save All Changes",
+					"success"
+				);
+				list_all_users();
+			} else {
+				Swal.fire({
+					icon: "Error",
+					title: "Oops...",
+					text: "Some Problems!",
+					showConfirmButton: false,
+					timer: 1500
+				});
+			}
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
 		}
 	});
 }
@@ -739,6 +802,21 @@ function list_all_users() {
 		}
 	});
 }
+
+function list_all_U() {
+	$.ajax({
+		url: "../php/list_users_me.php",
+		type: 'post',
+		data: { },
+		success: function (data) {
+			$("#searchuser").html(data);
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
 function list_all_pistas() {
 	$.ajax({
 		url: "../php/all_pistas.php",
@@ -775,6 +853,34 @@ function edit_user_admin(idusuario){
     });
 }
 
+function user(username){
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.value) {
+				$.ajax({
+					url: "../php/porfile.php",
+					dataType: "text",
+					type: "post",
+					data: { username:username },
+					success: function (data) {
+						$("#body").html(data);
+						console.log(data);
+					},
+					error: function (jqXhr, textStatus, errorThrown) {
+						console.log(errorThrown);
+					}
+				});
+				
+			}
+		})
+}
 
 function save(){
 	var idusuario = document.getElementById('txtidusuario').value;

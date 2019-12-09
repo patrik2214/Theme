@@ -272,11 +272,11 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       <!--main content start-->
       <section id="main-content">
           <section class="wrapper site-min-height">  
-                <div class='row'>
-                    <div class='col-lg-6 col-md-6 col-sm-6 mb'>
-				        <input type="text" name="txtbuscar" id="txtbuscar">
-			        </div>
-                    <br>
+                <div class='showback'>
+                    <div class="form-group">
+                                <label>Buscar:</label>
+                                <input type="search" class="form-control" name="txtbuscar" id="txtbuscar" placeholder="Search here" onkeyup="userlike()">
+                            </div>
 		        </div>        
             <div id="searchuser"></div> 
                   
@@ -314,7 +314,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
     <script type="text/javascript">
-		window.load = userlikethat();
+		window.load =list_all_U();
 	</script>
     <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>

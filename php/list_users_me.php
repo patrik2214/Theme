@@ -1,10 +1,10 @@
 <?php
 require_once("conexion.php");
-$buscar = $_POST['buscar'];
 
-$sql="SELECT * FROM USUARIO WHERE nombreusuario LIKE '%$buscar%' ";
-$result = $cnx->query($sql) or die($sql);
-while($re = $result->fetchObject()){
+$query="SELECT * FROM usuario u INNER JOIN tipousuario tp ON u.idtipousuario=tp.idtipousuario
+ where u.idtipousuario=1 or u.idtipousuario=2";
+$rs = $cnx->query($query) or die($query);
+while ($re = $rs->fetchObject()){   
     if($re->foto == null){
         echo ("<div class='col-lg-4 col-md-4 col-sm-4 mb'>
         <!-- WHITE PANEL - TOP USER -->
@@ -49,7 +49,7 @@ while($re = $result->fetchObject()){
     </div>");
     }
 
-}
 
 
-?>
+                        
+};
