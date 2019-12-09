@@ -20,7 +20,7 @@ while($re = $result->fetchObject()){
                         <p>$re->correo</p>
                     </div>
                     <div class='col-md-6'>
-                        <button onclick=''class='btn btn-success'><a href='../php/porfile_another.php'>Ver</a></button>
+                        <button onclick=''class='btn btn-success text-white' data-toggle='modal' data-target='#divfrm' >Ver</button>
                         
                     </div>
                 </div>
@@ -41,7 +41,7 @@ while($re = $result->fetchObject()){
                         <p>$re->correo</p>
                     </div>
                     <div class='col-md-6'>
-                        <button onclick=''class='btn btn-success'>Ver</button>
+                        <button onclick=''class='btn btn-success' data-toggle='modal' data-target='#divfrm'>Ver</button>
                         
                     </div>
                 </div>

@@ -523,7 +523,7 @@ function modify_user() {
 	var lastname = document.getElementById("txtlastname").value;
 	var username = document.getElementById("username").value;
 	var email = document.getElementById("txtemail").value;
-	var img = document.getElementById("img").files[0];
+	var img = document.getElementById("userpic").files[0];
 
 	var formData = new FormData();
 	formData.append("idusuario",idusuario);
@@ -853,6 +853,34 @@ function edit_user_admin(idusuario){
     });
 }
 
+function user(username){
+		Swal.fire({
+			title: 'Are you sure?',
+			text: "You won't be able to revert this!",
+			icon: 'warning',
+			showCancelButton: true,
+			confirmButtonColor: '#3085d6',
+			cancelButtonColor: '#d33',
+			confirmButtonText: 'Yes, delete it!'
+		}).then((result) => {
+			if (result.value) {
+				$.ajax({
+					url: "../php/porfile.php",
+					dataType: "text",
+					type: "post",
+					data: { username:username },
+					success: function (data) {
+						$("#body").html(data);
+						console.log(data);
+					},
+					error: function (jqXhr, textStatus, errorThrown) {
+						console.log(errorThrown);
+					}
+				});
+				
+			}
+		})
+}
 
 function save(){
 	var idusuario = document.getElementById('txtidusuario').value;

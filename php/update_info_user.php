@@ -1,5 +1,4 @@
 <?php
-
 require_once("conexion.php");
 
 $idusuario = $_POST['idusuario'];
@@ -13,7 +12,7 @@ $name1= false;
 $lastname1= false;
 $username1 = false;
 $email1 = false;
-
+$resp=1;
 
 //Subir la Imagen
 //Creamos una variable para ver si se sube o no el archivo
@@ -36,9 +35,9 @@ if($_FILES['img']['name']==null){
         // Tu archivo tiene que ser JPG o GIF. Otros archivos no son permitidos<BR>";
         $imgload=false;
     }
+}
 
-
-    $resp=1;
+    
 
     $rs = $cnx->query("SELECT COUNT(*) as email FROM usuario WHERE correo='$email'") or $resp=0;
     $reg = $rs->fetchObject();
@@ -70,7 +69,7 @@ if($_FILES['img']['name']==null){
     }
     else{
         $lastname1=true;
-    }
+    
 
     if(empty($username)){
         echo "<p class='error'>* Enter Here Your Username</p>";
@@ -99,24 +98,18 @@ if($_FILES['img']['name']==null){
         if ($name1==true and  $lastname1==true and $username1==true and  $email1==true){
        
             move_uploaded_file ($_FILES['img']['tmp_name'], $add);      
-            $c=$cnx->query("UPDATE USUARIO SET nombre=$name,apellido=$lastname,nombreusuario=$username,correo=$email,foto=$add WHERE idusuario=$idusuario") or $resp=0;
+            $c=$cnx->query("UPDATE USUARIO SET nombre='$name',apellido='$lastname',nombreusuario='$username',correo='$email',foto='$add' WHERE idusuario=$idusuario") or $resp=0;
 
         }
     }else{
         if ($name1==true and  $lastname1==true and $username1==true and  $email1==true){
-            $c=$cnx->query("UPDATE USUARIO SET nombre=$name,apellido=$lastname,nombreusuario=$username,correo=$email WHERE idusuario=$idusuario") or $resp=0;
+            $c=$cnx->query("UPDATE USUARIO SET nombre='$name',apellido='$lastname',nombreusuario='$username',correo='$email' WHERE idusuario='$idusuario'") or $resp=0;
 
+            }
         }
-    }
-    echo $resp ;
    
-}
+    }
 
-
-
-        
-
- 
-
+    echo $resp ;
 
 ?>
