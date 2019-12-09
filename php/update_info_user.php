@@ -8,11 +8,11 @@ $lastname = $_POST['lastname'];
 $username = $_POST['username'];
 $email = $_POST['email'];
 
+
 $name1= false;
 $lastname1= false;
 $username1 = false;
 $email1 = false;
-
 
 
 //Subir la Imagen
@@ -99,12 +99,12 @@ if($_FILES['img']['name']==null){
         if ($name1==true and  $lastname1==true and $username1==true and  $email1==true){
        
             move_uploaded_file ($_FILES['img']['tmp_name'], $add);      
-            $c=$cnx->query("UPDATE USUARIO SET nombre=$name,apellido=$lastname,nombreusuario=:$username,correo=:$email,foto=:$add WHERE idusuario=$idusuario") or $resp=0;
+            $c=$cnx->query("UPDATE USUARIO SET nombre=$name,apellido=$lastname,nombreusuario=$username,correo=$email,foto=$add WHERE idusuario=$idusuario") or $resp=0;
 
         }
     }else{
         if ($name1==true and  $lastname1==true and $username1==true and  $email1==true){
-            $c=$cnx->query("UPDATE USUARIO SET nombre=$name,apellido=$lastname,nombreusuario=:$username,correo=:$email WHERE idusuario=$idusuario") or $resp=0;
+            $c=$cnx->query("UPDATE USUARIO SET nombre=$name,apellido=$lastname,nombreusuario=$username,correo=$email WHERE idusuario=$idusuario") or $resp=0;
 
         }
     }

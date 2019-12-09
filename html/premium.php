@@ -102,59 +102,69 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 <div>
                                     <label>
                                     <span>Nombre</span>
-                                    <input type="text" size="20" data-culqi="customer[first_name]" id="first_name">
+                                    <input type="text" size="20" class="form-control" data-culqi="customer[first_name]" id="first_name">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>Apellido</span>
-                                    <input type="text" size="20" data-culqi="customer[last_name]" id="last_name">
+                                    <input type="text" size="20"  class="form-control" data-culqi="customer[last_name]" id="last_name">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>Direccion</span>
-                                    <input type="text" size="30" data-culqi="customer[address]" id="address">
+                                    <input type="text" size="30" class="form-control" data-culqi="customer[address]" id="address">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>Ciudad</span>
-                                    <input type="text" size="30" data-culqi="customer[address_city]" id="address_city">
+                                    <input type="text" size="30" class="form-control" data-culqi="customer[address_city]" id="address_city">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>Celular</span>
-                                    <input type="text" size="20" data-culqi="customer[phone_number]" id="phone_number">
+                                    <input type="text" size="20"  class="form-control" data-culqi="customer[phone_number]" id="phone_number">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>Correo Electrónico</span>
-                                    <input type="text" size="50" data-culqi="card[email]" id="card[email]">
+                                    <input type="text"  class="form-control" size="50" data-culqi="card[email]" id="card[email]">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>Número de tarjeta</span>
-                                    <input type="text" size="20" data-culqi="card[number]" id="card[number]">
+                                    <input type="text"  class="form-control"size="20" data-culqi="card[number]" id="card[number]">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>CVV</span>
-                                    <input type="text" size="4" data-culqi="card[cvv]" id="card[cvv]">
+                                    <input type="text" size="4"  class="form-control" data-culqi="card[cvv]" id="card[cvv]">
                                     </label>
                                 </div>
                                 <div>
                                     <label>
                                     <span>Fecha expiración (MM/YYYY)</span>
-                                    <input size="2" data-culqi="card[exp_month]" id="card[exp_month]">
-                                    <span>/</span>
-                                    <input size="4" data-culqi="card[exp_year]" id="card[exp_year]">
-                                    </label>
+                                    <div class="row">
+                                        <div class="col-xs-2">
+                                            <input size="2"  class="form-control" data-culqi="card[exp_month]" id="card[exp_month]">
+                                        </div>
+
+                                        <div class="col-xs-2 text-center">
+                                            <p class="centered">/</p>
+                                        </div>
+
+                                        <div class="col-xs-4">
+                                            <input size="4"  class="form-control" data-culqi="card[exp_year]" id="card[exp_year]">
+                                        </div>
+                                    </div>
                                 </div>
+                                <br>
                                 <button class="btn btn-primary" id="bePremium">Ser premium</button>
                             </form>
                         </div>

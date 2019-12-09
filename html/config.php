@@ -50,33 +50,49 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
         <section id="main-content">
             <section class="wrapper site-min-height">   
                 <div class="row mt">
-                
-          		    <div class="col-lg-6  col-md-6">
-                        <div class="form-group mt-3">
-                            <label class=" position-relative" for="btnSubirFoto">
-                                <img class="rounded-circle" id='userpic' alt="">
-                                <div id="editar-hover">
+                <div class="modal fade" id="divfrm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+		  <div class="modal-dialog" role="document">
+		    <div class="modal-content">
+		      <div class="modal-header">
+		        <h5 class="modal-title" id="exampleModalLabel">Change Your Password</h5>
+		        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+		          <span aria-hidden="true">&times;</span>
+		        </button>
+		      </div>
+		      <div class="modal-body">
+		        <form>
+					<div class="form-group">
+						<label for="txtname">New Password</label>
+						<input type="password" class="form-control" name="pass" id="pass">
+					</div>
+					<div class="form-group">
+						<label for="txtlastname">Confirm</label>
+						<input type="password" class="form-control" name="con" id="con">
+					</div>
+				</form>
+		      </div>
+		      <div class="modal-footer">
+		        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+		        <button type="button" class="btn btn-primary" onclick='change_pass()'>Save</button>
+		      </div>
+		    </div>
+		  </div>
+        </div>
+  </div>
+                <div class="col-lg-1  col-md-1"></div>
+          		    <div class="col-lg-4  col-md-4">
+                        <div class="form-group mt-4">
+                            <label class=" position-relative" for="btnSubirFoto" width="300">
+                                <img class="img-circle" id='userpic' width="300" alt="">
+                                <div id="editar-hover" width="300">
                                     <i class="far fa-edit"></i>
                                 </div>
                             </label>
-                            <input type="file" name="foto" id="btnSubirFoto">
+                            <input type="file" name="foto" id="btnSubirFoto" width="300">
                         </div>
-                        <!-- <div class='text-center'>
-                           <img id='userpic' class='img-circle' width='100'>
-                        </div> -->
-                        <div class="text-center">
-                            <p class='h3' id="username"></p>
-                        </div>
-                        
-                        <div class='row'>
-                            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
-                                <button  class='btn btn-info' type='submit' >Cambiar Contrsena</button><br>
-                            </div>
-                            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
-                                <button  class='btn btn-danger' type='submit' onclick='delete_user()'>Inactive Account</button><br>
-                            </div>
-                        </div>
+
                     </div>
+
                     <div class="col-lg-6 col-md-6">
                         <!-- <div class='row'>
                             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
@@ -89,6 +105,16 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                             <div class='col-lg-2 col-md-2 col-sm-2 mb'>
                                 <button  class='btn btn-success' type='submit' onclick='modify_user()'>Save All Changes</button><br>
                             </div>
+                            <div class='col-lg-1 col-md-1 col-sm-1 mb'></div>
+
+                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                <button  class='btn btn-info' type='submit' data-toggle="modal" data-target="#divfrm"  >Change Password</button><br>
+                            </div>
+                            <div class='col-lg-1 col-md-1 col-sm-1 mb'></div>
+
+                            <div class='col-lg-2 col-md-2 col-sm-2 mb'>
+                                <button  class='btn btn-danger' type='submit' onclick='delete_us()'>Inactive Account</button><br>
+                            </div>
                         </div>
                         <div class="form-panel">
                             <form id="user_data" action="" method="post">
@@ -100,6 +126,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                                 <div class='form-group'>
                                     <p>Last Name</p>
                                     <input type='text' class='form-control' name='txtlastname' id='txtlastname' >
+                                </div>
+                                <div class='form-group'>
+                                    <p>UserName</p>
+                                    <input type='text' class='form-control' name='username' id='username' >
                                 </div>
                                 <div class='form-group'>
                                     <p>Email</p>
