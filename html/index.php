@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(!isset($_SESSION['idusuario'])) header("location: login.php");
+if(!isset($_SESSION['idusuario'])) header("location: home.php");
 if($_SESSION['usertype']==3) header("location: myadmin.php" )
 ?>
 <!DOCTYPE html>
