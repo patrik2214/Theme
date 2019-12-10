@@ -2,8 +2,7 @@
 
 require_once("conexion.php");
 
-$iduser = $_POST['iduser'];
-$repo = $_POST['repo'];
+$idusuario = $_POST['idusuario'];
 
 $sql="UPDATE usuario SET estado=false WHERE idusuario=$idusuario";
 $resp=1;

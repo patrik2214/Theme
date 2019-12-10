@@ -16,7 +16,7 @@ while($re = $rs->fetchObject()){
             <td><a href='myporfile?user=$re->idusuario'>$re->nombre</a></td>
             <td>$tipodev</td>
             <td>
-                <button onclick='delete_colab($re->idcolaborador,$repo)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
+                <button onclick='delete_colab($re->idusuario,$repo)' class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
             </td>
         </tr>
     ");
