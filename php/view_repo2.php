@@ -2,7 +2,6 @@
 require_once("conexion.php");
 
 session_start();
-$user =  $_SESSION['idusuario'];
 $repo = $_POST['idrepo'];
 
 $sql="SELECT repositorio.* , desarrollador.*, usuario.nombre as usser FROM repositorio 
@@ -38,9 +37,6 @@ echo utf8_encode("
         <li class='nav-item'>
             <a class='nav-link' id='profile-tab' data-toggle='tab' href='#colaboradores' onclick='listar_colb($repo)' role='tab' aria-controls='colaboradores' aria-selected='false'>Colaboradores</a>
         </li>
-        <li class='nav-item'>
-            <a class='nav-link' id='contact-tab' data-toggle='tab' href='#config' role='tab' aria-controls='config' aria-selected='false'>Configuracion</a>
-        </li>
         </ul>
         <div class='tab-content' id='myTabContent'>
     
@@ -50,7 +46,6 @@ echo utf8_encode("
         <div class='col-md-12'>
             <div class='content-panel'>
             <table class='table table-striped table-advance table-hover'>
-                <button type='button' class='btn btn-primary' onclick='clean_gnr()' data-toggle='modal' data-target='#new_rama' >Agregar una rama </button> <br>
                     <hr>
                 <thead>
                     <tr>
@@ -64,21 +59,6 @@ echo utf8_encode("
                 <tbody id='divregistros'>
 ");
 
-// $query="SELECT * FROM proyecto inner join genero on proyecto.GENERO_idGENERO = genero.idGENERO
-// where proyecto.REPOSITORIO_idREPOSITORIO = $repo";
-// $rs = $cnx->query($query);
-// while ($re = $rs->fetchObject()){   
-//     echo utf8_encode("    
-//                               <tr>
-//                                   <td><a href='#'>$re->descripcion</a></td>
-//                                   <td>
-//                                       <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-//                                       <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-//                                       <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
-//                                   </td>
-//                               </tr>");
-// };
-
 echo utf8_encode("                             
                             </tbody>
                         </table>
@@ -89,38 +69,15 @@ echo utf8_encode("
                 <div class='col-md-12'>
                     <div class='content-panel'>
                         <table class='table table-striped table-advance table-hover'>
-                                <button type='button' class='btn btn-primary' data-toggle='modal' data-target='#new_colab'>Agregar un colaborador </button> <br>
                                     <hr>
                                 <thead>
                                     <tr>
                                         <th><i class='fa fa-bullhorn'></i> Colaborador</th>
                                         <th><i class='fa fa-bullhorn'></i> Tipo de colaborador</th>
-                                        <th>Opciones</th>
                                     </tr>
                                 </thead>
                                 <tbody id='divcolaboradores'>
               ");
-
-// $query="SELECT * FROM desarrollador  inner join usuario on desarrollador.USUARIO_idUSUARIO=usuario.idUSUARIO
-// where desarrollador.REPOSITORIO_idREPOSITORIO = $repo";
-// $rs = $cnx->query($query);
-// while($re = $rs->fetchObject()){
-//     $tipodev = 'Invitado';
-//     if ($re->TIPODESARROLLADOR_idTIPODESARROLLADOR==1){
-//         $tipodev = 'Propietario';
-//     }
-//     echo utf8_encode("     
-//          <tr>
-//             <td><a href='#'>$re->nombre</a></td>
-//             <td>$tipodev</td>
-//             <td>
-//                 <button class='btn btn-success btn-xs'><i class='fa fa-check'></i></button>
-//                 <button class='btn btn-primary btn-xs'><i class='fa fa-pencil'></i></button>
-//                 <button class='btn btn-danger btn-xs'><i class='fa fa-trash-o '></i></button>
-//             </td>
-//         </tr>
-//     ");
-// }
 
 echo utf8_encode(" 
                             </tbody>
@@ -134,33 +91,6 @@ echo utf8_encode("
                 <form action='' method='post'>
 
 ") ;
-
-$result = $cnx->query($sql);
-if ($reg = $result->fetchObject()){
-    if ($reg->publico==0){ $pub= 'checked'; } else {$pub='' ;}
-echo utf8_encode("
-    <div class='form-group'>
-        <label for='nombre_repo'>Nombre del repositorio:</label>
-        <input type='text' class='form-control' id='nombre_repo' name='nombre_repo' value='$reg->nombre' autofocus>
-    </div>
-    <div class='form-group'>
-        <label>Describe tu nuevo proyecto</label>
-        <textarea class='form-control' id='about_repo' name='about_repo'  rows='3'>$reg->descripcion</textarea>
-    </div>
-    
-    <div class='form-check'>
-        <input class='form-check-input' type='checkbox' value='0' $pub id='privado'>
-        <label class='form-check-label' >
-            Privado
-        </label>
-    </div>
-    <button type='button' onclick='update_repo($repo)' class='btn btn-primary'>Save changes</button>
-    <button type='button' onclick='delete_repo($repo)' class='btn btn-danger'>Delete repository</button>
-    </form>
-    </div>
-</div>
-");
-}
     
 
 ?>
