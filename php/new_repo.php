@@ -14,45 +14,56 @@ try
 {
     $cnx->beginTransaction();
 
-    $rs = $cnx->query("SELECT COALESCE(max(idrepositorio),0)+1 as ultimo FROM repositorio")  or $resp=0;
+    $rs = $cnx->query("SELECT count(*) as ultimo FROM repositorio r inner join desarrollador d on r.idrepositorio = d.idrepositorio
+        where d.idusuario = $user and d.idtipodesarrollador=1")  or $resp=0;
 	$reg = $rs->fetchObject();
-    $idrepo = $reg->ultimo;
-    // INSERT INSIDE REPOSITORIO
-	$a=$cnx->prepare("INSERT INTO repositorio (idrepositorio,fecha_creacion, nombre,publico,colaborativo,descripcion) VALUES (:idrepo,now(),:nombre,:publico,:colab,:descrip)");
-	$a->bindParam(":idrepo",$idrepo);
-	$a->bindParam(":nombre",$nomb);
-	$a->bindParam(":publico",$priv);
-	$a->bindParam(":colab",$col);
-	$a->bindParam(":descrip",$desc);
-	$a->execute();
+    $cantreg = $reg->ultimo;
+
+    if ( $_SESSION['usertype'] == 1 and $cantreg >= 10 ){
+        $resp = 3;   
+    }else{
+        $rs = $cnx->query("SELECT COALESCE(max(idrepositorio),0)+1 as ultimo FROM repositorio")  or $resp=0;
+        $reg = $rs->fetchObject();
+        $idrepo = $reg->ultimo;
+        // INSERT INSIDE REPOSITORIO
+        $a=$cnx->prepare("INSERT INTO repositorio (idrepositorio,fecha_creacion, nombre,publico,colaborativo,descripcion) VALUES (:idrepo,now(),:nombre,:publico,:colab,:descrip)");
+        $a->bindParam(":idrepo",$idrepo);
+        $a->bindParam(":nombre",$nomb);
+        $a->bindParam(":publico",$priv);
+        $a->bindParam(":colab",$col);
+        $a->bindParam(":descrip",$desc);
+        $a->execute();
+        
+        $r = $cnx->query("SELECT COALESCE(max(idproyecto),0)+1 as ultimo FROM proyecto")  or $resp=0;
+        $re = $r->fetchObject();
+        $idpry = $re->ultimo;
+        // insert inside proyecto
+        $b=$cnx->prepare("INSERT INTO proyecto (idproyecto, nombre, idrepositorio, idgenero) 
+            VALUES(:idproy,:nombre,:repo,:gen)");
+        $b->bindParam(":idproy",$idpry);
+        $b->bindParam(":nombre",$nomb);
+        $b->bindParam(":repo",$idrepo);
+        $b->bindParam(":gen",$genero);
+        $b->execute();
     
-    $r = $cnx->query("SELECT COALESCE(max(idproyecto),0)+1 as ultimo FROM proyecto")  or $resp=0;
-	$re = $r->fetchObject();
-    $idpry = $re->ultimo;
-    // insert inside proyecto
-    $b=$cnx->prepare("INSERT INTO proyecto (idproyecto, nombre, idrepositorio, idgenero) 
-        VALUES(:idproy,:nombre,:repo,:gen)");
-    $b->bindParam(":idproy",$idpry);
-    $b->bindParam(":nombre",$nomb);
-    $b->bindParam(":repo",$idrepo);
-    $b->bindParam(":gen",$genero);
-    $b->execute();
+        $r = $cnx->query("SELECT COALESCE(max(idcolaborador),0)+1 as ultimo FROM desarrollador")  or $resp=0;
+        $re = $r->fetchObject();
+        $idcol = $re->ultimo;
+    
+        $uno = 1 ;
+        $c=$cnx->prepare("INSERT INTO desarrollador (idcolaborador, idusuario, idrepositorio, idtipodesarrollador, estado) 
+           VALUES(:idcol,:user,:repo,:tipo, :est)");
+        $c->bindParam(":idcol",$idcol);
+        $c->bindParam(":user",$user);
+        $c->bindParam(":repo",$idrepo);
+        $c->bindParam(":tipo", $uno);
+        $c->bindParam(":est", $uno);
+        $c->execute();
+    
+        $cnx->commit();
 
-    $r = $cnx->query("SELECT COALESCE(max(idcolaborador),0)+1 as ultimo FROM desarrollador")  or $resp=0;
-	$re = $r->fetchObject();
-    $idcol = $re->ultimo;
+    }
 
-    $uno = 1 ;
-	$c=$cnx->prepare("INSERT INTO desarrollador (idcolaborador, idusuario, idrepositorio, idtipodesarrollador, estado) 
-       VALUES(:idcol,:user,:repo,:tipo, :est)");
-    $c->bindParam(":idcol",$idcol);
-    $c->bindParam(":user",$user);
-    $c->bindParam(":repo",$idrepo);
-    $c->bindParam(":tipo", $uno);
-    $c->bindParam(":est", $uno);
-    $c->execute();
-
-	$cnx->commit();
 } catch(PDOException $x) { 
 	$cnx->rollBack();
 	$resp=0; 

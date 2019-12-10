@@ -17,7 +17,7 @@ try{
 	$ress = $r->fetchObject();
     $cantidad = $ress->cant;
     
-    if ($usertype != 2 && $cantidad==3){
+    if ($usertype != 2 && $cantidad >=3){
         $resp=3;
     }else{
         $r = $cnx->query("SELECT COALESCE(max(idcolaborador),0)+1 as ultimo FROM desarrollador")  or $resp=0;
