@@ -60,9 +60,6 @@
                             <span>Administrar premium</span>
                         </a>
                         <ul class="sub">
-                            <li><a  href="mycards.php"><i class="fas fa-money-check-alt"></i>Administrar tarjetas</a></li>
-                        </ul>
-                        <ul class="sub">
                             <li><a  href="suscripcion.php"><i class="fas fa-book"></i>Subscripcion</a></li>
                         </ul>
                     </li>
