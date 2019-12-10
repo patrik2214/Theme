@@ -7,7 +7,12 @@ session_start();
 $user =  $_SESSION['idusuario'];
 
 try {
-    $culqi->Subscriptions->delete("id");
+    $sql ="SELECT idsuscripcion FROM usuario where idusuario=$user";
+    $rs = $cnx->query($sql)  or die($sql);
+    $reg = $rs->fetchObject();
+    $suscripcion = $reg->idsuscripcion;
+
+    $culqi->Subscriptions->delete($suscripcion);
 
     $sql="UPDATE usuario set idtipousuario=1 WHERE idusuario=$user";
     $rs = $cnx->query($sql) or die($sql);

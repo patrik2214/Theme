@@ -1397,13 +1397,14 @@ function culqi() {
 	}
 }
 
-function agregar_customer() {
+function agregar_customer(e) {
 	let phone_number = $("#phone_number").val();
 	let last_name = $("#last_name").val();
 	let first_name = $("#first_name").val();
 	let address = $("#address").val();
 	let address_city = $("#address_city").val();
 	let countrycod = $("#country_code").val();
+	let email = $("#email").val();
 	if (phone_number.length < 0 ||
 		last_name.length < 0 ||
 		first_name.length < 0 ||
@@ -1418,8 +1419,11 @@ function agregar_customer() {
 		$.ajax({
 			url: "../php/customer_register.php",
 			type: "post",
-			data: { phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city, email: email, country_code: countrycod },
+			data: { phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city, country_code: countrycod, email: email },
 			success: function (data) {
+				alert(data.merchant_message);
+				alert(data.capture);
+				console.log(data);
 				if (data == 1) {
 					$("#myModal").modal("toggle");
 					$("#phone_number").val("");
@@ -1427,6 +1431,7 @@ function agregar_customer() {
 					$("#first_name").val("");
 					$("#address").val("");
 					$("#address_city").val("");
+					$("#country_code").val("");
 					$("#email").val("");
 					Culqi.open();
 					e.preventDefault();
