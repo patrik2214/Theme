@@ -221,6 +221,20 @@ function listar_repos() {
 	});
 }
 
+function listar_repos2(user) {
+	$.ajax({
+		url: "../php/list_repo2.php",
+		type: "post",
+		data: {user:user},
+		success: function(data) {
+			$("#colum1").html(data);
+		},
+		error: function(jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+
 function limpiar_campos() {
 	$("#gnrmusical").val(-1);
 	$("#about_repo").val("");
@@ -229,6 +243,20 @@ function limpiar_campos() {
 
 function inicio() {
 	listar_repos();
+}
+
+function view_repo2(id) {
+	$.ajax({
+		url: "../php/view_repo2.php",
+		type: "post",
+		data: { idrepo: id },
+		success: function(data) {
+			$("#myrepository").html(data);
+		},
+		error: function(jqXhr, textStatus, errorThrown) {
+			console.log(errorThrown);
+		}
+	});
 }
 
 function view_repo(id) {
