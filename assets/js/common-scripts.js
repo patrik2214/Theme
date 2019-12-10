@@ -1377,7 +1377,7 @@ function agregar_customer() {
 		Swal.fire({
 			icon: "error",
 			title: "Rellene los campos",
-			text: "Se cometerieron algunos errores 
+			text: "Se cometerieron algunos errores "
 		});
 	} else {
 		$.ajax({
