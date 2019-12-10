@@ -104,7 +104,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 <h4 class="modal-title" id="myModalLabel">Datos de seguridad</h4>
                 </div>
                 <div class="modal-body">
-                        <h5 >Por favor llene los campos para una mayor seguridad:</h5>
+                        <h5 >Por favor llene los campos para una mayor seguridad: Esto solo se solicitara una vez</h5>
                     <div class="form-group">
                         <h4 for="nombre_repo">Nombres y Apellidos:</h4>
                         <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre" autofocus>
@@ -134,7 +134,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
-                <button type="button" class="btn btn-primary"  id="buyButton">Proceder con la tarjeta</button>
+                <button type="button" class="btn btn-primary" onclick="agregar_customer()" id="buyButton">Proceder con la tarjeta</button>
                 </div>
             </div>
             </div>
@@ -233,8 +233,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
         // Usa la funcion Culqi.open() en el evento que desees
         $('#buyButton').on('click', function(e) {
             // Abre el formulario con las opciones de Culqi.settings
-            Culqi.open();
-            e.preventDefault();
+          
         });
     </script>
   </body>
