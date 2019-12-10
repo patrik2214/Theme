@@ -86,7 +86,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                 <div class='showback'>
                     <h3 class="text-center"><b>VIVE LA EXPERIENCIA PREMIUM</b></h3>
                     <h3 class="text-center">Aumenta tu productividad con las opciones premium. </h3>
-                    <button class="btn btn-block btn-primary" id="buyButton">Ser premium</button>
+                    <button class="btn btn-block btn-primary" data-toggle="modal" data-target="#myModal">Ser premium</button>
                 </div>
             </div>
                  
@@ -95,7 +95,51 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
       *********************************************************************************************************************************************************** -->                  
         </section>
       </section>
+        <!-- Modal -->
+        <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title" id="myModalLabel">Datos de seguridad</h4>
+                </div>
+                <div class="modal-body">
+                        <h5 >Por favor llene los campos para una mayor seguridad:</h5>
+                    <div class="form-group">
+                        <h4 for="nombre_repo">Nombres y Apellidos:</h4>
+                        <input type="text" class="form-control" id="first_name" name="first_name" placeholder="Nombre" autofocus>
+                        <br>
+                        <input type="text" class="form-control" id="last_name" name="last_name" placeholder="Apellidos">
+                    </div>
+                    <div class="form-group">
+                        <h4 >Direccion</h4>
+                        <input type="text" class="form-control" id="address" name="address" placeholder="Dirección">
+                        <br>
+                        <input type="text" class="form-control" id="address_city" name="address_city" placeholder="Ciudad">
+                        <br>
+                        <select name="country_code" class="form-control" id="country_code">
+                            <option value="PE" > PE </option>
+                            <option value="US" > US </option>
+                            <option value="ES" > ES </option>
+                            <option value="VE" > VE </option>
+                            <option value="CO" > CO </option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <h4 >Celular</h4>
+                        <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Celular">
+                    </div>
 
+                    
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary"  id="buyButton">Proceder con la tarjeta</button>
+                </div>
+            </div>
+            </div>
+        </div> 
+        <!-- modal-end -->
       <!--main content end-->
       <!--footer start-->
       <footer class="site-footer">
