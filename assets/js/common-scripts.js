@@ -1460,3 +1460,34 @@ function sharewithme() {
 	});
 }
 
+function delete_suscripcion() {
+	$.ajax({
+		url: "../php/delete_premium.php",
+		type: "post",
+		data: {},
+		success: function (data) {
+			console.log(data);
+			if (data = 1) {
+				
+				window.location.replace('http://localhost/theme/html/premium.php');
+				Swal.fire({
+					position: 'top-end',
+					icon: 'success',
+					title: 'Colaborador agregado',
+					showConfirmButton: false,
+					timer: 1500
+				});
+			} else {
+				Swal.fire({
+					icon: "error",
+					title: "Errores en el pago",
+					text: "Se cometerieron algunos errores en el pago"
+				});
+			}
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
+}
+

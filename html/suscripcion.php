@@ -70,7 +70,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                     </div>
                 </div>
                     
-            <button class="btn btn-danger btn-block">Cancelar suscripcion</button>
+            <button onclick='delete_suscripcion()' class="btn btn-danger  btn-block">Cancelar suscripcion</button>
             </section>
         </section>
 
