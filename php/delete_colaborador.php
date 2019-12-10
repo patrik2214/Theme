@@ -2,7 +2,9 @@
 
 require_once("conexion.php");
 
-$idusuario = $_POST['idusuario'];
+$iduser = $_POST['iduser'];
+$repo = $_POST['repo'];
+
 
 $sql="ELETE FROM desarrollador WHERE idusuario=$iduser and idrepositorio=$repo and idtipodesarrollador<>1 and estado=true";
 $resp=1;
