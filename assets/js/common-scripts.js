@@ -167,7 +167,14 @@ function new_repositorio() {
 					Swal.fire("Good job!", "Repositorio listo para usar!", "success");
 					listar_repos();
 					limpiar_campos();
-				} else {
+				} else if (data ==3) {
+					Swal.fire({
+						icon: "error",
+						title: "Cantidad limite",
+						text: "Ya no puede crear mas repositorios"
+					});
+				}
+				else {
 					Swal.fire({
 						icon: "error",
 						title: "Oops...",
@@ -1372,8 +1379,12 @@ function agregar_customer() {
 	let first_name = $("#first_name").val();
 	let address = $("#address").val();
 	let address_city = $("#address_city").val();
-	let email = $("#email").val();
-	if (phone_number.length < 0 || last_name.length < 0 || first_name.length < 0 || address.length < 0 || address_city.length < 0 || email.length < 0) {
+	let countrycod = $("#country_code").val();
+	if (phone_number.length < 0 ||
+		last_name.length < 0 ||
+		first_name.length < 0 ||
+		address.length < 0 ||
+		address_city.length < 0 ) {
 		Swal.fire({
 			icon: "error",
 			title: "Rellene los campos",
@@ -1383,7 +1394,7 @@ function agregar_customer() {
 		$.ajax({
 			url: "../php/customer_register.php",
 			type: "post",
-			data: { phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city, email: email },
+			data: { phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city, email: email, country_code: countrycod },
 			success: function (data) {
 				if (data == 1) {
 					$("#myModal").modal("toggle");

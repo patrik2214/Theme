@@ -129,8 +129,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                         <h4 >Celular</h4>
                         <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Celular">
                     </div>
-
-                    
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
