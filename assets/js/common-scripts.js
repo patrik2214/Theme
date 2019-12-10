@@ -256,7 +256,7 @@ function listar_repos2(user) {
 	$.ajax({
 		url: "../php/list_repo2.php",
 		type: "post",
-		data: {user:user},
+		data: {user: user},
 		success: function(data) {
 			$("#colum1").html(data);
 		},
