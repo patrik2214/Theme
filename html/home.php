@@ -38,7 +38,7 @@
       TOP BAR CONTENT & NOTIFICATIONS
       *********************************************************************************************************************************************************** -->
       <!--header start -->
-       <header class="header black-bg text-center">
+       <header class="header animate-pop-in black-bg text-center">
             <a href="index.php" class="logo"><b>SHART</b></a>
 
             <div class="col-sm-3"></div>
@@ -63,10 +63,10 @@
           <section class="wrapper">
           <div class="col-lg-1 col-md-1 col-sm-1 mb"></div>
           <div class="showback col-lg-8 col-md-8 col-sm-8 mb">
-            <h1 class="text-center"><b>Descubre más Acerca de nuestra Familia</b></h1>
-            <h3 class="text-center">Crea y Comparte tu música y con tus Amigos</h3>
+            <h1 class="text-center animate-pop-in"><b>Descubre más Acerca de nuestra Familia</b></h1>
+            <h3 class="text-center animate-pop-in">Crea y Comparte tu música y con tus Amigos</h3>
         
-            <div class="row">
+            <div class="row animate-pop-in">
             <div class='col-lg-4 col-md-4 col-sm-4 mb'>
                 <!-- WHITE PANEL - TOP USER -->
                 <div class='white-panel pn'>
@@ -76,7 +76,7 @@
                     <h6>Hazlos colaborativos o personales</h6>
                 </div>
             </div> 
-            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+            <div class='col-lg-4 animate-pop-in col-md-4 col-sm-4 mb'>
                 <!-- WHITE PANEL - TOP USER -->
                 <div class='white-panel pn'>
                 <br>
@@ -86,7 +86,7 @@
                     <h6>Comparte tus repositorios con otros usuarios</h6>
                 </div>
             </div> 
-            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+            <div class='col-lg-4 col-md-4 animate-pop-in col-sm-4 mb'>
                 <!-- WHITE PANEL - TOP USER -->
                 <div class='white-panel pn'>
                 <br>
@@ -98,7 +98,7 @@
             </div> 
           </div>
 
-          <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+          <div class='col-lg-4 animate-pop-in col-md-4 col-sm-4 mb'>
                 <!-- WHITE PANEL - TOP USER -->
                 <div class='white-panel pn'>
                 <br>
@@ -107,7 +107,7 @@
                     <h6>Trabaja con Amigos</h6>
                 </div>
             </div> 
-            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+            <div class='col-lg-4 animate-pop-in col-md-4 col-sm-4 mb'>
                 <!-- WHITE PANEL - TOP USER -->
                 <div class='white-panel pn'>
                 <br>
@@ -117,7 +117,7 @@
                     <h6>Hazlo con tus ideas</h6>
                 </div>
             </div> 
-            <div class='col-lg-4 col-md-4 col-sm-4 mb'>
+            <div class='col-lg-4 animate-pop-in col-md-4 col-sm-4 mb'>
                 <!-- WHITE PANEL - TOP USER -->
                 <div class='white-panel pn'>
                 <br>

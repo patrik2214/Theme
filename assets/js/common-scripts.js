@@ -1328,19 +1328,10 @@ function culqi() {
 	if (Culqi.token) { // ¡Objeto Token creado exitosamente!
 		var token = Culqi.token.id;
 		let email = Culqi.token.email;
-		let phone_number = $("#phone_number").val();
-		let last_name 	 = $("#last_name").val();
-		let first_name 	 = $("#first_name").val();
-		let address 	 = $("#address").val();
-		let address_city = $("#address_city").val();
-		alert('Se ha creado un token:' + token);
-		alert('Se ha creado' + last_name);
-		alert('Se ha creado' + first_name);
-		alert('Se ha creado' + phone_number);
 		$.ajax({
 			url: "../php/premium_user.php",
 			type: "post",
-			data: { token: token, email: email, phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city },
+			data: { token: token, email: email },
 			dataType: 'JSON',
 			success: function (data) {
 				console.log(data);
@@ -1372,6 +1363,45 @@ function culqi() {
 		console.log(Culqi.error);
 		alert('you fool');
 		alert(Culqi.error.user_message);
+	}
+}
+
+function agregar_customer() {
+	let phone_number = $("#phone_number").val();
+	let last_name = $("#last_name").val();
+	let first_name = $("#first_name").val();
+	let address = $("#address").val();
+	let address_city = $("#address_city").val();
+	let email = $("#email").val();
+	if (phone_number.length < 0 || last_name.length < 0 || first_name.length < 0 || address.length < 0 || address_city.length < 0 || email.length < 0) {
+		Swal.fire({
+			icon: "error",
+			title: "Rellene los campos",
+			text: "Se cometerieron algunos errores 
+		});
+	} else {
+		$.ajax({
+			url: "../php/customer_register.php",
+			type: "post",
+			data: { phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city, email: email },
+			success: function (data) {
+				if (data == 1) {
+					$("#myModal").modal("toggle");
+					$("#phone_number").val("");
+					$("#last_name").val("");
+					$("#first_name").val("");
+					$("#address").val("");
+					$("#address_city").val("");
+					$("#email").val("");
+					Culqi.open();
+					e.preventDefault();
+				}
+			},
+			error: function (jqXhr, textStatus, error) {
+				console.log(error);
+			}
+		});
+		
 	}
 }
 

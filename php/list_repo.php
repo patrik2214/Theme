@@ -29,7 +29,7 @@ if ($tipo_user == 3){
         where d.idusuario = $user and d.idtipodesarrollador=1 ";
     $result = $cnx->query($sql);
     while($reg = $result->fetchObject()){
-        echo ("<div class='showback'>
+        echo ("<div class='showback animate-pop-in '>
                             <h4><i class='fas fa-record-vinyl'></i>  $reg->nombre</h4>
                             <p>$reg->descripcion</p>                          
                             <button type='button' class='btn btn-default'>

@@ -68,7 +68,7 @@ if($_SESSION['usertype']==3) header("location: myadmin.php" )
                         <div class="showback">
                             <!-- Barra de busqueda -->
                             <form >
-                                <input type="search" name="busqueda" class="form-control" id="busqueda" onkeyup="buscar()" placeholder="Ingrese repositorio a buscar" />
+                                <input type="search" name="busqueda" class="form-control animate-pop-in" id="busqueda" onkeyup="buscar()" placeholder="Ingrese repositorio a buscar" />
                             </form>
                         </div><!-- /showback -->
                     </div>
