@@ -1397,7 +1397,7 @@ function culqi() {
 	}
 }
 
-function agregar_customer(e) {
+function agregar_customer() {
 	let phone_number = $("#phone_number").val();
 	let last_name = $("#last_name").val();
 	let first_name = $("#first_name").val();
@@ -1433,8 +1433,7 @@ function agregar_customer(e) {
 					$("#address_city").val("");
 					$("#country_code").val("");
 					$("#email").val("");
-					Culqi.open();
-					e.preventDefault();
+					suscripcion();
 				}
 			},
 			error: function (jqXhr, textStatus, error) {
@@ -1443,6 +1442,19 @@ function agregar_customer(e) {
 		});
 		
 	}
+}
+Culqi.publicKey = 'pk_test_b074d0UkWinAlXXq';
+Culqi.settings({
+	title: 'Shart',
+	currency: 'PEN',
+	description: 'Subscripcion premium',
+	amount: 30 * 100
+});
+// Usa la funcion Culqi.open() en el evento que desees
+function suscripcion() {
+	// Abre el formulario con las opciones de Culqi.settings
+	Culqi.open();
+	e.preventDefault();
 }
 
 function sharewithme() {

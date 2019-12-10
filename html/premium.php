@@ -224,17 +224,7 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <script src="https://checkout.culqi.com/v2"></script>
     <script>
         // Configura tu llave pública
-        Culqi.publicKey = 'pk_test_b074d0UkWinAlXXq';
-        Culqi.settings({
-            title: 'Shart',
-            currency: 'PEN',
-            description: 'Subscripcion premium',
-            amount: 30*100
-        });
-        // Usa la funcion Culqi.open() en el evento que desees
-        $('#buyButton').on('click', function(e) {
-            // Abre el formulario con las opciones de Culqi.settings
-        });
+        
     </script>
   </body>
 </html>
