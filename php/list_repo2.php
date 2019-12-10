@@ -4,7 +4,7 @@ require_once("conexion.php");
 $user = $_POST['user'];
 
     $sql="SELECT * FROM repositorio r inner join desarrollador d on r.idrepositorio = d.idrepositorio
-        where d.nombreusuario='$user' and d.idtipodesarrollador=1 or d.idtipodesarrollador=2";
+        where d.idusuario=(SELECT idusuario FROM usuario WHERE nombreusuario='$user') and d.idtipodesarrollador=1 or d.idtipodesarrollador=2";
     $result = $cnx->query($sql);
     while($reg = $result->fetchObject()){
         echo ("<div class='showback'>
