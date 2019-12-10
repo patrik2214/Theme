@@ -41,7 +41,7 @@ while($re = $result->fetchObject()){
                         <p>$re->correo</p>
                     </div>
                     <div class='col-md-6'>
-                    <a href='http://localhost:90/theme/html/index2.php?us=$re->nombreusuario' >Ver</a>
+                    <a href='http://localhost:90/theme/html/index2.php?us=$re->nombreusuario'>Ver</a>
                         
                     </div>
                 </div>

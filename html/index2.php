@@ -55,9 +55,6 @@ if($_SESSION['usertype']==3) header("location: myadmin.php" )
         <section id="main-content">
             <section class="wrapper site-min-height">   
                 <div class="row mt ">
-                    <!-- Button trigger modal -->
-                    <br>
-                    <br>
                     <div class="col-lg-12">
                         <div class="showback">
                             <!-- Barra de busqueda -->
