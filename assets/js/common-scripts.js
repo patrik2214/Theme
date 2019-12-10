@@ -1328,15 +1328,6 @@ function culqi() {
 	if (Culqi.token) { // ¡Objeto Token creado exitosamente!
 		var token = Culqi.token.id;
 		let email = Culqi.token.email;
-		let phone_number = $("#phone_number").val();
-		let last_name 	 = $("#last_name").val();
-		let first_name 	 = $("#first_name").val();
-		let address 	 = $("#address").val();
-		let address_city = $("#address_city").val();
-		alert('Se ha creado un token:' + token);
-		alert('Se ha creado' + last_name);
-		alert('Se ha creado' + first_name);
-		alert('Se ha creado' + phone_number);
 		$.ajax({
 			url: "../php/premium_user.php",
 			type: "post",
@@ -1373,6 +1364,27 @@ function culqi() {
 		alert('you fool');
 		alert(Culqi.error.user_message);
 	}
+}
+
+function agregar_customer() {
+	let phone_number = $("#phone_number").val();
+	let last_name = $("#last_name").val();
+	let first_name = $("#first_name").val();
+	let address = $("#address").val();
+	let address_city = $("#address_city").val();
+	let email = $("#email").val();
+	$.ajax({
+		url: "../php/list_shared.php",
+		type: "post",
+		data: { phone_number: phone_number, last_name: last_name, first_name: first_name, address: address, address_city: address_city, email: email },
+		success: function (data) {
+			console.log(data);
+			$("#colum1").html(data);
+		},
+		error: function (jqXhr, textStatus, error) {
+			console.log(error);
+		}
+	});
 }
 
 function sharewithme() {
