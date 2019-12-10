@@ -129,6 +129,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
                         <h4 >Celular</h4>
                         <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="Celular">
                     </div>
+                    <div class="form-group">
+                        <h4 >Email</h4>
+                        <input type="text" class="form-control" id="email" name="email" placeholder="Correo">
+                    </div>
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">Cancelar</button>
@@ -217,11 +221,10 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
     <!-- Incluye Culqi Checkout en tu sitio web-->
     <script src="https://checkout.culqi.com/js/v3"></script>
     <!-- Incluyendo .js de Culqi JS -->
-    <!-- <script src="https://checkout.culqi.com/v2"></script> -->
+    <script src="https://checkout.culqi.com/v2"></script>
     <script>
         // Configura tu llave pública
         Culqi.publicKey = 'pk_test_b074d0UkWinAlXXq';
-        
         Culqi.settings({
             title: 'Shart',
             currency: 'PEN',
@@ -231,7 +234,6 @@ if(!isset($_SESSION['idusuario'])) header("location: login.php");
         // Usa la funcion Culqi.open() en el evento que desees
         $('#buyButton').on('click', function(e) {
             // Abre el formulario con las opciones de Culqi.settings
-          
         });
     </script>
   </body>

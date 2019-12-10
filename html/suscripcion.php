@@ -1,7 +1,6 @@
 <?php
 session_start();
 if(!isset($_SESSION['idusuario'])) header("location: login.php");
-if($_SESSION['usertype']==1) header("location: premium.php" )
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -57,16 +56,17 @@ if($_SESSION['usertype']==1) header("location: premium.php" )
                 <div class="showback">
                     <h1 class="text-center"><b>Mi subscripcion</b></h1>
                 </div>
+                <img src="https://blog.britishmuseum.org/wp-content/uploads/2018/04/EATW-ID.jpg" alt="" srcset="">
                 <div class="col-lg-6 col-md-6 " id="colum2">      			
                     <div class="showback">
-                        <h4>Fecha de inicio:</h4>
-                        <h4>Monto mensual:</h4>
+                        <h4>Fecha de inicio: 10/12/2019</h4>
+                        <h4>Monto mensual: 30 soles</h4>
                     </div>
                 </div>
                 <div class="col-lg-6 col-md-6 " id="colum2">      			
                     <div class="showback">
-                        <h4>Proxima fecha a cobrar:</h4>    
-                        <h4>Num tarjeta:</h4>    
+                        <h4>Proxima fecha a cobrar: 10/01/2020</h4>      
+                        <h4>Tipo de usuario: Premium</h4>      
                     </div>
                 </div>
                     

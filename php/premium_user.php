@@ -22,12 +22,15 @@ try {
         )
     );
 
-    $culqi->Subscriptions->create(
+    $sub = $culqi->Subscriptions->create(
     array(
         "card_id" => $card->id,
         "plan_id" => "pln_test_gkn2wBuKhBgHRyhb"
     )
     );
+    
+    $sql="UPDATE usuario set idsuscripcion=$sub->id WHERE idusuario=$user";
+    $rs = $cnx->query($sql) or $resp=0;
 
     $sql="UPDATE usuario set idtipousuario=2 WHERE idusuario=$user";
     $rs = $cnx->query($sql) or $resp=0;

@@ -8,7 +8,7 @@ $user =  $_SESSION['idusuario'];
 
 $SECRET_KEY = "sk_test_x8Iv6w19yqoFn4J3";
 try {
-    
+
     $culqi = new Culqi\Culqi(array('api_key' => $SECRET_KEY));
     $customer = $culqi->Customers->create(
         array(
@@ -23,8 +23,8 @@ try {
     );
     
 
-    $sql="insert into usuario(culqi_customerid) values ( $customer->id) where idusuario=$user";
-    $rs = $cnx->query($sql) or $resp=0;
+    $sql="update usuario set culqi_customerid='$customer->id' where idusuario=$user";
+    $rs = $cnx->query($sql) or die($sql);
     echo $resp;
 } catch (Exception $e) {
     echo json_encode($e->getMessage());
