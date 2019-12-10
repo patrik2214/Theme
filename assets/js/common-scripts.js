@@ -207,6 +207,30 @@ function delete_repositorio(idrepositorio) {
 }
 
 
+function delete_colab(iduser,repo) {
+	$.ajax({
+	url: "../php/delete_colaborador.php",
+	type: "post",
+	data: {iduser:iduser,repo:repo},
+	success: function(data) {
+		if (data == 1) {
+			$("#newrama").modal("toggle");
+			Swal.fire("DELETE!", "Colaborator is Delete!", "success");
+			listar_repos();
+		} else {
+			Swal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Some problem!"
+			});
+		}
+	},
+	error: function(jqXhr, textStatus, error) {
+		console.log(error);
+	}
+	});
+}
+
 function listar_repos() {
 	$.ajax({
 		url: "../php/list_repo.php",
