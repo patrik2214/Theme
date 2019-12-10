@@ -102,9 +102,7 @@ if($_SESSION['usertype']==3) header("location: myadmin.php" )
     <!--common script for all pages-->
     <script src="../assets/js/common-scripts.js"></script>
     <script type="text/javascript">
-		window.load = listar_repos2(<?php
-                    echo $_GET['us'];
-              ?>)
+		window.load = listar_repos2(<?php echo $_GET['us'];?>);
 	</script>
     <script type="text/javascript" src="../assets/js/gritter/js/jquery.gritter.js"></script>
     <script type="text/javascript" src="../assets/js/gritter-conf.js"></script>

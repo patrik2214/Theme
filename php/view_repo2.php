@@ -1,7 +1,6 @@
 <?php
 require_once("conexion.php");
 
-session_start();
 $repo = $_POST['idrepo'];
 
 $sql="SELECT repositorio.* , desarrollador.*, usuario.nombre as usser FROM repositorio 
