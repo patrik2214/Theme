@@ -2,9 +2,10 @@
 
 require_once("conexion.php");
 
-$idusuario = $_POST['idusuario'];
+$iduser = $_POST['iduser'];
+$repo = $_POST['repo'];
 
-$sql="UPDATE usuario SET estado=false WHERE idusuario=$idusuario";
+$sql="DELETE FROM desarrollador WHERE idusuario=$iduser and idrepositorio=$repo and idtipodesarrollador<>1 and estado=true";
 $resp=1;
 $cnx->query($sql) or $resp=0;
 echo $resp;
